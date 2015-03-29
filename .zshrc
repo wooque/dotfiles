@@ -86,3 +86,4 @@ export EDITOR='vim'
 alias free="free -h"
 alias df="df -h"
 alias ll="ls -lh"
+alias sudo="sudo -E"
