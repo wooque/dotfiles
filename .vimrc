@@ -7,3 +7,4 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+set noswapfile
