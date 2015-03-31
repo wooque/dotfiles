@@ -98,3 +98,12 @@ find_all() {
     find . -iname "*$1*"
 }
 alias fa=find_all
+
+create_ap_default() {
+    stats=$(ip link)
+    eth=$(echo $stats | sed -n 's/\([0-9]\)*: \(e[a-z0-9]*\).*/\2/p')
+    wlan=$(echo $stats | sed -n 's/\([0-9]\)*: \(w[a-z0-9]*\).*/\2/p')
+    sudo create_ap $wlan $eth $1 $2
+}
+alias cad=create_ap_default
+alias zsh_reload="source ~/.zshrc"
