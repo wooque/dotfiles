@@ -4,9 +4,6 @@ ZSH=/usr/share/oh-my-zsh/
 # autostart tmux on zsh start
 ZSH_TMUX_AUTOSTART=true
 
-# cache dir
-ZSH_CACHE_DIR="/tmp/zsh_cache"
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -51,7 +48,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux git archlinux common-aliases dirhistory sudo systemd web-search z)
+plugins=(git tmux archlinux common-aliases dirhistory sudo systemd z web-search)
 
 # User configuration
 
