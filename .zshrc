@@ -91,3 +91,7 @@ alias sudo="sudo -E"
 alias pacstats="expac -HM '%m\t%n' | sort -n"
 alias pacclean="sudo rm -rf /var/cache/pacman/pkg/*"
 alias locate="sudo updatedb && locate"
+find_all() {
+    find . -iname "*$1*"
+}
+alias fa=find_all
