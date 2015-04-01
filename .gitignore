@@ -25,6 +25,7 @@
 .nvidia*
 .pki
 .ssh
+.theano
 .thumbnails
 .viminfo
 .xfce4*
