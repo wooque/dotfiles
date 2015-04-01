@@ -81,7 +81,7 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias free="free -h"
 alias df="df -h"
-alias ll="ls -lh"
+alias lh="ls -lh"
 alias sudo="sudo -E"
 
 alias pacstats="expac -HM '%m\t%n' | sort -n"
