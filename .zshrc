@@ -50,6 +50,13 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git tmux archlinux common-aliases dirhistory sudo systemd z web-search)
 
+ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -81,7 +88,7 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias free="free -h"
 alias df="df -h"
-alias lh="ls -lh"
+alias ll="ls -lh"
 alias sudo="sudo -E"
 
 alias pacstats="expac -HM '%m\t%n' | sort -n"
@@ -104,9 +111,3 @@ alias cad=create_ap_default
 
 alias zsh_reload="source ~/.zshrc"
 
-ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
-
-source $ZSH/oh-my-zsh.sh
