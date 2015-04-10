@@ -29,6 +29,7 @@
 .ssh
 .theano
 .thumbnails
+.vim
 .viminfo
 .xfce4*
 .xinitrc
