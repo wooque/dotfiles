@@ -25,6 +25,7 @@
 .mtab.fuseiso
 .nv
 .nvidia*
+.oh-my-zsh-cache
 .pki
 .ssh
 .theano
