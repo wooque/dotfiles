@@ -6,6 +6,7 @@
 .adobe
 .bash*
 .cache
+.cargo
 .conkyrc
 .config
 .dbus
