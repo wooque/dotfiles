@@ -89,6 +89,9 @@ export EDITOR='vim'
 alias free="free -h"
 alias df="df -h"
 alias ll="ls -lh"
+alias rm="rm -rf"
+alias mv="mv -f"
+alias cp="cp -rf"
 alias sudo="sudo -E"
 
 alias pacstats="expac -HM '%m\t%n' | sort -n"
