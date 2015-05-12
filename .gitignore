@@ -1,9 +1,11 @@
 .ICEauthority
+.IdeaIC14
 .Skype
 .Xauthority
 .Xclients
 .Xresources
 .adobe
+.android
 .bash*
 .cache
 .cargo
@@ -14,6 +16,7 @@
 .dmrc
 .esd_auth
 .gksu.lock
+.gnome
 .dropbox*
 .icons
 .ipython
