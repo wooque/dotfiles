@@ -88,6 +88,7 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias free="free -h"
 alias df="df -h"
+alias dus="du -sh"
 alias ll="ls -lh"
 alias rm="rm -rf"
 alias mv="mv -f"
