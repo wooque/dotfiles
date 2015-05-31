@@ -101,7 +101,7 @@ alias pacclean="sudo rm -rf /var/cache/pacman/pkg/*"
 alias locate="sudo updatedb && locate"
 
 find_all() {
-    find . -iname "*$1*"
+    find . -iname "*$1*" $2
 }
 alias fa=find_all
 
