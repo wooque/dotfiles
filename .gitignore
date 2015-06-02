@@ -32,6 +32,7 @@
 .oh-my-zsh-cache
 .pki
 .ssh
+.sqlite_history
 .theano
 .thumbnails
 .vim
