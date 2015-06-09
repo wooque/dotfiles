@@ -20,6 +20,7 @@
 .gnome
 .hex
 .icons
+.iex_history
 .ipython
 .java
 .lein
