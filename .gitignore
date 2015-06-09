@@ -23,6 +23,7 @@
 .iex_history
 .ipython
 .java
+.java_history
 .lein
 .lesshst
 .local
