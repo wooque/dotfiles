@@ -14,10 +14,11 @@
 .dbus
 .dir_colors
 .dmrc
+.dropbox*
 .esd_auth
 .gksu.lock
 .gnome
-.dropbox*
+.hex
 .icons
 .ipython
 .java
@@ -26,6 +27,7 @@
 .local
 .m2
 .macromedia
+.mix
 .mtab.fuseiso
 .nv
 .nvidia*
