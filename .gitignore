@@ -35,6 +35,7 @@
 .nvidia*
 .oh-my-zsh-cache
 .pki
+.psql_history
 .ssh
 .sqlite_history
 .theano
