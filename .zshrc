@@ -1,5 +1,16 @@
+# Linux distro id
+DISTRO_ID=$(lsb_release -is)
+
+# Common Linux families
+DEBIAN_BASED=(Debian Ubuntu)
+ARCH_BASED=(Arch ManjaroLinux)
+
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+if [[ ${ARCH_BASED[(r)DISTRO_ID]} == DISTRO_ID ]] ; then ;
+    ZSH=/usr/share/oh-my-zsh/ ;
+else ;
+    ZSH=/home/vuk/.oh-my-zsh/ ;
+fi
 
 # autostart tmux on zsh start
 ZSH_TMUX_AUTOSTART=true
@@ -48,7 +59,17 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux archlinux common-aliases dirhistory sudo systemd z web-search)
+function () {
+    local dist_plugin
+
+    if [[ ${ARCH_BASED[(r)DISTRO_ID]} == DISTRO_ID ]] ; then ;
+        dist_plugin=archlinux ;
+    else ;
+        dist_plugin=debian ;
+    fi
+
+    plugins=(git tmux dist_plugin common-aliases dirhistory sudo systemd z web-search)
+}
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -95,8 +116,15 @@ alias mv="mv -f"
 alias cp="cp -rf"
 alias sudo="sudo -E"
 
-alias pacstats="expac -HM '%m\t%n' | sort -n"
-alias pacclean="sudo rm -rf /var/cache/pacman/pkg/*"
+if [[ ${ARCH_BASED[(r)DISTRO_ID]} == DISTRO_ID ]] ; then ;
+    alias pacstats="expac -HM '%m\t%n' | sort -n" ;
+else ;
+    alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n" ;
+fi
+
+if [[ ${ARCH_BASED[(r)DISTRO_ID]} == DISTRO_ID ]] ; then ;
+    alias paccl="sudo rm -rf /var/cache/pacman/pkg/*" ;
+fi
 
 alias locate="sudo updatedb && locate"
 
@@ -106,9 +134,9 @@ find_all() {
 alias fa=find_all
 
 create_ap_default() {
-    stats=$(ip link)
-    eth=$(echo $stats | sed -n 's/\([0-9]\)*: \(e[a-z0-9]*\).*/\2/p')
-    wlan=$(echo $stats | sed -n 's/\([0-9]\)*: \(w[a-z0-9]*\).*/\2/p')
+    local stats=$(ip link)
+    local eth=$(echo $stats | sed -n 's/\([0-9]\)*: \(e[a-z0-9]*\).*/\2/p')
+    local wlan=$(echo $stats | sed -n 's/\([0-9]\)*: \(w[a-z0-9]*\).*/\2/p')
     sudo create_ap $wlan $eth $1 $2
 }
 alias cad=create_ap_default
