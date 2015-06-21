@@ -6,10 +6,12 @@ DEBIAN_BASED=(Debian Ubuntu)
 ARCH_BASED=(Arch ManjaroLinux)
 
 # Path to your oh-my-zsh installation.
-if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then ;
-    ZSH=/usr/share/oh-my-zsh/ ;
-else ;
-    ZSH=/home/vuk/.oh-my-zsh/ ;
+if [[ -d /usr/share/oh-my-zsh/ ]] ; then
+    ZSH=/usr/share/oh-my-zsh/
+elif [[ -d /home/vuk/.oh-my-zsh/ ]] ; then
+    ZSH=/home/vuk/.oh-my-zsh/
+else
+    echo "Cannot find oh-my-zsh directory"
 fi
 
 # autostart tmux on zsh start
@@ -62,10 +64,12 @@ DISABLE_AUTO_UPDATE="true"
 function () {
     local dist_plugin
 
-    if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then ;
-        dist_plugin=archlinux ;
-    else ;
-        dist_plugin=debian ;
+    if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+        dist_plugin=archlinux
+    elif [[ ${DEBIAN_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+        dist_plugin=debian
+    else
+        echo "No disto specific zsh plugin found"
     fi
 
     plugins=(git tmux $dist_plugin common-aliases dirhistory sudo systemd z web-search)
@@ -116,14 +120,14 @@ alias mv="mv -f"
 alias cp="cp -rf"
 alias sudo="sudo -E"
 
-if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then ;
-    alias pacstats="expac -HM '%m\t%n' | sort -n" ;
-else ;
-    alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n" ;
+if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+    alias pacstats="expac -HM '%m\t%n' | sort -n"
+elif [[ ${DEBIAN_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+    alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
 fi
 
-if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then ;
-    alias paccl="sudo rm -rf /var/cache/pacman/pkg/*" ;
+if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+    alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
 fi
 
 alias locate="sudo updatedb && locate"
