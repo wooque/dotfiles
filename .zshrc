@@ -118,7 +118,7 @@ alias ll="ls -lh"
 alias rm="rm -rf"
 alias mv="mv -f"
 alias cp="cp -rf"
-alias sudo="sudo -E"
+alias sudo="sudo -E "
 
 if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"
