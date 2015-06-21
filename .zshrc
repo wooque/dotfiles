@@ -82,6 +82,9 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+# complete on aliases
+setopt completealiases
+
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
