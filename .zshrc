@@ -83,7 +83,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # complete on aliases
-setopt no_complete_aliases
+setopt complete_aliases
 
 # User configuration
 
