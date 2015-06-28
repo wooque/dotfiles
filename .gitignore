@@ -17,6 +17,7 @@
 .dir_colors
 .dmrc
 .dropbox*
+.eclipse
 .esd_auth
 .gconf
 .gksu.lock
@@ -59,3 +60,4 @@
 .z
 .zcompdump*
 .zsh_history
+nvvp_workspace
