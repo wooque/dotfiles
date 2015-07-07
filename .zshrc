@@ -116,6 +116,7 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias free="free -h"
 alias top="top -d1"
+alias htop="htop -d10"
 alias df="df -h"
 alias dus="du -sh"
 alias ll="ls -lh"
