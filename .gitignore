@@ -24,6 +24,7 @@
 .gconf
 .gksu.lock
 .gnome
+.gstreamer*
 .hex
 .icons
 .iex_history
