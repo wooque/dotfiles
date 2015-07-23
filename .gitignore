@@ -1,6 +1,8 @@
 .ICEauthority
 .IdeaIC14
+.PyCharm*
 .Skype
+.ViberPC
 .Xauthority
 .Xclients
 .Xdefaults
@@ -52,6 +54,7 @@
 .vim
 .vifm
 .viminfo
+.wireshark
 .xfce4*
 .xscreensaver
 .xinitrc
