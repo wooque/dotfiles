@@ -26,6 +26,7 @@
 .gnome
 .gstreamer*
 .hex
+.i3
 .icons
 .iex_history
 .ipython
@@ -65,3 +66,4 @@
 .zcompdump*
 .zsh_history
 nvvp_workspace
+Viber*
