@@ -39,6 +39,7 @@
 .macromedia
 .mix
 .mtab.fuseiso
+.npm
 .nv
 .nvidia*
 .oh-my-zsh
@@ -53,6 +54,7 @@
 .sudo_as_admin_successful
 .theano
 .thumbnails
+.tsd-cache
 .vim
 .vifm
 .viminfo
@@ -66,4 +68,5 @@
 .zcompdump*
 .zsh_history
 nvvp_workspace
+typings
 Viber*
