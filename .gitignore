@@ -46,6 +46,7 @@
 .nvidia*
 .oh-my-zsh
 .oh-my-zsh-cache
+.pgadmin3
 .pip
 .pki
 .profile

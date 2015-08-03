@@ -26,8 +26,12 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -80,8 +84,6 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
-source $ZSH/oh-my-zsh.sh
-
 # complete on aliases
 #setopt complete_aliases
 
@@ -89,6 +91,8 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
