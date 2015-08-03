@@ -8,8 +8,8 @@ ARCH_BASED=(Arch ManjaroLinux)
 # Path to your oh-my-zsh installation.
 if [[ -d /usr/share/oh-my-zsh/ ]] ; then
     ZSH=/usr/share/oh-my-zsh/
-elif [[ -d /home/vuk/.oh-my-zsh/ ]] ; then
-    ZSH=/home/vuk/.oh-my-zsh/
+elif [[ -d /home/$USER/.oh-my-zsh/ ]] ; then
+    ZSH=/home/$USER/.oh-my-zsh/
 else
     echo "Cannot find oh-my-zsh directory"
 fi

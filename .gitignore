@@ -13,6 +13,7 @@
 .cache
 .cargo
 .cmus
+.compiz
 .conkyrc
 .config
 .dbus
@@ -68,6 +69,7 @@
 .z
 .zcompdump*
 .zsh_history
+.zsh-update
 nvvp_workspace
 typings
 Viber*
