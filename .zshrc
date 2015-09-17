@@ -78,7 +78,7 @@ function () {
         echo "No disto specific zsh plugin found"
     fi
 
-    plugins=(git tmux $dist_plugin common-aliases dirhistory sudo systemd z web-search)
+    plugins=(git tmux $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z web-search)
 }
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
