@@ -15,7 +15,11 @@ else
 fi
 
 # autostart tmux on zsh start
-ZSH_TMUX_AUTOSTART=true
+if [[ -n $SSH_CONNECTION ]]; then
+    ZSH_TMUX_AUTOSTART=false
+else
+    ZSH_TMUX_AUTOSTART=true
+fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -91,7 +95,7 @@ fi
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
