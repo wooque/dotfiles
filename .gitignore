@@ -55,6 +55,7 @@
 .psql_history
 .python_history
 .ssh
+.subversion
 .sqlite_history
 .sudo_as_admin_successful
 .theano
@@ -75,4 +76,3 @@
 .zsh-update
 nvvp_workspace
 Viber*
-sportal*
