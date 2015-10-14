@@ -54,6 +54,7 @@
 .pki
 .profile
 .psql_history
+.python-eggs
 .python_history
 .ssh
 .subversion
