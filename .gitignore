@@ -57,6 +57,7 @@
 .python-eggs
 .python_history
 .ssh
+.stacksync
 .subversion
 .sqlite_history
 .sudo_as_admin_successful
