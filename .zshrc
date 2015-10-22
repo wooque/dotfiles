@@ -4,6 +4,7 @@ DISTRO_ID=$(lsb_release -is)
 # Common Linux families
 DEBIAN_BASED=(Debian Ubuntu)
 ARCH_BASED=(Arch ManjaroLinux)
+RPM_BASED=(CentOS)
 
 # Path to your oh-my-zsh installation.
 if [[ -d /usr/share/oh-my-zsh/ ]] ; then
@@ -72,17 +73,24 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 function () {
+    local tmux_plugin
     local dist_plugin
 
     if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
         dist_plugin=archlinux
     elif [[ ${DEBIAN_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
-        dist_plugin=debian
+        dist_plugin=debian    
+    elif [[ ${RPM_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+        dist_plugin=yum
     else
         echo "No disto specific zsh plugin found"
     fi
 
-    plugins=(git tmux $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z web-search)
+    if [[ -z $SSH_CONNECTION ]]; then
+        tmux_plugin=tmux
+    fi
+
+    plugins=(git $tmux_plugin $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z web-search)
 }
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
@@ -139,6 +147,8 @@ if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"
 elif [[ ${DEBIAN_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
     alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
+elif [[ ${RPM_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+    alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi
 
 if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then

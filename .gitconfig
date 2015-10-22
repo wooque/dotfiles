@@ -3,3 +3,10 @@
 	name = Vuk Mirovic
 [push]
 	default = simple
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = auto
+    pager = true
