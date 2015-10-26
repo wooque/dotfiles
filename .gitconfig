@@ -1,8 +1,8 @@
 [user]
-	email = wooque@gmail.com
-	name = Vuk Mirovic
+    email = wooque@gmail.com
+    name = Vuk Mirovic
 [push]
-	default = simple
+    default = current
 [color]
     diff = auto
     status = auto
