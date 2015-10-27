@@ -42,6 +42,7 @@
 .mix
 .mozilla
 .mtab.fuseiso
+.mysql_history
 .npm
 .nv
 .nvidia*
