@@ -29,6 +29,7 @@
 .gnome
 .gstreamer*
 .hex
+.hplip
 .i3
 .icons
 .iex_history
