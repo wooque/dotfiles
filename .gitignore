@@ -50,6 +50,7 @@
 .nvidia*
 .oh-my-zsh
 .oh-my-zsh-cache
+.osm
 .pgadmin3
 .pgadmin_histoqueries
 .pgpass
