@@ -60,7 +60,9 @@
 .python-eggs
 .python_history
 .rediscli_history
-.ssh
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.ssh/known_hosts
 .stacksync
 .subversion
 .sqlite_history
