@@ -17,7 +17,8 @@
 .cmus
 .compiz
 .conkyrc
-.config
+.config/*
+!.config/redshift.conf
 .dbus
 .dir_colors
 .dmrc
