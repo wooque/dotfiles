@@ -50,6 +50,7 @@
 .npm
 .nv
 .nvidia*
+.nuget
 .oh-my-zsh
 .oh-my-zsh-cache
 .osm
