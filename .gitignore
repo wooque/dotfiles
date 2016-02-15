@@ -35,6 +35,7 @@
 .icons
 .iex_history
 .ipython
+.ivy2
 .java
 .java_history
 .lein
@@ -62,6 +63,7 @@
 .python-eggs
 .python_history
 .rediscli_history
+.sbt
 .ssh/id_rsa
 .ssh/id_rsa.pub
 .ssh/known_hosts
