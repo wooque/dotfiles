@@ -11,6 +11,8 @@ if [[ -d /usr/share/oh-my-zsh/ ]] ; then
     ZSH=/usr/share/oh-my-zsh/
 elif [[ -d /home/$USER/.oh-my-zsh/ ]] ; then
     ZSH=/home/$USER/.oh-my-zsh/
+elif [[ -d /Users/$USER/.oh-my-zsh ]] ; then
+    ZSH=/Users/$USER/.oh-my-zsh/
 else
     echo "Cannot find oh-my-zsh directory"
 fi
