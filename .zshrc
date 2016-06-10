@@ -2,7 +2,7 @@
 DISTRO_ID=$(lsb_release -is)
 
 # Common Linux families
-DEBIAN_BASED=(Debian Ubuntu)
+DEBIAN_BASED=(Debian Ubuntu LinuxMint)
 ARCH_BASED=(Arch ManjaroLinux)
 RPM_BASED=(CentOS)
 
