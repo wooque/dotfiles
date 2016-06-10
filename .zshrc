@@ -147,14 +147,12 @@ alias sudo="sudo -E "
 
 if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"
+    alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
 elif [[ ${DEBIAN_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
     alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
+    alias apr="sudo apt-get autoremove --purge"
 elif [[ ${RPM_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
-fi
-
-if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
-    alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
 fi
 
 alias locate="sudo updatedb && locate"
