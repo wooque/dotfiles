@@ -151,6 +151,7 @@ if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
 elif [[ ${DEBIAN_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
     alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
     alias apr="sudo apt-get autoremove --purge"
+    alias ai="sudo apt-get install"
 elif [[ ${RPM_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi
