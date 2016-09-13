@@ -1,10 +1,10 @@
-# Linux distro id
-DISTRO_ID=$(lsb_release -is)
-
-# Common Linux families
-DEBIAN_BASED=(Debian Ubuntu LinuxMint)
-ARCH_BASED=(Arch ManjaroLinux)
-RPM_BASED=(CentOS)
+if type pacman > /dev/null ; then
+    ARCH_BASED=true
+elif type apt-get > /dev/null ; then
+    DEBIAN_BASED=true
+elif type yum > /dev/null ; then
+    RPM_BASED=true
+fi
 
 # Path to your oh-my-zsh installation.
 if [[ -d /usr/share/oh-my-zsh/ ]] ; then
@@ -40,9 +40,7 @@ ZSH_THEME="robbyrussell"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-#if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
-#    DISABLE_AUTO_UPDATE="true"
-#fi
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -80,11 +78,11 @@ function () {
     local tmux_plugin
     local dist_plugin
 
-    if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+    if [[ -n $ARCH_BASED ]] ; then
         dist_plugin=archlinux
-    elif [[ ${DEBIAN_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+    elif [[ -n $DEBIAN_BASED ]] ; then
         dist_plugin=debian    
-    elif [[ ${RPM_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+    elif [[ -n $RPM_BASED ]] ; then
         dist_plugin=yum
     else
         echo "No disto specific zsh plugin found"
@@ -147,14 +145,14 @@ alias mv="mv -f"
 alias cp="cp -rf"
 alias sudo="sudo -E "
 
-if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+if [[ -n $ARCH_BASED ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"
     alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
-elif [[ ${DEBIAN_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+elif [[ -n $DEBIAN_BASED ]] ; then
     alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
     alias apr="sudo apt-get autoremove --purge"
     alias ai="sudo apt-get install"
-elif [[ ${RPM_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+elif [[ -n $RPM_BASED ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi
 
