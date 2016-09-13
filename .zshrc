@@ -40,9 +40,9 @@ ZSH_THEME="robbyrussell"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
-    DISABLE_AUTO_UPDATE="true"
-fi
+#if [[ ${ARCH_BASED[(r)$DISTRO_ID]} == $DISTRO_ID ]] ; then
+#    DISABLE_AUTO_UPDATE="true"
+#fi
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
