@@ -1,4 +1,5 @@
 *
+!.config/mpv/lua-settings/osc.conf
 !.config/redshift.conf
 !.ssh/config
 !.gitconfig
