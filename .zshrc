@@ -137,6 +137,7 @@ export EDITOR='vim'
 alias free="free -h"
 alias top="top -d1"
 alias htop="htop -d10"
+alias iotop="sudo iotop -oP"
 alias df="df -h"
 alias dus="du -sh"
 alias ll="ls -lh"
