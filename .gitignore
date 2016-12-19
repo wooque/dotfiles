@@ -1,6 +1,7 @@
 *
 !.config/mpv/lua-settings/osc.conf
 !.config/redshift.conf
+!.config/user-dirs.dirs
 !.ssh/config
 !.gitconfig
 !.gitignore
