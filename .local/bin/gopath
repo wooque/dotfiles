@@ -16,7 +16,7 @@ if [ -z ${GOP} ]; then
     cd $project
     
     export OLD_PS1=${PS1}
-    export PS1=${PS1}(gopath)\ 
+    export PS1="${PS1}(gopath) "
 else
     
     export PS1=${OLD_PS1}
