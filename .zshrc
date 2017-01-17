@@ -107,7 +107,7 @@ fi
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.local/bin:$PATH
 export GOPATH=/opt/go
-alias gop="source gop"
+alias gopath="source gopath"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

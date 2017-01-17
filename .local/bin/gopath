@@ -2,18 +2,21 @@
 
 if [ -z ${GOP} ]; then
     
-    project=src/${PWD##*/}
-    if [ ! -e src ]; then mkdir src ; fi
+    project=gopath/src/${PWD##*/}
+    if [ ! -e gopath ]; then mkdir gopath ; fi
+    if [ ! -e gopath/bin ]; then mkdir gopath/bin ; fi
+    if [ ! -e gopath/pkg ]; then mkdir gopath/pkg ; fi
+    if [ ! -e gopath/src ]; then mkdir gopath/src ; fi
     if [ ! -e $project ]; then ln -s ${PWD} $project; fi
     
     export OLD_GOPATH=${GOPATH}
-    export GOPATH=${PWD}
+    export GOPATH=${PWD}/gopath
 
     export GOP=${PWD}
     cd $project
     
     export OLD_PS1=${PS1}
-    export PS1=${PS1}(gop)\ 
+    export PS1=${PS1}(gopath)\ 
 else
     
     export PS1=${OLD_PS1}
