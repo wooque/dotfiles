@@ -25,6 +25,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
     ZSH_TMUX_AUTOSTART=true
 fi
+ZSH_TMUX_AUTOCONNECT=false
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
