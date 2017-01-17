@@ -93,7 +93,7 @@ function () {
         tmux_plugin=tmux
     fi
 
-    plugins=(git $tmux_plugin $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z web-search)
+    plugins=(git $tmux_plugin $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z)
 }
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
@@ -106,7 +106,7 @@ fi
 
 # User configuration
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export GOPATH=/opt/go
 alias gopath="source gopath"
 # export MANPATH="/usr/local/man:$MANPATH"
