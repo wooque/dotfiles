@@ -1,0 +1,23 @@
+{
+    "editor.fontFamily": "'DejaVu Sans Mono'",
+    "editor.fontSize": 12,
+    "editor.dragAndDrop": true,
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.rulers": [
+        120
+    ],
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.idea": true,
+        "**/.vscode": true
+    },
+    "terminal.integrated.fontFamily": "'DejaVu Sans Mono'",
+    "terminal.integrated.fontSize": 12,
+    "git.confirmSync": false
+}
