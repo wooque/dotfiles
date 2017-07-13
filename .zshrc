@@ -160,7 +160,7 @@ elif [[ -n $RPM_BASED ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi
 
-alias gclf = "git clean -f"
+alias gclf="git clean -f"
 alias locate="sudo updatedb && locate"
 
 find_all() {
