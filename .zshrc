@@ -160,20 +160,13 @@ elif [[ -n $RPM_BASED ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi
 
+alias gclf = "git clean -f"
 alias locate="sudo updatedb && locate"
 
 find_all() {
     find . -iname "*$1*" $2
 }
 alias fa=find_all
-
-create_ap_default() {
-    local stats="$(ip link)"
-    local eth=$(echo $stats | sed -n 's/\([0-9]\)*: \(e[a-z0-9]*\).*/\2/p')
-    local wlan=$(echo $stats | sed -n 's/\([0-9]\)*: \(w[a-z0-9]*\).*/\2/p')
-    sudo create_ap $wlan $eth $1 $2
-}
-alias cad=create_ap_default
 
 alias zsh_reload="source ~/.zshrc"
 
