@@ -162,6 +162,7 @@ fi
 
 alias gclf="git clean -f"
 alias locate="sudo updatedb && locate"
+alias serve="python -m SimpleHTTPServer 8080"
 
 find_all() {
     find . -iname "*$1*" $2
