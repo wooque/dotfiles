@@ -4,7 +4,8 @@
 !.config/redshift.conf
 !.config/user-dirs.dirs
 !.gitconfig
-!.local/bin/gop
+!.local/bin/serve
+!.local/bin/gopath
 !.ssh/config
 !.tmux.conf
 !.vimrc
