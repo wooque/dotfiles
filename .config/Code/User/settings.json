@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'DejaVu Sans Mono'",
+    "editor.fontFamily": "'Source Code Pro'",
     "editor.fontSize": 12,
     "editor.dragAndDrop": true,
     "editor.minimap.enabled": true,
@@ -17,7 +17,7 @@
         "**/.idea": true,
         "**/.vscode": true
     },
-    "terminal.integrated.fontFamily": "'DejaVu Sans Mono'",
+    "terminal.integrated.fontFamily": "'Source Code Pro'",
     "terminal.integrated.fontSize": 12,
     "git.confirmSync": false
 }
