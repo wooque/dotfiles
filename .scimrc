@@ -3,3 +3,4 @@ nnoremap ":" ";"
 vnoremap ";" ":"
 vnoremap ":" ";"
 set autocalc
+set ignorecase
