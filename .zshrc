@@ -107,7 +107,7 @@ fi
 # User configuration
 
 export PATH=$HOME/.local/bin:$PATH
-export GOPATH=/opt/go
+export GOPATH=/mnt/PODACI/projects/private/go
 alias gopath="source gopath"
 # export MANPATH="/usr/local/man:$MANPATH"
 
