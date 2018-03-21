@@ -162,6 +162,7 @@ fi
 
 alias gclf="git clean -f"
 alias locate="sudo updatedb && locate"
+alias yt="mpv --ytdl-format 22"
 
 find_all() {
     find . -iname "*$1*" $2
