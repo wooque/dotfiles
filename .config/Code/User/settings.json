@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'Source Code Pro'",
+    "editor.fontFamily": "'Monaco'",
     "editor.fontSize": 12,
     "editor.dragAndDrop": true,
     "editor.minimap.enabled": true,
@@ -18,8 +18,9 @@
         "**/.vscode": true,
         "*.pyc": true
     },
-    "terminal.integrated.fontFamily": "'Source Code Pro'",
+    "terminal.integrated.fontFamily": "'DejaVu Sans Mono'",
     "terminal.integrated.fontSize": 12,
     "git.confirmSync": false,
-    "go.gopath": "/mnt/PODACI/projects/private/go"
+    "go.gopath": "/mnt/PODACI/projects/private/go",
+    "workbench.colorTheme": "Monokai Dimmed"
 }
