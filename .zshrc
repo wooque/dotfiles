@@ -106,7 +106,6 @@ fi
 
 # User configuration
 
-export PATH=$HOME/.local/bin:$PATH
 export GOPATH=/mnt/PODACI/projects/private/go
 # export MANPATH="/usr/local/man:$MANPATH"
 
