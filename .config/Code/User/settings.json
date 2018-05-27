@@ -19,5 +19,6 @@
     },
     "terminal.integrated.fontFamily": "'Source Code Pro'",
     "terminal.integrated.fontSize": 12,
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "go.gopath": "/mnt/PODACI/projects/private/go"
 }

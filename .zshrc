@@ -108,7 +108,6 @@ fi
 
 export PATH=$HOME/.local/bin:$PATH
 export GOPATH=/mnt/PODACI/projects/private/go
-alias gopath="source gopath"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
