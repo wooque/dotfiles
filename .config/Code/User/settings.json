@@ -16,7 +16,7 @@
         "**/.DS_Store": true,
         "**/.idea": true,
         "**/.vscode": true,
-        "*.pyc": true
+        "**/*.pyc": true
     },
     "terminal.integrated.fontFamily": "'DejaVu Sans Mono'",
     "terminal.integrated.fontSize": 12,
