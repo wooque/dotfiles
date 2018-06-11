@@ -160,7 +160,16 @@ fi
 
 alias gclf="git clean -f"
 alias locate="sudo updatedb && locate"
-alias yt="mpv --ytdl-format 22"
+
+youtube_play() {
+    nohup mpv --ytdl-format 22 $1 &> /dev/null &; disown
+}
+alias yt=youtube_play
+
+youtube_play_audio() {
+    nohup mpv --ytdl-format 140 --profile pseudo-gui $1 &> /dev/null &; disown
+}
+alias yta=youtube_play_audio
 
 find_all() {
     find . -iname "*$1*" $2
