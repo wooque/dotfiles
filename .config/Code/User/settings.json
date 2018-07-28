@@ -24,4 +24,6 @@
     "go.gopath": "/mnt/PODACI/projects/private/go",
     "workbench.colorTheme": "Monokai Dimmed",
     "go.lintOnSave": "off",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
 }
