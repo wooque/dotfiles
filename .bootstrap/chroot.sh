@@ -19,6 +19,7 @@ passwd vuk
 groupadd autologin
 usermod -a -G autologin vuk
 cp .bootstrap/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+sed -i 's/#autologin-user=/autologin-user=vuk/' /etc/lightdm/lightdm.conf
 mkdir /mnt/PODACI
 chown vuk:wheel /mnt/PODACI
 cat .bootstrap/fstab >> /etc/fstab
