@@ -20,11 +20,11 @@ else
 fi
 
 # autostart tmux on zsh start
-if [[ -n $SSH_CONNECTION ]]; then
-    ZSH_TMUX_AUTOSTART=false
-else
-    ZSH_TMUX_AUTOSTART=true
-fi
+#if [[ -n $SSH_CONNECTION ]]; then
+#    ZSH_TMUX_AUTOSTART=false
+#else
+#    ZSH_TMUX_AUTOSTART=true
+#fi
 #ZSH_TMUX_AUTOCONNECT=false
 
 # Set name of the theme to load.
@@ -89,9 +89,9 @@ function () {
         echo "No disto specific zsh plugin found"
     fi
 
-    if [[ -z $SSH_CONNECTION ]]; then
-        tmux_plugin=tmux
-    fi
+    #if [[ -z $SSH_CONNECTION ]]; then
+    #    tmux_plugin=tmux
+    #fi
 
     plugins=(git $tmux_plugin $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z)
 }
