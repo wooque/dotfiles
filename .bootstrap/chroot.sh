@@ -13,7 +13,7 @@ passwd
 # grub-mkconfig -o /boot/grub/grub.cfg
 pacman --noconfirm -S $(cat .packages/base)
 pacman --noconfirm -S $(cat .packages/extra)
-sed -i 's/# %wheel ALL=(ALL) ALL/wheel ALL=(ALL) ALL/' /etc/sudoers
+sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 useradd -g wheel -m vuk
 passwd vuk
 groupadd autologin
