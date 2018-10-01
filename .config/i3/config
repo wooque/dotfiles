@@ -178,3 +178,4 @@ exec --no-startup-id feh --bg-fill --randomize /mnt/PODACI/Dropbox/svasta/wallpa
 
 bindsym Control+Mod1+B exec --no-startup-id chromium
 bindsym Control+Mod1+P exec --no-startup-id pavucontrol
+bindsym Control+Mod1+F exec --no-startup-id pcmanfm
