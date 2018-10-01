@@ -9,6 +9,7 @@ git init
 git remote add origin https://github.com/wooque/configs
 git fetch --all
 git reset --hard origin/i3
+git checkout i3
 git branch --set-upstream-to=origin/i3 i3
 mkdir build
 cd build
