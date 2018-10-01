@@ -18,6 +18,9 @@ gnome-calculator
 gnome-keyring
 gparted
 gtk-engine-murrine
+gvfs
+gvfs-mtp
+gvfs-gphoto2
 htop 
 highlight
 i3-gaps 
@@ -45,6 +48,7 @@ networkmanager-openconnect
 networkmanager-openvpn
 p7zip
 papirus-icon-theme 
+pcmanfm
 pulseaudio
 pavucontrol 
 powertop 
@@ -56,6 +60,7 @@ redshift
 rsync
 seahorse
 screenfetch 
+sxiv
 tk
 tlp 
 transmission-gtk
