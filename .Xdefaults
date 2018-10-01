@@ -1,0 +1,13 @@
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+
+URxvt.font:xft:Monaco:size=8.5:antialias=true,xft:Noto\ Sans:size=8.5:antialias=true
+
+URxvt*background: Black
+URxvt*foreground: White
+URxvt*geometry: 80x30
+URxvt*scrollBar: false
+
