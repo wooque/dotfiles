@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo systemctl enable NetworkManager lightdm cronie
 sudo systemctl start NetworkManager
 nmtui
