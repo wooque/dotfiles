@@ -3,12 +3,14 @@ audacious
 compton 
 dialog
 dmenu
+dosfstools
 dunst 
 expac
 faad2
 feh
 file-roller
 gnome-keyring
+gparted
 gtk-engine-murrine
 htop 
 highlight
@@ -23,6 +25,7 @@ libva-utils
 lightdm-gtk-greeter-settings 
 lxterminal 
 mlocate
+meld
 mpg123
 mpv
 neofetch 
@@ -40,6 +43,7 @@ redshift
 seahorse
 screenfetch 
 tlp 
+transmission-gtk
 ttf-liberation
 unrar
 vim 
