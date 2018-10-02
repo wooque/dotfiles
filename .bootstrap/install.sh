@@ -28,6 +28,9 @@ echo "Enter password for vuk"
 passwd vuk
 groupadd autologin
 usermod -a -G autologin vuk
+# if virtualbox and docker from extra are installed
+usermod -a -G vboxusers vuk
+usermod -a -G docker vuk
 
 cp .bootstrap/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 sed -i 's/#autologin-user=/autologin-user=vuk/' /etc/lightdm/lightdm.conf
