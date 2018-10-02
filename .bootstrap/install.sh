@@ -68,8 +68,9 @@ rm -rf /opt/build
 
 cd /opt/configs
 sudo -u vuk yaourt -S --noconfirm $(cat .bootstrap/packages/aur_base)
-yes | pacman -U $(find /tmp/yaourt-tmp-vuk -name "freetype2-ultimate5*.pkg.tar.xz")
 ln -sf ../conf.avail/75-emojione.conf /etc/fonts/conf.d/75-emojione.conf
+sudo -u vuk yaourt -S --noconfirm $(cat .bootstrap/packages/aur_conflict)
+yes | pacman -U $(find /tmp/yaourt-tmp-vuk -name "freetype2-ultimate5*.pkg.tar.xz")
 # for ncurses needed for VMWare player
 sudo -u vuk gpg --recv-key 702353E0F7E48EDB
 sudo -u vuk yaourt -S --noconfirm $(cat .bootstrap/packages/aur_extra)
