@@ -43,6 +43,7 @@ ln -sf /usr/lib/systemd/system/cronie.service /etc/systemd/system/multi-user.tar
 ln -sf /usr/lib/systemd/system/NetworkManager.service /etc/systemd/system/dbus-org.freedesktop.NetworkManager.service
 ln -sf /usr/lib/systemd/system/NetworkManager.service /etc/systemd/system/multi-user.target.wants/NetworkManager.service
 ln -sf /usr/lib/systemd/system/NetworkManager-dispatcher.service /etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
+mkdir /etc/systemd/system/network-online.target.wants
 ln -sf /usr/lib/systemd/system/NetworkManager-wait-online.service /etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service
 
 ln -sf /usr/lib/systemd/system/fstrim.timer /etc/systemd/system/timers.target.wants/fstrim.timer
@@ -68,6 +69,8 @@ cd /opt/configs
 sudo -u vuk yaourt -S --noconfirm $(cat .bootstrap/packages/aur_base)
 yes | pacman -U $(find /tmp/yaourt-tmp-vuk -name "freetype2-ultimate5*.pkg.tar.xz")
 ln -sf ../conf.avail/75-emojione.conf /etc/fonts/conf.d/75-emojione.conf
+# for ncurses needed for VMWare player
+pacman-key --recv-keys 702353E0F7E48EDB
 sudo -u vuk yaourt -S --noconfirm $(cat .bootstrap/packages/aur_extra)
 cd /opt
 rm -rf /opt/configs
