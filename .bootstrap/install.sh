@@ -19,8 +19,8 @@ sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="elevator=deadline"/' /etc/de
 grub-mkconfig -o /boot/grub/grub.cfg
 
 cd /opt/configs
-pacman --noconfirm -S $(cat .packages/base)
-pacman --noconfirm -S $(cat .packages/extra)
+pacman --noconfirm -S $(cat .bootstrap/packages/base)
+pacman --noconfirm -S $(cat .bootstrap/packages/extra)
 
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 useradd -g wheel -m vuk
@@ -65,10 +65,10 @@ cd /opt
 rm -rf /opt/build
 
 cd /opt/configs
-sudo -u vuk yaourt -S --noconfirm $(cat .packages/aur_base)
+sudo -u vuk yaourt -S --noconfirm $(cat .bootstrap/packages/aur_base)
 yes | pacman -U $(find /tmp/yaourt-tmp-vuk -name "freetype2-ultimate5*.pkg.tar.xz")
 ln -sf ../conf.avail/75-emojione.conf /etc/fonts/conf.d/75-emojione.conf
-sudo -u vuk yaourt -S --noconfirm $(cat .packages/aur_extra)
+sudo -u vuk yaourt -S --noconfirm $(cat .bootstrap/packages/aur_extra)
 cd /opt
 rm -rf /opt/configs
 
