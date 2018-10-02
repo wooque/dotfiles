@@ -12,7 +12,7 @@ mkinitcpio -p linux
 echo "Enter password for root"
 passwd
 
-pacman -S grub os-prober
+pacman -S --noconfirm grub os-prober
 grub-install /dev/sda
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
 sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="elevator=deadline"/' /etc/default/grub
