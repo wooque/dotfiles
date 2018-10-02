@@ -9,11 +9,13 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 echo "battlestation" > /etc/hostname
 mkinitcpio -p linux
-echo "Enter password for root:"
+echo "Enter password for root"
 passwd
 
 # pacman -S grub os-prober
 # grub-install /dev/sda
+# sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
+# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="elevator=deadline"/' /etc/default/grub
 # grub-mkconfig -o /boot/grub/grub.cfg
 
 pacman --noconfirm -S $(cat .packages/base)
@@ -21,7 +23,7 @@ pacman --noconfirm -S $(cat .packages/extra)
 
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 useradd -g wheel -m vuk
-echo "Enter password for vuk:"
+echo "Enter password for vuk"
 passwd vuk
 groupadd autologin
 usermod -a -G autologin vuk
@@ -54,15 +56,15 @@ wget "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yaourt" -O PKGBUIL
 sudo -u vuk makepkg -s
 pacman -U --noconfirm $(find . -name "yaourt*.pkg.tar.xz")
 cd /opt
-rm build
+rm -rf /opt/build
 
 cd /opt/configs
 sudo -u vuk yaourt -S --noconfirm $(cat .packages/aur_base)
-yes | pacman -U $(find . -name "/tmp/yaourt-tmp-vuk/freetype2-ultimate5*.pkg.tar.xz")
+yes | pacman -U $(find /tmp/yaourt-tmp-vuk -name "freetype2-ultimate5*.pkg.tar.xz")
 ln -sf ../conf.avail/75-emojione.conf /etc/fonts/conf.d/75-emojione.conf
 sudo -u vuk yaourt -S --noconfirm $(cat .packages/aur_extra)
 cd /opt
-rm /opt/configs
+rm -rf /opt/configs
 
 cd /home/vuk
 sudo -u vuk sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -72,7 +74,6 @@ sudo -u vuk git remote add origin https://github.com/wooque/configs
 sudo -u vuk git fetch --all
 sudo -u vuk git reset --hard origin/i3
 sudo -u vuk git checkout i3
-sudo -u vuk git branch --set-upstream-to=origin/i3 i3
 
 echo "----------------------------------------------"
 echo "SETUP crontab:"
