@@ -1,12 +1,5 @@
 #!/bin/bash
 
-timedatectl set-ntp true
-mkfs.ext4 /dev/sda3
-mount /dev/sda3 /mnt
-pacstrap /mnt base base base-devel
-genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
-
 ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
 hwclock --systohc
 
@@ -24,11 +17,6 @@ passwd
 # sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
 # sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="elevator=deadline"/' /etc/default/grub
 # grub-mkconfig -o /boot/grub/grub.cfg
-
-pacman -S --noconfirm git
-cd /opt
-git clone "https://github.com/wooque/configs"
-cd configs
 
 pacman --noconfirm -S $(cat .packages/base)
 pacman --noconfirm -S $(cat .packages/extra)
