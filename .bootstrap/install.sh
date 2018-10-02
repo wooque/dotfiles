@@ -12,12 +12,13 @@ mkinitcpio -p linux
 echo "Enter password for root"
 passwd
 
-# pacman -S grub os-prober
-# grub-install /dev/sda
-# sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
-# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="elevator=deadline"/' /etc/default/grub
-# grub-mkconfig -o /boot/grub/grub.cfg
+pacman -S grub os-prober
+grub-install /dev/sda
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="elevator=deadline"/' /etc/default/grub
+grub-mkconfig -o /boot/grub/grub.cfg
 
+cd /opt/configs
 pacman --noconfirm -S $(cat .packages/base)
 pacman --noconfirm -S $(cat .packages/extra)
 
@@ -40,6 +41,8 @@ ln -sf /usr/lib/systemd/system/NetworkManager.service /etc/systemd/system/dbus-o
 ln -sf /usr/lib/systemd/system/NetworkManager.service /etc/systemd/system/multi-user.target.wants/NetworkManager.service
 ln -sf /usr/lib/systemd/system/NetworkManager-dispatcher.service /etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
 ln -sf /usr/lib/systemd/system/NetworkManager-wait-online.service /etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service
+
+ln -sf /usr/lib/systemd/system/fstrim.timer /etc/systemd/system/timers.target.wants/fstrim.timer
 
 mkdir /mnt/PODACI
 chown vuk:wheel /mnt/PODACI
