@@ -12,3 +12,4 @@ URxvt*background: Black
 URxvt*foreground: White
 URxvt*geometry: 80x30
 URxvt*scrollBar: false
+

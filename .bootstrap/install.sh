@@ -49,6 +49,8 @@ ln -sf /usr/lib/systemd/system/NetworkManager-wait-online.service /etc/systemd/s
 mkdir /etc/systemd/system/timers.target.wants
 ln -sf /usr/lib/systemd/system/fstrim.timer /etc/systemd/system/timers.target.wants/fstrim.timer
 
+ln -sf /usr/lib/systemd/system/tlp.service /etc/systemd/system/multi-user.target.wants/tlp.service
+
 mkdir /mnt/PODACI
 chown vuk:wheel /mnt/PODACI
 cat .bootstrap/fstab >> /etc/fstab
