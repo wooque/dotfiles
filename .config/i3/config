@@ -184,6 +184,11 @@ bindsym $mod+C exec --no-startup-id gnome-calculator
 bindsym $mod+T exec --no-startup-id i3-sensible-terminal -e htop
 bindsym $mod+G exec --no-startup-id i3-sensible-terminal -e ranger
 
+bindsym Control+$mod+L exec --no-startup-id i3lock -c 000000
+bindsym Control+$mod+R exec --no-startup-id systemctl reboot
+bindsym Control+$mod+P exec --no-startup-id systemctl poweroff
+bindsym Control+$mod+S exec --no-startup-id systemctl suspend
+
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --allow-boost -i 5
