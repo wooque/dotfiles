@@ -1,6 +1,0 @@
-nnoremap ";" ":"
-nnoremap ":" ";"
-vnoremap ";" ":"
-vnoremap ":" ";"
-set autocalc
-set ignorecase
