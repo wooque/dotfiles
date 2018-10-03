@@ -37,6 +37,8 @@ sed -i 's/#autologin-user=/autologin-user=vuk/' /etc/lightdm/lightdm.conf
 ln -sf /usr/lib/systemd/system/lightdm.service /etc/systemd/system/display-manager.service
 
 cp .bootstrap/backup.sh /usr/local/bin/backup.sh
+cp .bootstrap/crontab /var/spool/cron/vuk
+cp .bootstrap/root_crontab /var/spool/cron/root
 ln -sf /usr/lib/systemd/system/cronie.service /etc/systemd/system/multi-user.target.wants/cronie.service
 
 #systemctl enable NetworkManager
@@ -85,13 +87,9 @@ cd /home/vuk
 sudo -u vuk sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 sudo -u vuk git init
-sudo -u vuk git remote add origin https://github.com/wooque/configs 
+sudo -u vuk git remote add origin https://github.com/wooque/configs
 sudo -u vuk git fetch --all
 sudo -u vuk git reset --hard origin/master
 sudo -u vuk git checkout master
-
-echo "----------------------------------------------"
-echo "SETUP crontab:"
-echo "sudo cp .bootstrap/crontab /var/spool/cron/vuk"
-echo "DONT FORGET TO SETUP .ssh/pass!!!"
+sudo -u vuk git remote set-url origin git@github.com:wooque/configs.git
 

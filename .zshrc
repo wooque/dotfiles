@@ -138,6 +138,7 @@ export EDITOR='vim'
 alias free="free -h"
 alias top="top -d1"
 alias htop="htop -d10"
+alias ps_mem="sudo ps_mem"
 alias iotop="sudo iotop -oP"
 alias df="df -x tmpfs -x devtmpfs -h"
 alias dus="du -sh"
@@ -150,6 +151,7 @@ alias sudo="sudo -E "
 if [[ -n $ARCH_BASED ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"
     alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
+    alias yaupg="yaourt -Syua && echo '0' > $HOME/.updates"
 elif [[ -n $DEBIAN_BASED ]] ; then
     alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
     alias apr="sudo apt-get autoremove --purge"
