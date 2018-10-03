@@ -50,6 +50,8 @@ mkdir /etc/systemd/system/timers.target.wants
 ln -sf /usr/lib/systemd/system/fstrim.timer /etc/systemd/system/timers.target.wants/fstrim.timer
 
 ln -sf /usr/lib/systemd/system/tlp.service /etc/systemd/system/multi-user.target.wants/tlp.service
+mkdir /etc/systemd/system/sleep.target.wants
+ln -sf /usr/lib/systemd/system/tlp-sleep.service /etc/systemd/system/sleep.target.wants/tlp-sleep.service
 
 mkdir /mnt/PODACI
 chown vuk:wheel /mnt/PODACI
