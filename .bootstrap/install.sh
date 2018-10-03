@@ -87,8 +87,8 @@ sudo -u vuk sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/t
 sudo -u vuk git init
 sudo -u vuk git remote add origin https://github.com/wooque/configs 
 sudo -u vuk git fetch --all
-sudo -u vuk git reset --hard origin/i3
-sudo -u vuk git checkout i3
+sudo -u vuk git reset --hard origin/master
+sudo -u vuk git checkout master
 
 echo "----------------------------------------------"
 echo "SETUP crontab:"
