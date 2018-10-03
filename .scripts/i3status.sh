@@ -10,7 +10,7 @@ do
             echo $line
         else
             light_out=$(light -G)
-            light="{\"name\":\"brightness\",\"full_text\":\"☀️ ${light_out%.*}\"}"
+            light="{\"name\":\"brightness\",\"full_text\":\"☀️ ${light_out%.*}%\"}"
             line=",[$light,${line:2}"
 
             num=$(cat .updates)

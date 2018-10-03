@@ -147,6 +147,7 @@ alias rm="rm -rf"
 alias mv="mv -f"
 alias cp="cp -rf"
 alias sudo="sudo -E "
+alias caly="cal -y"
 
 if [[ -n $ARCH_BASED ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"

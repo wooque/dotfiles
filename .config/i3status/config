@@ -13,8 +13,8 @@ general {
 }
 
 order += "volume master"
-order += "wireless _first_"
 order += "battery all"
+order += "wireless _first_"
 order += "tztime local"
 
 volume master {
