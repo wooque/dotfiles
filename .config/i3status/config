@@ -11,17 +11,29 @@ general {
         interval = 5
 }
 
+order += "volume master"
 order += "wireless _first_"
 order += "battery all"
 order += "tztime local"
 
+volume master {
+        format = "🔈 %volume"
+        format_muted = "🔇 (%volume)"
+        device = "pulse:0"
+}
+
 wireless _first_ {
-        format_up = "W: %essid (%quality)"
-        format_down = "W: down"
+        format_up = "📶 %essid (%quality)"
+        format_down = "📶 down"
 }
 
 battery all {
-        format = "%status %percentage %remaining"
+        format = "%status %percentage %remaining %emptytime"
+        format_down = "No battery"
+        status_chr = "⚡"
+        status_bat = "🔋"
+        status_unk = "?"
+        status_full = "🔌"
 }
 
 tztime local {

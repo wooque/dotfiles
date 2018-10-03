@@ -176,6 +176,13 @@ exec --no-startup-id redshift
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id feh --bg-fill --randomize /mnt/PODACI/Dropbox/svasta/wallpapers/*
 
-bindsym Control+Mod1+B exec --no-startup-id chromium --password-store=gnome
-bindsym Control+Mod1+P exec --no-startup-id pavucontrol
-bindsym Control+Mod1+F exec --no-startup-id pcmanfm
+bindsym $mod+B exec --no-startup-id chromium --password-store=gnome
+bindsym $mod+P exec --no-startup-id pavucontrol
+bindsym $mod+M exec --no-startup-id pcmanfm
+bindsym $mod+C exec --no-startup-id gnome-calculator
+bindsym $mod+T exec --no-startup-id i3-sensible-terminal -e htop
+bindsym $mod+G exec --no-startup-id i3-sensible-terminal -e ranger
+
+bindsym XF86AudioMute exec --no-startup-id pamixer -t
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --allow-boost -i 5
