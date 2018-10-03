@@ -9,6 +9,10 @@ do
         if [ $count -lt $skip ]; then
             echo $line
         else
+            light_out=$(light -G)
+            light="{\"name\":\"brightness\",\"full_text\":\"☀️ ${light_out%.*}\"}"
+            line=",[$light,${line:2}"
+
             num=$(cat .updates)
             if [[ $num -ne "0" ]]; 
             then 

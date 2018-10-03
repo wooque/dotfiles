@@ -174,7 +174,6 @@ new_window 1pixel
 
 exec --no-startup-id compton -b
 exec --no-startup-id redshift
-exec --no-startup-id xfce4-power-manager
 exec --no-startup-id feh --bg-fill --randomize /mnt/PODACI/Dropbox/svasta/wallpapers/*
 
 bindsym $mod+B exec --no-startup-id chromium --password-store=gnome
@@ -192,3 +191,5 @@ bindsym Control+$mod+S exec --no-startup-id systemctl suspend
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --allow-boost -i 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10

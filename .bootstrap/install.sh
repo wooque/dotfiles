@@ -12,15 +12,15 @@ mkinitcpio -p linux
 echo "Enter password for root"
 passwd
 
+cd /opt/configs
+pacman --noconfirm -S $(cat .bootstrap/packages/base)
+pacman --noconfirm -S $(cat .bootstrap/packages/extra)
+
 pacman -S --noconfirm grub os-prober
 grub-install /dev/sda
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
 sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="elevator=deadline"/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
-
-cd /opt/configs
-pacman --noconfirm -S $(cat .bootstrap/packages/base)
-pacman --noconfirm -S $(cat .bootstrap/packages/extra)
 
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 useradd -g wheel -m vuk
