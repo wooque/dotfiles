@@ -167,7 +167,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         i3bar_command i3bar -t
-        status_command /home/vuk/.scripts/i3status.py
+        status_command i3status.py
 }
 
 new_window 1pixel
@@ -191,6 +191,6 @@ bindsym Control+$mod+S exec --no-startup-id systemctl suspend
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --allow-boost -i 5
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 && /home/vuk/.scripts/refresh_i3status.sh
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 && /home/vuk/.scripts/refresh_i3status.sh
-bindsym Menu exec --no-startup-id /home/vuk/.scripts/refresh_i3status.sh
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 && refresh_i3status.sh
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 && refresh_i3status.sh
+bindsym Menu exec --no-startup-id refresh_i3status.sh
