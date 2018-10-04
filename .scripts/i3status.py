@@ -49,7 +49,8 @@ def handle_line():
 
     layout = Popen(["xkblayout-state", "print", "%s"], stdout=PIPE)
     layout_out = layout.stdout.read()
-    layout_bar = dict(name="keyboard_layout", full_text=layout_out.decode('utf-8'))
+    layout_out = layout_out.decode('utf-8')
+    layout_bar = dict(name="keyboard_layout", full_text='⌨️ {}'.format(layout_out))
     line = [layout_bar] + line
 
     updates_num = open(".updates").read()
