@@ -21,6 +21,7 @@
 !.gitignore
 !.gtkrc-2.0
 !.profile
+!.scripts/backup.sh
 !.scripts/i3status.sh
 !.scripts/refresh_i3status.sh
 !.ssh/config
