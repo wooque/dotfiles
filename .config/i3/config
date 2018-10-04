@@ -193,3 +193,4 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --allow-boost -i 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym Menu exec --no-startup-id /home/vuk/.scripts/refresh_i3status.sh

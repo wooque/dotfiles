@@ -42,8 +42,13 @@ def handle_line():
     light = Popen(["light", "-G"], stdout=PIPE)
     light_out = light.stdout.read()
     light_out = int(float(light_out))
-    light = dict(name="brightness", full_text="☀️ {}%".format(light_out))
-    line = line[:1] + [light] + line[1:]
+    light_bar = dict(name="brightness", full_text="☀️ {}%".format(light_out))
+    line = line[:1] + [light_bar] + line[1:]
+
+    layout = Popen(["xkblayout-state", "print", "%s"], stdout=PIPE)
+    layout_out = layout.stdout.read()
+    layout_bar = dict(name="keyboard_layout", full_text=layout_out.decode('utf-8'))
+    line = [layout_bar] + line
 
     updates_num = open(".updates").read()
     try:
@@ -100,6 +105,12 @@ def main():
         cnt += 1
 
 
+def handle_sighup(sig, frame):
+    global raw_line
+    if raw_line:
+        handle_line()
+
+
 def handle_sigint(sig, frame):
     global notifier, work, i3s
 
@@ -111,5 +122,6 @@ def handle_sigint(sig, frame):
 
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGHUP, handle_sighup) 
     signal.signal(signal.SIGINT, handle_sigint)
     main()
