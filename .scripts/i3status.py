@@ -35,16 +35,23 @@ def handle_line():
 
     for i, elem in enumerate(line):
         if elem["name"] == 'battery':
+
             full_text = line[i]["full_text"]
-            parts = full_text.split()
+            parts = full_text.split()        
             percent = int(float(parts[1][:-1]))
-            line[i]["full_text"] = '{} {}%'.format(parts[0], percent)
+            percent = '{}%'.format(percent)        
+            
+            new_parts = [parts[0], percent]
+            if parts[2:]:
+                new_parts.append('({})'.format(parts[2]))
+            
+            line[i]["full_text"] = ' '.join(new_parts)
 
     light = Popen(["light", "-G"], stdout=PIPE)
     light_out = light.stdout.read()
     light_out = int(float(light_out))
     light_bar = dict(name="brightness", full_text="☀️ {}%".format(light_out))
-    line = line[:1] + [light_bar] + line[1:]
+    line = [line[0], light_bar] + line[1:]
 
     layout = Popen(["xkblayout-state", "print", "%s"], stdout=PIPE)
     layout_out = layout.stdout.read()
@@ -55,6 +62,7 @@ def handle_line():
     try:
         updates_num = open(".updates").read()
         updates_num = int(updates_num)
+    
     except (ValueError, FileNotFoundError) as e:
         updates_num = 0
 
@@ -65,6 +73,7 @@ def handle_line():
     print_data = json_dumpu(line)
     if not first:
         print_data = ',' + print_data
+    
     printf(print_data)
 
 
@@ -72,9 +81,9 @@ def main():
     global cnt, skip, i3s, raw_line
 
     i3s = Popen(["i3status"], stdout=PIPE)
-
     while work:
         raw_line = i3s.stdout.readline()
+        
         if not raw_line:
             sys.exit()
 
@@ -89,12 +98,14 @@ def main():
 
 def handle_sighup(sig, frame):
     global cnt, skip
+    
     if cnt >= skip:
         handle_line()
 
 
 def handle_sigint(sig, frame):
     global work, i3s
+    
     work = False
     i3s.terminate()
 
