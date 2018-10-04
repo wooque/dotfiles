@@ -1,17 +1,5 @@
 *
 !.Xdefaults
-!.bootstrap/backup.sh
-!.bootstrap/crontab
-!.bootstrap/fstab
-!.bootstrap/install.sh
-!.bootstrap/lightdm-gtk-greeter.conf
-!.bootstrap/live.sh
-!.bootstrap/packages/aur_base
-!.bootstrap/packages/aur_conflict
-!.bootstrap/packages/aur_extra
-!.bootstrap/packages/base
-!.bootstrap/packages/extra
-!.bootstrap/root_crontab
 !.config/Code/User/settings.json
 !.config/compton.conf
 !.config/dunst/dunstrc
@@ -34,6 +22,7 @@
 !.gtkrc-2.0
 !.profile
 !.scripts/i3status.sh
+!.scripts/refresh_i3status.sh
 !.ssh/config
 !.tmux.conf
 !.vimrc
