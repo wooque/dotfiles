@@ -4,8 +4,6 @@ import signal
 import sys
 from subprocess import Popen, PIPE
 
-import pyinotify
-
 
 def json_dumpu(data):
     return json.dumps(data, ensure_ascii=False)
@@ -18,14 +16,15 @@ def printf(data):
 cnt = 0
 skip = 2
 raw_line = ''
-notifier = None
 work = True
 i3s = None
 
 
 def handle_line():
     global raw_line
+    
     line = raw_line[:-1].decode('utf-8')
+    
     first = False
     if line[0] == ',':
         line = line[1:]
@@ -53,14 +52,14 @@ def handle_line():
     layout_bar = dict(name="keyboard_layout", full_text='⌨️ {}'.format(layout_out))
     line = [layout_bar] + line
 
-    updates_num = open(".updates").read()
     try:
+        updates_num = open(".updates").read()
         updates_num = int(updates_num)
-    except ValueError:
+    except (ValueError, FileNotFoundError) as e:
         updates_num = 0
 
     if updates_num > 0:
-        updates = dict(name="pacman", full_text="📦 ⚠️ {}".format(updates_num))
+        updates = dict(name="pacman", full_text="📦 {}".format(updates_num))
         line = [updates] + line
 
     print_data = json_dumpu(line)
@@ -69,19 +68,8 @@ def handle_line():
     printf(print_data)
 
 
-class EventHandler(pyinotify.ProcessEvent):
-    def process_IN_MODIFY(self, event):
-        handle_line()
-
-    def process_IN_CREATE(self, event):
-        pacman = Popen(["pacman", "-Qu"], stdout=PIPE)
-        updates = len(pacman.stdout.read().splitlines())
-        with open('.updates', 'w+') as upd_f:
-            upd_f.write(str(updates))
-
-
 def main():
-    global cnt, skip, i3s, raw_line, notifier
+    global cnt, skip, i3s, raw_line
 
     i3s = Popen(["i3status"], stdout=PIPE)
 
@@ -96,13 +84,6 @@ def main():
         else:
             handle_line()
 
-            if cnt == 2:
-                wm = pyinotify.WatchManager()
-                notifier = pyinotify.ThreadedNotifier(wm, EventHandler())
-                notifier.start()
-                wm.add_watch('/sys/class/backlight/intel_backlight/brightness', pyinotify.IN_MODIFY)
-                wm.add_watch('/var/lib/pacman', pyinotify.IN_CREATE)
-
         cnt += 1
 
 
@@ -113,11 +94,7 @@ def handle_sighup(sig, frame):
 
 
 def handle_sigint(sig, frame):
-    global notifier, work, i3s
-
-    if notifier:
-        notifier.stop()
-
+    global work, i3s
     work = False
     i3s.terminate()
 
