@@ -15,6 +15,8 @@ def printf(data):
     print(data, flush=True)
 
 
+cnt = 0
+skip = 2
 raw_line = ''
 notifier = None
 work = True
@@ -78,12 +80,10 @@ class EventHandler(pyinotify.ProcessEvent):
 
 
 def main():
-    global i3s, raw_line, notifier
+    global cnt, skip, i3s, raw_line, notifier
 
     i3s = Popen(["i3status"], stdout=PIPE)
 
-    skip = 2
-    cnt = 0
     while work:
         raw_line = i3s.stdout.readline()
         if not raw_line:
@@ -106,8 +106,8 @@ def main():
 
 
 def handle_sighup(sig, frame):
-    global raw_line
-    if raw_line:
+    global cnt, skip
+    if cnt >= skip:
         handle_line()
 
 
