@@ -15,6 +15,7 @@ def printf(data):
 
 cnt = 0
 skip = 2
+old_line = ''
 raw_line = ''
 work = True
 i3s = None
@@ -78,7 +79,7 @@ def handle_line():
 
 
 def main():
-    global cnt, skip, i3s, raw_line
+    global cnt, skip, i3s, old_line, raw_line
 
     i3s = Popen(["i3status"], stdout=PIPE)
     while work:
@@ -87,12 +88,14 @@ def main():
         if not raw_line:
             sys.exit()
 
-        if cnt < skip:
-            line = raw_line[:-1].decode('utf-8')
-            printf(line)
-        else:
-            handle_line()
+        if raw_line != old_line:
+            if cnt < skip:
+                line = raw_line[:-1].decode('utf-8')
+                printf(line)
+            else:
+                handle_line()
 
+        old_line = raw_line
         cnt += 1
 
 
