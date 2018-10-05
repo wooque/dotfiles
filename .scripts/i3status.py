@@ -47,6 +47,10 @@ def handle_line():
                 new_parts.append('({})'.format(parts[2]))
             
             line[i]["full_text"] = ' '.join(new_parts)
+        
+        if elem["name"] == "wireless":
+            if '%' in elem["full_text"]:
+                del line[i]['color']
 
     light = Popen(["light", "-G"], stdout=PIPE)
     light_out = light.stdout.read()
