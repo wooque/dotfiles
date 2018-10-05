@@ -6,8 +6,9 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-URxvt.font:xft:Monospace:size=8.5:antialias=true
+URxvt.font:xft:Monospace:size=8.5:antialiasing=true
 URxvt*scrollBar: false
+URxvt*geometry: 120x40
 
 URxvt.foreground: #C8C8C8
 URxvt.background: #323232
