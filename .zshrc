@@ -152,7 +152,7 @@ alias caly="cal -y"
 if [[ -n $ARCH_BASED ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"
     alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
-    alias yaupg="yaourt -Syua && echo '0' > $HOME/.updates"
+    alias yaupg="yaourt -Syua && echo '0' > $HOME/.updates && refresh_i3status.sh"
 elif [[ -n $DEBIAN_BASED ]] ; then
     alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
     alias apr="sudo apt-get autoremove --purge"
