@@ -1,3 +1,4 @@
+colorscheme default
 syntax on
 filetype on
 filetype plugin indent on
