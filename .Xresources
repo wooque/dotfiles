@@ -16,7 +16,7 @@ URxvt*iso14755: False
 
 URxvt.depth: 32
 URxvt.foreground: #D3D7CF
-URxvt.background: [85]#000000
+URxvt.background: [90]#000000
 URxvt.color0:     #000000
 URxvt.color1:     #CD0000
 URxvt.color2:     #4E9A06
