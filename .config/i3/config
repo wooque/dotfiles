@@ -179,7 +179,7 @@ new_window 1pixel
 smart_borders on
 
 exec --no-startup-id compton -b
-exec --no-startup-id redshift
+exec --no-startup-id pidof redshift || redshift &
 exec --no-startup-id feh --bg-fill --randomize /mnt/PODACI/Dropbox/svasta/wallpapers/*
 
 bindsym $mod+B exec --no-startup-id chromium --password-store=gnome
