@@ -8,15 +8,17 @@ Xft.lcdfilter: lcddefault
 
 URxvt.font: xft:Monospace:size=8.5
 URxvt.letterSpace: -1
+
 URxvt*scrollBar: false
 URxvt*geometry: 120x40
-URxvt.perl-ext-common: vtwheel
+URxvt.perl-ext-common: vtwheel,selection-to-clipboard
+URxvt*iso14755: False
 
 URxvt.depth: 32
-URxvt.foreground: #C8C8C8
-URxvt.background: [95]#323232
-URxvt.color0:     #2E3436
-URxvt.color1:     #CC0000
+URxvt.foreground: #D3D7CF
+URxvt.background: [85]#000000
+URxvt.color0:     #000000
+URxvt.color1:     #CD0000
 URxvt.color2:     #4E9A06
 URxvt.color3:     #C4A000
 URxvt.color4:     #3465A4

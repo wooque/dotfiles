@@ -169,9 +169,14 @@ bindsym $mod+r mode "resize"
 bar {
         i3bar_command i3bar -t
         status_command i3status.py
+        position top
+        colors {
+            background #2F343F
+        }
 }
 
 new_window 1pixel
+smart_borders on
 
 exec --no-startup-id compton -b
 exec --no-startup-id redshift

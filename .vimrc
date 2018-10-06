@@ -2,6 +2,7 @@ colorscheme default
 syntax on
 filetype on
 filetype plugin indent on
+set number
 set pastetoggle=<F9>
 set autoindent
 set tabstop=4

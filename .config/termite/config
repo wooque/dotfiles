@@ -1,0 +1,22 @@
+[options]
+font = Monospace 8.5
+cursor_blink = off
+[colors]
+foreground = #D3D7CF
+background = rgba(0, 0, 0, 0.85)
+color0 =     #000000
+color1 =     #CD0000
+color2 =     #4E9A06
+color3 =     #C4A000
+color4 =     #3465A4
+color5 =     #75507B
+color6 =     #06989A
+color7 =     #D3D7CF
+color8 =     #555753
+color9 =     #EF2929
+color10 =    #8AE234
+color11 =    #FCE94F
+color12 =    #729FCF
+color13 =    #AD7FA8
+color14 =    #34E2E2
+color15 =    #EEEEEC
