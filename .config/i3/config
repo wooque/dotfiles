@@ -175,7 +175,7 @@ bar {
         }
 }
 
-new_window 1pixel
+default_border pixel 1
 smart_borders on
 
 exec --no-startup-id compton -b
