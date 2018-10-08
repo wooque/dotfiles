@@ -39,7 +39,7 @@ def handle_line():
 
             full_text = line[i]["full_text"]
             parts = full_text.split()        
-            percent = int(float(parts[1][:-1]))
+            percent = int(round(float(parts[1][:-1])))
             percent = '{}%'.format(percent)        
             
             new_parts = [parts[0], percent]
@@ -52,9 +52,9 @@ def handle_line():
             if '%' in elem["full_text"]:
                 del line[i]['color']
 
-    light = Popen(["light", "-G"], stdout=PIPE)
+    light = Popen(["xbacklight"], stdout=PIPE)
     light_out = light.stdout.read()
-    light_out = int(float(light_out))
+    light_out = int(round(float(light_out)))
     light_bar = dict(name="brightness", full_text="☀️ {}%".format(light_out))
     line = [line[0], light_bar] + line[1:]
 

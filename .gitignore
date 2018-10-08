@@ -1,14 +1,12 @@
 *
 !.Xdefaults
 !.config/Code/User/settings.json
-!.config/compton.conf
 !.config/dunst/dunstrc
 !.config/fontconfig/fonts.conf
 !.config/gtk-3.0/settings.ini
 !.config/htop/htoprc
 !.config/i3/config
 !.config/i3status/config
-!.config/lxterminal/lxterminal.conf
 !.config/mimeapps.list
 !.config/mpv/lua-settings/osc.conf
 !.config/mpv/mpv.conf
