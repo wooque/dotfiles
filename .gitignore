@@ -23,7 +23,6 @@
 !.scripts/i3status.sh
 !.scripts/refresh_i3status.sh
 !.ssh/config
-!.tmux.conf
 !.vimrc
 !.xprofile
 !.zshrc
