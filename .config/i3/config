@@ -176,7 +176,8 @@ bar {
 }
 
 default_border pixel 1
-smart_borders on
+#smart_borders on
+client.focused          #4c7899 #285577 #ffffff #2e9ef4 #2F343F
 
 exec --no-startup-id compton -b
 exec --no-startup-id pidof redshift || redshift &
