@@ -19,14 +19,6 @@ else
     echo "Cannot find oh-my-zsh directory"
 fi
 
-# autostart tmux on zsh start
-#if [[ -n $SSH_CONNECTION ]]; then
-#    ZSH_TMUX_AUTOSTART=false
-#else
-#    ZSH_TMUX_AUTOSTART=true
-#fi
-#ZSH_TMUX_AUTOCONNECT=false
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -46,12 +38,6 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
@@ -63,11 +49,6 @@ ZSH_THEME="robbyrussell"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -76,7 +57,6 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 function () {
-    local tmux_plugin
     local dist_plugin
 
     if [[ -n $ARCH_BASED ]] ; then
@@ -89,11 +69,7 @@ function () {
         echo "No disto specific zsh plugin found"
     fi
 
-    #if [[ -z $SSH_CONNECTION ]]; then
-    #    tmux_plugin=tmux
-    #fi
-
-    plugins=(git $tmux_plugin $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z)
+    plugins=(git $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z)
 }
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
@@ -105,27 +81,9 @@ fi
 #setopt complete_aliases
 
 # User configuration
-
 export GOPATH=/mnt/PODACI/projects/private/go
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -147,7 +105,10 @@ alias rm="rm -rf"
 alias mv="mv -f"
 alias cp="cp -rf"
 alias sudo="sudo -E "
+alias gclf="git clean -f"
+alias locate="sudo updatedb && locate"
 alias caly="cal -y"
+alias zsh_reload="source ~/.zshrc"
 
 if [[ -n $ARCH_BASED ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"
@@ -160,9 +121,6 @@ elif [[ -n $DEBIAN_BASED ]] ; then
 elif [[ -n $RPM_BASED ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi
-
-alias gclf="git clean -f"
-alias locate="sudo updatedb && locate"
 
 youtube_play() {
     nohup mpv --ytdl-format 22 $1 &> /dev/null &; disown
@@ -178,6 +136,4 @@ find_all() {
     find . -iname "*$1*" $2
 }
 alias fa=find_all
-
-alias zsh_reload="source ~/.zshrc"
 

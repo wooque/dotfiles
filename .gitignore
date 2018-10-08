@@ -1,5 +1,5 @@
 *
-!.Xdefaults
+!.Xresources
 !.config/Code/User/settings.json
 !.config/dunst/dunstrc
 !.config/fontconfig/fonts.conf
@@ -12,6 +12,7 @@
 !.config/mpv/mpv.conf
 !.config/pcmanfm/default/pcmanfm.conf
 !.config/qt5ct/qt5ct.conf
+!.config/rofi/config
 !.config/redshift.conf
 !.config/user-dirs.dirs
 !.dmrc
