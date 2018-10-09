@@ -12,6 +12,7 @@ URxvt.letterSpace: -1
 URxvt.saveLines: 1000
 URxvt*scrollBar: false
 URxvt*geometry: 120x40
+URxvt.perl-lib: /home/vuk/.scripts
 URxvt.perl-ext-common: default,vtwheel
 URxvt.iso14755: false
 URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
