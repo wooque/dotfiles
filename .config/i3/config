@@ -178,7 +178,7 @@ bar {
 default_border pixel 1
 smart_borders on
 
-exec --no-startup-id sh -c "pidof urxvtd || urxvtd &"
+exec --no-startup-id urxvtd &
 exec --no-startup-id sh -c "pkill redshift; redshift &"
 exec --no-startup-id feh --bg-fill --randomize /mnt/PODACI/Dropbox/svasta/wallpapers/*
 
