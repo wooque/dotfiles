@@ -197,7 +197,7 @@ bindsym Control+$mod+P exec --no-startup-id systemctl poweroff
 bindsym Control+$mod+S exec --no-startup-id systemctl suspend
 
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer --allow-boost -d 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --allow-boost -i 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -time 0 && refresh_i3status.sh
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -time 0 && refresh_i3status.sh
