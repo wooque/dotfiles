@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import json
+import os
 import signal
 import sys
 from subprocess import Popen, PIPE
@@ -15,14 +16,15 @@ def printf(data):
 
 cnt = 0
 skip = 2
-old_line = ''
 raw_line = ''
+brightness = None
+layout = None
 work = True
 i3s = None
 
 
-def handle_line():
-    global raw_line
+def handle_line(interrupt=False):
+    global raw_line, brightness, layout
     
     line = raw_line[:-1].decode('utf-8')
     
@@ -52,28 +54,47 @@ def handle_line():
             if '%' in elem["full_text"]:
                 del line[i]['color']
 
-    light = Popen(["xbacklight"], stdout=PIPE)
-    light_out = light.stdout.read()
-    light_out = int(round(float(light_out)))
-    light_bar = dict(name="brightness", full_text="☀️ {}%".format(light_out))
-    line = [line[0], light_bar] + line[1:]
+    if not brightness or interrupt:
+        backlight = Popen(["xbacklight"], stdout=PIPE)
+        backlight_out = backlight.stdout.read()
+        backlight_out = int(round(float(backlight_out)))
+        brightness_data = dict(name="brightness", full_text="☀️ {}%".format(backlight_out))
+        brightness = brightness_data
 
-    layout = Popen(["xkblayout-state", "print", "%s"], stdout=PIPE)
-    layout_out = layout.stdout.read()
-    layout_out = layout_out.decode('utf-8')
-    layout_bar = dict(name="keyboard_layout", full_text='⌨️ {}'.format(layout_out))
-    line = [layout_bar] + line
+    line = [line[0], brightness] + line[1:]
+
+    if not layout or interrupt:
+        layout_state = Popen(["xkblayout-state", "print", "%s"], stdout=PIPE)
+        layout_out = layout_state.stdout.read()
+        layout_out = layout_out.decode('utf-8')
+        layout_data = dict(name="keyboard_layout", full_text='⌨️ {}'.format(layout_out))
+        layout = layout_data
+
+    line = [layout] + line
 
     try:
         updates_num = open(".updates").read()
         updates_num = int(updates_num)
     
-    except (ValueError, FileNotFoundError) as e:
+    except (ValueError, FileNotFoundError):
         updates_num = 0
 
     if updates_num > 0:
         updates = dict(name="pacman", full_text="📦 {}".format(updates_num))
         line = [updates] + line
+
+    if os.path.exists('backup.txt'):
+        processes = Popen(["ps", "aux"], stdout=PIPE)
+        processes = processes.stdout.read().decode('utf-8')
+
+        backup_text = "☁️ "
+        if "backup.sh" in processes:
+            backup_text += "🔄"
+        else:
+            backup_text += "ℹ️"
+
+        backup = dict(name="backup", full_text=backup_text)
+        line = [backup] + line
 
     print_data = json_dumpu(line)
     if not first:
@@ -83,7 +104,7 @@ def handle_line():
 
 
 def main():
-    global cnt, skip, i3s, old_line, raw_line
+    global cnt, skip, i3s, raw_line
 
     i3s = Popen(["i3status"], stdout=PIPE)
     while work:
@@ -92,14 +113,12 @@ def main():
         if not raw_line:
             sys.exit()
 
-        if raw_line != old_line:
-            if cnt < skip:
-                line = raw_line[:-1].decode('utf-8')
-                printf(line)
-            else:
-                handle_line()
+        if cnt < skip:
+            line = raw_line[:-1].decode('utf-8')
+            printf(line)
+        else:
+            handle_line()
 
-        old_line = raw_line
         cnt += 1
 
 
@@ -107,7 +126,7 @@ def handle_sighup(sig, frame):
     global cnt, skip
     
     if cnt >= skip:
-        handle_line()
+        handle_line(interrupt=True)
 
 
 def handle_sigint(sig, frame):
