@@ -9,6 +9,7 @@ Xft.lcdfilter: lcddefault
 URxvt.font: xft:Monospace:size=8.5
 URxvt.letterSpace: -1
 
+URxvt.saveLines: 1000
 URxvt*scrollBar: false
 URxvt*geometry: 120x40
 URxvt.perl-ext-common: default,vtwheel
