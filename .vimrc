@@ -14,3 +14,4 @@ nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 set noswapfile
+autocmd BufWritePre *.py %s/\s\+$//e
