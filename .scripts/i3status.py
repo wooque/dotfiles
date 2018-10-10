@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from json import dumps, loads
+from os import remove
 from os.path import exists
 from signal import signal, SIGHUP, SIGINT
 from subprocess import Popen, PIPE
@@ -132,10 +133,18 @@ def handle_input():
 
         if 'backup' in line:
             if not backup or backup.poll() is not None:
-                if "running" in line:
-                    backup = Popen(["i3-sensible-terminal", "-e", "tail", "-f", "backup.txt"])
+                if '"button":2' in line:
+                    try:
+                        remove('backup.txt')
+                    except:
+                        pass
+                    handle_line()
                 else:
-                    backup = Popen(["i3-sensible-terminal", "-e", "vim", "backup.txt"])
+                    if "running" in line:
+                        backup = Popen(["i3-sensible-terminal", "-e", "tail", "-f", "backup.txt"])
+                    else:
+                        backup = Popen(["i3-sensible-terminal", "-e", "vim", "backup.txt"])
+
 
 def main():
     global cnt, skip, i3s, raw_line
