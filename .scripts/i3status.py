@@ -91,10 +91,12 @@ def handle_line(interrupt=False):
         backup_text = "☁️ "
         if "backup.sh" in processes:
             backup_text += "🔄"
+            instance = "running"
         else:
             backup_text += "ℹ️"
+            instance = "info"
 
-        backup = dict(name="backup", full_text=backup_text)
+        backup = dict(name="backup", instance=instance, full_text=backup_text)
         line = [backup] + line
 
     print_data = json_dumpu(line)
@@ -108,6 +110,7 @@ def handle_input():
     network = None
     calendar = None
     pacman = None
+    backup = None
 
     while work:
         line = stdin.readline()
@@ -126,6 +129,13 @@ def handle_input():
         if 'pacman' in line:
             if not pacman or pacman.poll() is not None:
                 pacman = Popen(["i3-sensible-terminal", "-e", "yaupg.sh"])
+
+        if 'backup' in line:
+            if not backup or backup.poll() is not None:
+                if "running" in line:
+                    backup = Popen(["i3-sensible-terminal", "-e", "tail", "-f", "backup.txt"])
+                else:
+                    backup = Popen(["i3-sensible-terminal", "-e", "vim", "backup.txt"])
 
 def main():
     global cnt, skip, i3s, raw_line
