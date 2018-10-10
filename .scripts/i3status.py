@@ -107,6 +107,7 @@ def handle_line(interrupt=False):
 def handle_input():
     network = None
     calendar = None
+    pacman = None
 
     while work:
         line = stdin.readline()
@@ -121,6 +122,10 @@ def handle_input():
 
         if "volume" in line:
             Popen(["pamixer", "-t"])
+
+        if 'pacman' in line:
+            if not pacman or pacman.poll() is not None:
+                pacman = Popen(["i3-sensible-terminal", "-e", "yaupg.sh"])
 
 def main():
     global cnt, skip, i3s, raw_line
