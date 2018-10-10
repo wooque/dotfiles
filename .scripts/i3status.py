@@ -107,6 +107,11 @@ def handle_line(interrupt=False):
     printf(print_data)
 
 
+
+def term_open(*args):
+    return Popen(["i3-sensible-terminal", "-e"] + list(args))
+
+
 def handle_input():
     network = None
     calendar = None
@@ -118,32 +123,34 @@ def handle_input():
 
         if "wireless" in line:
             if not network or network.poll() is not None:
-                network = Popen(["i3-sensible-terminal", "-e", "nmtui"])
+                network = term_open("nmtui")
 
         if "tztime" in line:
             if not calendar or calendar.poll() is not None:
-                calendar = Popen(["i3-sensible-terminal", "-e", "sh", "-c", "cal -y && sleep 60"])
+                calendar = term_open("sh", "-c", "cal -y && sleep 60")
 
         if "volume" in line:
             Popen(["pamixer", "-t"])
 
         if 'pacman' in line:
             if not pacman or pacman.poll() is not None:
-                pacman = Popen(["i3-sensible-terminal", "-e", "yaupg.sh"])
+                pacman = term_open("yaupg.sh")
 
         if 'backup' in line:
             if not backup or backup.poll() is not None:
+
                 if '"button":2' in line:
                     try:
                         remove('backup.txt')
                     except:
                         pass
                     handle_line()
+
                 else:
                     if "running" in line:
-                        backup = Popen(["i3-sensible-terminal", "-e", "tail", "-f", "backup.txt"])
+                        backup = term_open("tail", "-f", "backup.txt")
                     else:
-                        backup = Popen(["i3-sensible-terminal", "-e", "vim", "backup.txt"])
+                        backup = term_open("vim", "backup.txt")
 
 
 def main():
