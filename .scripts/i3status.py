@@ -107,9 +107,12 @@ def handle_line(interrupt=False):
     printf(print_data)
 
 
-
 def term_open(*args):
-    return Popen(["i3-sensible-terminal", "-e"] + list(args))
+    return Popen(["urxvt", "-e"] + list(args))
+
+
+def is_left_click(line):
+    return '"button":1' in line
 
 
 def handle_input():
@@ -121,18 +124,18 @@ def handle_input():
     while work:
         line = stdin.readline()
 
-        if "wireless" in line:
+        if "wireless" in line and is_left_click(line):
             if not network or network.poll() is not None:
                 network = term_open("nmtui")
 
-        if "tztime" in line:
+        if "tztime" in line and is_left_click(line):
             if not calendar or calendar.poll() is not None:
                 calendar = term_open("sh", "-c", "cal -y && sleep 60")
 
-        if "volume" in line:
+        if "volume" in line and is_left_click(line):
             Popen(["pamixer", "-t"])
 
-        if 'pacman' in line:
+        if 'pacman' in line and is_left_click(line):
             if not pacman or pacman.poll() is not None:
                 pacman = term_open("yaupg.sh")
 
@@ -146,7 +149,7 @@ def handle_input():
                         pass
                     handle_line()
 
-                else:
+                elif is_left_click(line):
                     if "running" in line:
                         backup = term_open("tail", "-f", "backup.txt")
                     else:

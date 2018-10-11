@@ -1,4 +1,3 @@
-
 [Default Applications]
 inode/directory=pcmanfm.desktop
 text/html=chromium.desktop
@@ -7,4 +6,4 @@ x-scheme-handler/https=chromium.desktop
 x-scheme-handler/about=chromium.desktop
 x-scheme-handler/unknown=chromium.desktop
 x-scheme-handler/mailto=chromium.desktop
-
+text/plain=vim.desktop
