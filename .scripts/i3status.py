@@ -108,52 +108,52 @@ def handle_line(interrupt=False):
 
 
 def term_open(*args):
-    return Popen(["urxvt", "-e"] + list(args))
+    Popen(["i3-sensible-terminal", "-e"] + list(args))
 
+def is_open(process):
+    processes = Popen(["ps", "aux"], stdout=PIPE)
+    processes = processes.stdout.read().decode('utf-8')
+    return process in processes
 
 def is_left_click(line):
     return '"button":1' in line
 
 
 def handle_input():
-    network = None
-    calendar = None
-    pacman = None
-    backup = None
-
     while work:
         line = stdin.readline()
 
         if "wireless" in line and is_left_click(line):
-            if not network or network.poll() is not None:
-                network = term_open("nmtui")
+            if not is_open("nmtui"):
+                term_open("nmtui")
 
         if "tztime" in line and is_left_click(line):
-            if not calendar or calendar.poll() is not None:
-                calendar = term_open("sh", "-c", "cal -y && sleep 60")
+            if not is_open("sleep 60"):
+                term_open("sh", "-c", "cal -y && sleep 60")
 
         if "volume" in line and is_left_click(line):
             Popen(["pamixer", "-t"])
 
         if 'pacman' in line and is_left_click(line):
-            if not pacman or pacman.poll() is not None:
-                pacman = term_open("yaupg.sh")
+            if not is_open("yaupg.sh"):
+                term_open("yaupg.sh")
 
         if 'backup' in line:
-            if not backup or backup.poll() is not None:
+            if '"button":2' in line:
+                try:
+                    remove('backup.txt')
+                except:
+                    pass
+                handle_line()
 
-                if '"button":2' in line:
-                    try:
-                        remove('backup.txt')
-                    except:
-                        pass
-                    handle_line()
+            elif is_left_click(line):
+                if "running" in line:
+                    if not is_open("tail -f backup.txt"):
+                        term_open("tail", "-f", "backup.txt")
 
-                elif is_left_click(line):
-                    if "running" in line:
-                        backup = term_open("tail", "-f", "backup.txt")
-                    else:
-                        backup = term_open("vim", "backup.txt")
+                elif "info" in line:
+                    if not is_open("vim backup.txt"):
+                        term_open("vim", "backup.txt")
 
 
 def main():
