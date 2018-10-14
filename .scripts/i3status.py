@@ -134,6 +134,10 @@ def handle_input():
         if "volume" in line and is_left_click(line):
             Popen(["pamixer", "-t"])
 
+        if "layout" in line and is_left_click(line):
+            Popen(["xkblayout-state", "set", "+1"])
+            handle_line(interrupt=True)
+
         if 'pacman' in line and is_left_click(line):
             if not is_open("yaupg.sh"):
                 term_open("yaupg.sh")
