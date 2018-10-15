@@ -1,0 +1,4 @@
+*.iso
+*.vdi
+*.vmdk
+*/be/db
