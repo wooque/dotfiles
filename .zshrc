@@ -56,21 +56,18 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-function () {
-    local dist_plugin
+if [[ -n $ARCH_BASED ]] ; then
+    dist_plugin=archlinux
+elif [[ -n $DEBIAN_BASED ]] ; then
+    dist_plugin=debian
+elif [[ -n $RPM_BASED ]] ; then
+    dist_plugin=yum
+else
+    dist_plugin=""
+    echo "No disto specific zsh plugin found"
+fi
 
-    if [[ -n $ARCH_BASED ]] ; then
-        dist_plugin=archlinux
-    elif [[ -n $DEBIAN_BASED ]] ; then
-        dist_plugin=debian    
-    elif [[ -n $RPM_BASED ]] ; then
-        dist_plugin=yum
-    else
-        echo "No disto specific zsh plugin found"
-    fi
-
-    plugins=(git $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z)
-}
+plugins=(git $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z)
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -80,10 +77,11 @@ fi
 # complete on aliases
 #setopt complete_aliases
 
-# User configuration
-export GOPATH=/mnt/PODACI/projects/private/go
-
 source $ZSH/oh-my-zsh.sh
+
+# User configuration
+export EDITOR="vim"
+export GOPATH="/mnt/PODACI/projects/private/go"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -113,7 +111,7 @@ alias zsh_reload="source ~/.zshrc"
 if [[ -n $ARCH_BASED ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"
     alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
-    alias yaupg=yaupg.sh
+    alias yaupg="yaupg.sh"
 elif [[ -n $DEBIAN_BASED ]] ; then
     alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
     alias apr="sudo apt-get autoremove --purge"
