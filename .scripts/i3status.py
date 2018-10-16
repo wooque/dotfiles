@@ -129,7 +129,7 @@ def handle_input():
 
         if "tztime" in line and is_left_click(line):
             if not is_open("sleep 60"):
-                term_open("sh", "-c", "cal -y && sleep 60")
+                term_open("sh", "-c", "cal -m -y && sleep 60")
 
         if "volume" in line and is_left_click(line):
             Popen(["pamixer", "-t"])
