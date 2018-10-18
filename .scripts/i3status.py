@@ -110,10 +110,12 @@ def handle_line(interrupt=False):
 def term_open(*args):
     Popen(["i3-sensible-terminal", "-e"] + list(args))
 
+
 def is_open(process):
     processes = Popen(["ps", "aux"], stdout=PIPE)
     processes = processes.stdout.read().decode('utf-8')
     return process in processes
+
 
 def is_left_click(line):
     return '"button":1' in line
@@ -131,8 +133,13 @@ def handle_input():
             if not is_open("sleep 60"):
                 term_open("sh", "-c", "cal -m -y && sleep 60")
 
-        if "volume" in line and is_left_click(line):
-            Popen(["pamixer", "-t"])
+        if "volume" in line:
+            if '"button":2' in line:
+                Popen(["pamixer", "-t"])
+
+            elif is_left_click(line):
+                if not is_open("pavucontrol"):
+                    Popen(["pavucontrol"])
 
         if "layout" in line and is_left_click(line):
             Popen(["xkblayout-state", "set", "+1"])
