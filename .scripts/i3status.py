@@ -134,12 +134,29 @@ def handle_input():
                 term_open("sh", "-c", "cal -m -y && sleep 60")
 
         if "volume" in line:
+            if '"button":4' in line:
+                Popen(["pamixer", "--allow-boost", "-i", "5"])
+                handle_line()
+
+            if '"button":5' in line:
+                Popen(["pamixer", "--allow-boost", "-d", "5"])
+                handle_line()
+
             if '"button":2' in line:
                 Popen(["pamixer", "-t"])
 
             elif is_left_click(line):
                 if not is_open("pavucontrol"):
                     Popen(["pavucontrol"])
+
+        if "brightness" in line:
+            if '"button":4' in line:
+                Popen(["xbacklight", "-inc", "10", "-time", "0"])
+                handle_line(interrupt=True)
+
+            if '"button":5' in line:
+                Popen(["xbacklight", "-dec", "10", "-time", "0"])
+                handle_line(interrupt=True)
 
         if "layout" in line and is_left_click(line):
             Popen(["xkblayout-state", "set", "+1"])
