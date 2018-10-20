@@ -1,4 +1,3 @@
-*.iso
-*.vdi
-*.vmdk
+*/muzika
+*/vmware
 */be/db
