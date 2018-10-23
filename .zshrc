@@ -120,15 +120,13 @@ elif [[ -n $RPM_BASED ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi
 
-youtube_play() {
-    nohup mpv --ytdl-format 22 $1 &> /dev/null &; disown
+mpv_play() {
+    nohup mpv "$@" &> /dev/null &; disown
 }
-alias yt=youtube_play
 
-youtube_play_audio() {
-    nohup mpv --ytdl-format 140 $1 &> /dev/null &; disown
-}
-alias yta=youtube_play_audio
+alias mpv=mpv_play
+alias yt="mpv_play --ytdl-format 22"
+alias yta="mpv_play --ytdl-format 140"
 
 find_all() {
     find . -iname "*$1*" $2
