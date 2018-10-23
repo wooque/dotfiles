@@ -126,7 +126,7 @@ youtube_play() {
 alias yt=youtube_play
 
 youtube_play_audio() {
-    nohup mpv --ytdl-format 140 --profile pseudo-gui $1 &> /dev/null &; disown
+    nohup mpv --ytdl-format 140 $1 &> /dev/null &; disown
 }
 alias yta=youtube_play_audio
 
