@@ -3,7 +3,7 @@ syntax on
 colorscheme default
 set clipboard=unnamedplus
 set mouse=a
-set number
+set number relativenumber
 set pastetoggle=<F9>
 set autoindent
 set tabstop=4
