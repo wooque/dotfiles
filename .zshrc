@@ -81,7 +81,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export EDITOR="vim"
-export GOPATH="/mnt/PODACI/projects/private/go"
+export GOPATH="/mnt/PODACI/projects/go"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

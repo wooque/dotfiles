@@ -21,7 +21,6 @@
     "terminal.integrated.fontFamily": "'DejaVu Sans Mono'",
     "terminal.integrated.fontSize": 12,
     "git.confirmSync": false,
-    "go.gopath": "/mnt/PODACI/projects/private/go",
     "workbench.colorTheme": "Monokai Dimmed",
     "go.lintOnSave": "off",
     "explorer.confirmDelete": false,
