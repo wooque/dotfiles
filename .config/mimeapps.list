@@ -8,5 +8,6 @@ x-scheme-handler/unknown=chromium.desktop
 x-scheme-handler/mailto=chromium.desktop
 text/plain=vim.desktop
 image/jpeg=sxiv.desktop
+image/png=sxiv.desktop
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop
 
