@@ -32,12 +32,6 @@ ZSH_THEME="robbyrussell"
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
@@ -48,9 +42,6 @@ ZSH_THEME="robbyrussell"
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -69,17 +60,11 @@ fi
 
 plugins=(git $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z)
 
-ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
-
-# complete on aliases
-#setopt complete_aliases
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+SAVEHIST=1000
+HISTSIZE=1000
 export EDITOR="vim"
 export GOPATH="/mnt/PODACI/projects/go"
 
@@ -129,7 +114,6 @@ alias yt="mpv_play --ytdl-format 22"
 alias yta="mpv_play --ytdl-format 140"
 
 find_all() {
-    find . -iname "*$1*" $2
+    find . -iname "*$1*" "${@:2}"
 }
 alias fa=find_all
-
