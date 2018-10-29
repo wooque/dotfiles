@@ -5,6 +5,7 @@ from os.path import exists
 from signal import signal, SIGHUP, SIGINT
 from subprocess import Popen, PIPE
 from sys import stdin, exit
+from time import sleep
 from threading import Thread
 
 
@@ -60,6 +61,7 @@ def handle_line(interrupt=False):
         backlight = Popen(["xbacklight"], stdout=PIPE)
         backlight_out = backlight.stdout.read()
         backlight_out = int(round(float(backlight_out)))
+
         brightness_data = dict(name="brightness", full_text="☀️ {}%".format(backlight_out))
         brightness = brightness_data
 
@@ -69,10 +71,41 @@ def handle_line(interrupt=False):
         layout_state = Popen(["xkblayout-state", "print", "%s"], stdout=PIPE)
         layout_out = layout_state.stdout.read()
         layout_out = layout_out.decode('utf-8')
+
         layout_data = dict(name="keyboard_layout", full_text='⌨️ {}'.format(layout_out))
         layout = layout_data
 
     line = [layout] + line
+
+    music_status = Popen(['cmus-remote', '-Q'], stdout=PIPE)
+    music_status = music_status.stdout.read().decode('utf-8')
+    if music_status:
+        status, artist, title = None, None, None
+
+        for l in music_status.split('\n'):
+            if l.startswith('status'):
+                status = l.split()[1]
+                status = {
+                    "playing": "▶️",
+                    "paused": "⏸️",
+                    "stopped": "⏹️",
+                }[status]
+
+            if l.startswith('tag artist'):
+                artist = l.replace('tag artist ', '')
+
+            if l.startswith('tag title'):
+                title = l.replace('tag title ', '')
+                if len(title) > 30:
+                    title = title[:30] + '...'
+        if title:
+            if artist:
+                full_text = "{} {} - {}".format(status, artist, title)
+            else:
+                full_text = "{} {}".format(status, title)
+
+            music = dict(name="music", full_text=full_text)
+            line = [music] + line
 
     try:
         updates_num = open(".updates").read()
@@ -121,6 +154,18 @@ def is_left_click(line):
     return '"button":1' in line
 
 
+def is_middle_click(line):
+    return '"button":2' in line
+
+
+def is_scroll_up(line):
+    return '"button":4' in line
+
+
+def is_scroll_down(line):
+    return '"button":5' in line
+
+
 def handle_input():
     while work:
         line = stdin.readline()
@@ -134,27 +179,43 @@ def handle_input():
                 term_open("sh", "-c", "cal -m -y && sleep 60")
 
         if "volume" in line:
-            if '"button":4' in line:
+            if is_scroll_up(line):
                 Popen(["pamixer", "--allow-boost", "-i", "5"])
                 handle_line()
 
-            if '"button":5' in line:
+            if is_scroll_down(line):
                 Popen(["pamixer", "--allow-boost", "-d", "5"])
                 handle_line()
 
-            if '"button":2' in line:
+            if is_middle_click(line):
                 Popen(["pamixer", "-t"])
 
             elif is_left_click(line):
                 if not is_open("pavucontrol"):
                     Popen(["pavucontrol"])
 
+        if "music" in line:
+            if is_left_click(line):
+                Popen(["cmus-remote", '-u'])
+
+            elif is_scroll_up(line):
+                Popen(["cmus-remote", "-n"])
+
+            elif is_scroll_down(line):
+                Popen(["cmus-remote", "-r"])
+
+            elif is_middle_click(line):
+                Popen(["pkill", "cmus"])
+                sleep(0.1)
+
+            handle_line()
+
         if "brightness" in line:
-            if '"button":4' in line:
+            if is_scroll_up(line):
                 Popen(["xbacklight", "-inc", "10", "-time", "0"])
                 handle_line(interrupt=True)
 
-            if '"button":5' in line:
+            if is_scroll_down(line):
                 Popen(["xbacklight", "-dec", "10", "-time", "0"])
                 handle_line(interrupt=True)
 
@@ -167,7 +228,7 @@ def handle_input():
                 term_open("yaupg.sh")
 
         if 'backup' in line:
-            if '"button":2' in line:
+            if is_middle_click(line):
                 try:
                     remove('backup.txt')
                 except:
