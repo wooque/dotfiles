@@ -1,5 +1,5 @@
 [Default Applications]
-inode/directory=pcmanfm.desktop
+inode/directory=ranger.desktop
 text/html=chromium.desktop
 x-scheme-handler/http=chromium.desktop
 x-scheme-handler/https=chromium.desktop

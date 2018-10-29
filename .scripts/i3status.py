@@ -98,6 +98,10 @@ def handle_line(interrupt=False):
                 title = l.replace('tag title ', '')
                 if len(title) > 30:
                     title = title[:30] + '...'
+
+            if l.startswith('file') and 'http' in l:
+                    status += ' 📻'
+
         if title:
             if artist:
                 full_text = "{} {} - {}".format(status, artist, title)
@@ -158,6 +162,10 @@ def is_middle_click(line):
     return '"button":2' in line
 
 
+def is_right_click(line):
+    return '"button":3' in line
+
+
 def is_scroll_up(line):
     return '"button":4' in line
 
@@ -198,11 +206,8 @@ def handle_input():
             if is_left_click(line):
                 Popen(["cmus-remote", '-u'])
 
-            elif is_scroll_up(line):
+            elif is_right_click(line):
                 Popen(["cmus-remote", "-n"])
-
-            elif is_scroll_down(line):
-                Popen(["cmus-remote", "-r"])
 
             elif is_middle_click(line):
                 Popen(["pkill", "cmus"])

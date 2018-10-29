@@ -182,13 +182,13 @@ exec --no-startup-id urxvtd -o
 exec --no-startup-id pkill redshift; redshift
 exec --no-startup-id feh --bg-fill --randomize /mnt/PODACI/Dropbox/svasta/wallpapers/*
 exec --no-startup-id xss-lock -- i3lock -c 000000
+exec --no-startup-id devmon -s
 
 bindsym $mod+B exec --no-startup-id chromium --password-store=gnome
 bindsym $mod+P exec --no-startup-id pavucontrol
-bindsym $mod+M exec --no-startup-id pcmanfm
 bindsym $mod+C exec --no-startup-id gnome-calculator
 bindsym $mod+T exec --no-startup-id i3-sensible-terminal -e htop
-bindsym $mod+G exec --no-startup-id i3-sensible-terminal -e ranger
+bindsym $mod+M exec --no-startup-id i3-sensible-terminal -e ranger
 bindsym $mod+N exec --no-startup-id i3-sensible-terminal -e nmtui
 bindsym $mod+X exec --no-startup-id i3-sensible-terminal -e sh -c "cal -m -y && sleep 60"
 bindsym $mod+U exec --no-startup-id i3-sensible-terminal -e cmus
