@@ -177,6 +177,8 @@ bar {
 
 default_border pixel 1
 smart_borders on
+gaps inner 6
+smart_gaps on
 
 exec --no-startup-id urxvtd -o
 exec --no-startup-id pkill redshift; redshift
