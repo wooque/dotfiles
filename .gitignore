@@ -1,6 +1,7 @@
 *
 !.Xresources
 !.config/Code/User/settings.json
+!.config/cmus/lib.pl
 !.config/dunst/dunstrc
 !.config/fontconfig/fonts.conf
 !.config/gtk-3.0/settings.ini
@@ -9,7 +10,6 @@
 !.config/i3status/config
 !.config/mimeapps.list
 !.config/mpv/mpv.conf
-!.config/pcmanfm/default/pcmanfm.conf
 !.config/qt5ct/qt5ct.conf
 !.config/ranger/rc.conf
 !.config/ranger/rifle.conf
@@ -23,6 +23,7 @@
 !.gtkrc-2.0
 !.local/share/applications/chromium.desktop
 !.local/share/applications/vim.desktop
+!.local/share/ranger/bookmarks
 !.profile
 !.scripts/backup.sh
 !.scripts/backup_exclude
