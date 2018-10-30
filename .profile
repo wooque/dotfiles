@@ -1,4 +1,5 @@
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export PATH=$HOME/.scripts:$PATH
+export GOPATH="$HOME/.go"
+export PATH="$HOME/.scripts:$GOPATH/bin:$PATH"
 export EDITOR="vim"
 export TERMINAL="urxvtc"
