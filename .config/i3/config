@@ -194,6 +194,9 @@ bindsym $mod+M exec --no-startup-id i3-sensible-terminal -e ranger
 bindsym $mod+N exec --no-startup-id i3-sensible-terminal -e nmtui
 bindsym $mod+X exec --no-startup-id i3-sensible-terminal -e sh -c "cal -m -y && sleep 60"
 bindsym $mod+U exec --no-startup-id i3-sensible-terminal -e cmus
+bindsym Control+$mod+C exec --no-startup-id cmus-remote -u && refresh_i3status.sh
+bindsym Control+$mod+B exec --no-startup-id cmus-remote -n && refresh_i3status.sh
+bindsym Control+$mod+Q exec --no-startup-id pkill cmus && refresh_i3status.sh
 bindsym --release Print exec --no-startup-id scrot -s
 bindsym Control+Print exec --no-startup-id scrot
 
