@@ -135,7 +135,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec i3-msg exit
+bindsym $mod+Shift+e exec "pkill redshift; pkill xss-lock; i3-msg exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -181,10 +181,9 @@ gaps inner 6
 smart_gaps on
 
 exec --no-startup-id urxvtd -o
-exec --no-startup-id pkill redshift; redshift
+exec --no-startup-id redshift
 exec --no-startup-id feh --bg-fill --randomize /mnt/PODACI/Dropbox/svasta/wallpapers/*
 exec --no-startup-id xss-lock -- i3lock -c 000000
-exec --no-startup-id devmon -s
 
 bindsym $mod+B exec --no-startup-id chromium --password-store=gnome
 bindsym $mod+P exec --no-startup-id pavucontrol
