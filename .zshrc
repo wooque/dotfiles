@@ -74,6 +74,8 @@ HISTSIZE=1000
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias r=ranger
+alias v=vim
 alias free="free -h"
 alias top="top -d1"
 alias htop="htop -d10"

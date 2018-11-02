@@ -24,5 +24,6 @@
     "workbench.colorTheme": "Monokai Dimmed",
     "go.lintOnSave": "off",
     "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "files.trimTrailingWhitespace": true
 }
