@@ -30,7 +30,7 @@ font pango:monospace 8.5
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal 
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -176,7 +176,7 @@ bar {
 }
 
 default_border pixel 1
-smart_borders on
+hide_edge_borders smart
 gaps inner 6
 smart_gaps on
 
