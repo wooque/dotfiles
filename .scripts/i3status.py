@@ -192,19 +192,19 @@ def handle_input():
 
         if "volume" in line:
             if is_scroll_up(line):
-                Popen(["pamixer", "--allow-boost", "-i", "5"])
+                Popen(["pulsemixer", "--change-volume", "+5"])
                 handle_line()
 
             if is_scroll_down(line):
-                Popen(["pamixer", "--allow-boost", "-d", "5"])
+                Popen(["pulsemixer", "--change-volume", "-5"])
                 handle_line()
 
             if is_middle_click(line):
-                Popen(["pamixer", "-t"])
+                Popen(["pulsemixer", "--toggle-mute"])
 
             elif is_left_click(line):
-                if not is_open("pavucontrol"):
-                    Popen(["pavucontrol"])
+                if not is_open("pulsemixer"):
+                    term_open("pulsemixer")
 
         if "music" in line:
             if is_left_click(line):
