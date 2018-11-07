@@ -60,12 +60,16 @@ def handle_line(interrupt=False):
     if not brightness or interrupt:
         backlight = Popen(["xbacklight"], stdout=PIPE)
         backlight_out = backlight.stdout.read()
-        backlight_out = int(round(float(backlight_out)))
+        try:
+            backlight_out = int(round(float(backlight_out)))
 
-        brightness_data = dict(name="brightness", full_text="☀️ {}%".format(backlight_out))
-        brightness = brightness_data
+            brightness_data = dict(name="brightness", full_text="☀️ {}%".format(backlight_out))
+            brightness = brightness_data
+        except ValueError:
+            pass
 
-    line = [line[0], brightness] + line[1:]
+    if brightness:
+        line = [line[0], brightness] + line[1:]
 
     if not layout or interrupt:
         layout_state = Popen(["xkblayout-state", "print", "%s"], stdout=PIPE)
