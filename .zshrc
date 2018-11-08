@@ -6,23 +6,10 @@ elif type yum > /dev/null ; then
     RPM_BASED=true
 fi
 
-# Path to your oh-my-zsh installation.
-if [[ -d /usr/share/oh-my-zsh/ ]] ; then
-    ZSH=/usr/share/oh-my-zsh/
-elif [[ -d /home/$USER/.oh-my-zsh/ ]] ; then
-    ZSH=/home/$USER/.oh-my-zsh/
-elif [[ -d /Users/$USER/.oh-my-zsh ]] ; then
-    ZSH=/Users/$USER/.oh-my-zsh/
-elif [[ -d /root/.oh-my-zsh ]] ; then
-    ZSH=/root/.oh-my-zsh/
-else
-    echo "Cannot find oh-my-zsh directory"
-fi
+ZSH="$HOME/.oh-my-zsh/"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -44,9 +31,6 @@ ZSH_THEME="robbyrussell"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 if [[ -n $ARCH_BASED ]] ; then
     dist_plugin=archlinux
 elif [[ -n $DEBIAN_BASED ]] ; then
@@ -66,14 +50,6 @@ source $ZSH/oh-my-zsh.sh
 SAVEHIST=1000
 HISTSIZE=1000
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias r=ranger
 alias v=vim
 alias free="free -h"
