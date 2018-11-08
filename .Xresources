@@ -10,13 +10,16 @@ URxvt.font: xft:Monospace:size=8.5
 URxvt.letterSpace: -1
 
 URxvt.saveLines: 1000
-URxvt*scrollBar: false
-URxvt*geometry: 120x40
+URxvt.scrollBar: false
+URxvt.geometry: 120x40
 URxvt.perl-lib: /home/vuk/.scripts
 URxvt.perl-ext-common: default,vtwheel
 URxvt.iso14755: false
 URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
 URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
+
+URxvt.transparent: true
+URxvt.tintColor: #2F343F
 
 URxvt.foreground: #D3D7CF
 URxvt.background: #2F343F
