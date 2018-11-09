@@ -1,45 +1,15 @@
-if type pacman > /dev/null ; then
-    ARCH_BASED=true
-elif type apt-get > /dev/null ; then
-    DEBIAN_BASED=true
-elif type yum > /dev/null ; then
-    RPM_BASED=true
-fi
-
-ZSH="$HOME/.oh-my-zsh/"
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
+export ZSH="$HOME/.oh-my-zsh/"
 ZSH_THEME="robbyrussell"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+#ENABLE_CORRECTION="true"
+#COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-if [[ -n $ARCH_BASED ]] ; then
+if type pacman > /dev/null ; then
     dist_plugin=archlinux
-elif [[ -n $DEBIAN_BASED ]] ; then
+elif type apt-get > /dev/null ; then
     dist_plugin=debian
-elif [[ -n $RPM_BASED ]] ; then
+elif type yum > /dev/null ; then
     dist_plugin=yum
-else
-    dist_plugin=""
-    echo "No disto specific zsh plugin found"
 fi
 
 plugins=(git $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z)
@@ -71,15 +41,15 @@ alias gclf="git clean -f"
 alias locate="sudo updatedb && locate"
 alias zshreload="source ~/.zshrc"
 
-if [[ -n $ARCH_BASED ]] ; then
+if [[ $dist_plugin == "archlinux" ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"
     alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
     alias yaupg="yaupg.sh"
-elif [[ -n $DEBIAN_BASED ]] ; then
+elif [[ $dist_plugin == "debian" ]] ; then
     alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
     alias apr="sudo apt-get autoremove --purge"
     alias ai="sudo apt-get install"
-elif [[ -n $RPM_BASED ]] ; then
+elif [[ $dist_plugin == "yum" ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi
 
