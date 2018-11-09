@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from json import dumps, loads
 from os import remove
 from os.path import exists
