@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh/"
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
 #ENABLE_CORRECTION="true"
 #COMPLETION_WAITING_DOTS="true"
@@ -17,6 +17,13 @@ plugins=(git $dist_plugin common-aliases dirhistory last-working-dir sudo system
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg_bold[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[blue]%}) %{$fg[yellow]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[blue]%})"
+
+PROMPT='%{$fg_bold[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+
 SAVEHIST=1000
 HISTSIZE=1000
 
