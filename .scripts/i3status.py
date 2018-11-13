@@ -81,7 +81,7 @@ def handle_line(interrupt=False):
 
     line = [layout] + line
 
-    music_status = Popen(['cmus-remote', '-Q'], stdout=PIPE)
+    music_status = Popen(['cmus-remote', '-Q'], stdout=PIPE, stderr=PIPE)
     music_status = music_status.stdout.read().decode('utf-8')
     if music_status:
         status, artist, title = None, None, None
