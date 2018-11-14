@@ -25,5 +25,6 @@
     "go.lintOnSave": "off",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "window.titleBarStyle": "custom"
 }
