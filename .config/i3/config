@@ -191,7 +191,7 @@ bindsym $mod+C exec --no-startup-id gnome-calculator
 bindsym $mod+T exec --no-startup-id i3-sensible-terminal -e htop
 bindsym $mod+M exec --no-startup-id i3-sensible-terminal -e ranger
 bindsym $mod+N exec --no-startup-id i3-sensible-terminal -e nmtui
-bindsym $mod+X exec --no-startup-id i3-sensible-terminal -e sh -c "cal -m -y && sleep 60"
+bindsym $mod+X exec --no-startup-id i3-sensible-terminal -e caly
 bindsym $mod+U exec --no-startup-id i3-sensible-terminal -e cmus
 bindsym Control+$mod+C exec --no-startup-id cmus-remote -u && refresh_i3status.sh
 bindsym Control+$mod+B exec --no-startup-id cmus-remote -n && refresh_i3status.sh

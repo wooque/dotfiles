@@ -104,7 +104,7 @@ def handle_line(interrupt=False):
                     title = title[:30] + '...'
 
             if l.startswith('file') and 'http' in l:
-                    status += ' 📻'
+                status += ' 📻'
 
         if title:
             if artist:
@@ -148,14 +148,12 @@ def handle_line(interrupt=False):
     printf(print_data)
 
 
-def term_open(*args):
-    Popen(["i3-sensible-terminal", "-e"] + list(args))
-
-
-def is_open(process):
-    processes = Popen(["ps", "aux"], stdout=PIPE)
-    processes = processes.stdout.read().decode('utf-8')
-    return process in processes
+def toogle_process(process):
+    proc = Popen(["pgrep", "-f", process], stdout=PIPE)
+    if proc.stdout.read():
+        Popen(["pkill", "-f", process])
+    else:
+        Popen(["i3-sensible-terminal", "-e"] + process.split())
 
 
 def is_left_click(line):
@@ -183,12 +181,10 @@ def handle_input():
         line = stdin.readline()
 
         if "wireless" in line and is_left_click(line):
-            if not is_open("nmtui"):
-                term_open("nmtui")
+            toogle_process("nmtui")
 
         if "tztime" in line and is_left_click(line):
-            if not is_open("sleep 60"):
-                term_open("sh", "-c", "cal -m -y && sleep 60")
+            toogle_process("caly")
 
         if "volume" in line:
             if is_scroll_up(line):
@@ -203,8 +199,7 @@ def handle_input():
                 Popen(["pulsemixer", "--toggle-mute"])
 
             elif is_left_click(line):
-                if not is_open("pulsemixer"):
-                    term_open("pulsemixer")
+                toogle_process("pulsemixer")
 
         if "music" in line:
             if is_left_click(line):
@@ -233,8 +228,7 @@ def handle_input():
             handle_line(interrupt=True)
 
         if 'pacman' in line and is_left_click(line):
-            if not is_open("yaupg.sh"):
-                term_open("yaupg.sh")
+            toogle_process("yaupg.sh")
 
         if 'backup' in line:
             if is_middle_click(line):
@@ -246,12 +240,10 @@ def handle_input():
 
             elif is_left_click(line):
                 if "running" in line:
-                    if not is_open("tail -f backup.txt"):
-                        term_open("tail", "-f", "backup.txt")
+                    toogle_process("tail -f backup.txt")
 
                 elif "info" in line:
-                    if not is_open("vim backup.txt"):
-                        term_open("vim", "backup.txt")
+                    toogle_process("vim backup.txt")
 
 
 def main():
