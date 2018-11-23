@@ -60,10 +60,16 @@ elif [[ $dist_plugin == "yum" ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi
 
+open() {
+    if [[ $# -eq 0 ]]; then return; fi
+    nohup xdg-open "$@" &> /dev/null &; disown
+}
+alias o=open
+
 mpv_play() {
+    if [[ $# -eq 0 ]]; then return; fi
     nohup mpv "$@" &> /dev/null &; disown
 }
-
 alias mpv=mpv_play
 alias yt="mpv_play --ytdl-format 22"
 alias yta="mpv_play --ytdl-format 140"
