@@ -131,7 +131,7 @@ def handle_line(interrupt=False):
         processes = processes.stdout.read().decode('utf-8')
 
         backup_text = "☁️ "
-        if "backup.sh" in processes:
+        if "backup" in processes:
             backup_text += "🔄"
             instance = "running"
         else:
@@ -228,7 +228,7 @@ def handle_input():
             handle_line(interrupt=True)
 
         if 'pacman' in line and is_left_click(line):
-            toogle_process("yaupg.sh")
+            toogle_process("yaupg")
 
         if 'backup' in line:
             if is_middle_click(line):

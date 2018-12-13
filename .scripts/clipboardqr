@@ -1,0 +1,2 @@
+#!/bin/sh
+qrencode -s 5 -o - "$(xclip -out -selection clipboard)" | feh --force-aliasing --image-bg white -

@@ -176,7 +176,7 @@ bindsym $mod+Shift+S scratchpad show
 # finds out, if available)
 bar {
         i3bar_command i3bar
-        status_command i3status.py
+        status_command i3status_ext
         position top
         colors {
             background #2F343F
@@ -201,9 +201,10 @@ bindsym $mod+M exec --no-startup-id i3-sensible-terminal -e ranger
 bindsym $mod+N exec --no-startup-id i3-sensible-terminal -e nmtui
 bindsym $mod+X exec --no-startup-id i3-sensible-terminal -e caly
 bindsym $mod+U exec --no-startup-id i3-sensible-terminal -e cmus
-bindsym Control+$mod+C exec --no-startup-id cmus-remote -u && refresh_i3status.sh
-bindsym Control+$mod+B exec --no-startup-id cmus-remote -n && refresh_i3status.sh
-bindsym Control+$mod+Q exec --no-startup-id pkill cmus && refresh_i3status.sh
+bindsym $mod+Q exec --no-startup-id clipboardqr
+bindsym Control+$mod+C exec --no-startup-id cmus-remote -u && i3status_refresh
+bindsym Control+$mod+B exec --no-startup-id cmus-remote -n && i3status_refresh
+bindsym Control+$mod+Q exec --no-startup-id pkill cmus && i3status_refresh
 bindsym --release Print exec --no-startup-id scrot -s
 bindsym Control+Print exec --no-startup-id scrot
 
@@ -215,6 +216,6 @@ bindsym Control+$mod+S exec --no-startup-id systemctl suspend
 bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute
 bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -time 0 && refresh_i3status.sh
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -time 0 && refresh_i3status.sh
-bindsym Menu exec --no-startup-id refresh_i3status.sh
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -time 0 && i3status_refresh
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -time 0 && i3status_refresh
+bindsym Menu exec --no-startup-id i3status_refresh
