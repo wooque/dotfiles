@@ -164,6 +164,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym Control+$mod+Left resize shrink width 10 px or 10 ppt
+bindsym Control+$mod+Down resize grow height 10 px or 10 ppt
+bindsym Control+$mod+Up resize shrink height 10 px or 10 ppt
+bindsym Control+$mod+Right resize grow width 10 px or 10 ppt
+
 bindsym $mod+Shift+M move scratchpad
 bindsym $mod+Shift+S scratchpad show
 
