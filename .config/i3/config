@@ -195,7 +195,7 @@ exec --no-startup-id xss-lock -- i3lock -c 000000
 
 bindsym $mod+B exec --no-startup-id chromium --password-store=gnome
 bindsym $mod+P exec --no-startup-id i3-sensible-terminal -e pulsemixer
-bindsym $mod+C exec --no-startup-id gnome-calculator
+bindsym $mod+C exec --no-startup-id i3-sensible-terminal -e python -q
 bindsym $mod+T exec --no-startup-id i3-sensible-terminal -e htop
 bindsym $mod+M exec --no-startup-id i3-sensible-terminal -e ranger
 bindsym $mod+N exec --no-startup-id i3-sensible-terminal -e nmtui
