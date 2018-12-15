@@ -71,7 +71,6 @@ mpv_play() {
     nohup mpv "$@" &> /dev/null &; disown
 }
 alias mpv=mpv_play
-alias yt="mpv_play --ytdl-format 22"
 alias yta="mpv_play --ytdl-format 140"
 
 find_all() {
