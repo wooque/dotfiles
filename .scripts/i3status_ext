@@ -127,11 +127,11 @@ def handle_line(interrupt=False):
         line = [updates] + line
 
     if exists('backup.txt'):
-        processes = Popen(["ps", "aux"], stdout=PIPE)
-        processes = processes.stdout.read().decode('utf-8')
+        processes = Popen(["pgrep", "-f", ".scripts/backup"], stdout=PIPE)
+        running = processes.stdout.read()
 
         backup_text = "☁️ "
-        if "backup" in processes:
+        if running:
             backup_text += "🔄"
             instance = "running"
         else:
