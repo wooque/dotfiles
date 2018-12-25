@@ -20,7 +20,7 @@ order += "tztime local"
 volume master {
         format = "🔊 %volume"
         format_muted = "🔇 (%volume)"
-        device = "pulse:0"
+        device = "pulse"
 }
 
 wireless _first_ {
