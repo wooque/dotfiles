@@ -202,10 +202,10 @@ bar {
         statusline          $white
         separator           $background
 
-        focused_workspace   $blue       $darkblue       $white
-        active_workspace    $magenta    $darkmagenta    $white
-        inactive_workspace  $background $background     $darkwhite
-        urgent_workspace    $red        $darkred        $white
+        focused_workspace   $darkblue       $darkblue       $white
+        active_workspace    $darkmagenta    $darkmagenta    $white
+        inactive_workspace  $background     $background     $darkwhite
+        urgent_workspace    $darkred        $darkred        $white
     }
 }
 
