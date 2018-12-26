@@ -173,29 +173,29 @@ bindsym $mod+Shift+M move scratchpad
 bindsym $mod+Shift+S scratchpad show
 
 set_from_resource $background   URxvt.background
-set_from_resource $foreground	URxvt.foreground
-set_from_resource $darkblack	URxvt.color0
-set_from_resource $black	    URxvt.color8
-set_from_resource $darkred	    URxvt.color1
-set_from_resource $red		    URxvt.color9
-set_from_resource $darkgreen	URxvt.color2
-set_from_resource $green	    URxvt.color10
-set_from_resource $darkyellow	URxvt.color3
-set_from_resource $yellow	    URxvt.color11
-set_from_resource $darkblue	    URxvt.color4
-set_from_resource $blue		    URxvt.color12
-set_from_resource $darkmagenta	URxvt.color5
-set_from_resource $magenta	    URxvt.color13
-set_from_resource $darkcyan	    URxvt.color6
-set_from_resource $cyan		    URxvt.color14
-set_from_resource $darkwhite	URxvt.color7
-set_from_resource $white	    URxvt.color15
+set_from_resource $foreground   URxvt.foreground
+set_from_resource $darkblack    URxvt.color0
+set_from_resource $black        URxvt.color8
+set_from_resource $darkred      URxvt.color1
+set_from_resource $red          URxvt.color9
+set_from_resource $darkgreen    URxvt.color2
+set_from_resource $green        URxvt.color10
+set_from_resource $darkyellow   URxvt.color3
+set_from_resource $yellow       URxvt.color11
+set_from_resource $darkblue     URxvt.color4
+set_from_resource $blue         URxvt.color12
+set_from_resource $darkmagenta  URxvt.color5
+set_from_resource $magenta      URxvt.color13
+set_from_resource $darkcyan     URxvt.color6
+set_from_resource $cyan         URxvt.color14
+set_from_resource $darkwhite    URxvt.color7
+set_from_resource $white        URxvt.color15
 
-#                       BORDER		BACKGROUND	TEXT		INDICATOR       CHILD_BORDER
-client.focused		    $darkblue   $darkblue	$white	    $blue	        $darkblue
-client.focused_inactive $darkcyan	$darkcyan	$darkwhite	$cyan	        $darkcyan
-client.unfocused	    $background $background	$darkwhite	$darkwhite	    $background
-client.urgent		    $darkred	$darkred	$white		$red	        $darkred
+#                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+client.focused          $darkblue   $darkblue   $white      $blue       $darkblue
+client.focused_inactive $darkcyan   $darkcyan   $darkwhite  $cyan       $darkcyan
+client.unfocused        $background $background $darkwhite  $darkwhite  $background
+client.urgent           $darkred    $darkred    $white      $red        $darkred
 
 client.background       $background
 
