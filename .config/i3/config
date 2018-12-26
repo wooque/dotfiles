@@ -218,7 +218,7 @@ bar {
     }
 }
 
-default_border pixel 1
+for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
 gaps inner 6
 smart_gaps on
