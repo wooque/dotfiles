@@ -10,3 +10,5 @@
     interactive = auto
     ui = auto
     pager = true
+[core]
+	pager = less -x1,5
