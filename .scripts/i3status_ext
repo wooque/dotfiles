@@ -148,12 +148,15 @@ def handle_line(interrupt=False):
     printf(print_data)
 
 
-def toogle_process(process):
+def toogle_process(process, gui=False):
     proc = Popen(["pgrep", "-f", process], stdout=PIPE)
     if proc.stdout.read():
         Popen(["pkill", "-f", process])
     else:
-        Popen(["i3-sensible-terminal", "-e"] + process.split())
+        if gui:
+            Popen([process], stdout=PIPE, stderr=PIPE)
+        else:
+            Popen(["i3-sensible-terminal", "-e"] + process.split())
 
 
 def is_left_click(line):
@@ -183,25 +186,28 @@ def handle_input():
         if "wireless" in line and is_left_click(line):
             toogle_process("nmtui")
 
-        if "tztime" in line and is_left_click(line):
+        elif "tztime" in line and is_left_click(line):
             toogle_process("caly")
 
-        if "volume" in line:
+        elif "volume" in line:
             if is_scroll_up(line):
                 Popen(["pulsemixer", "--change-volume", "+5"])
                 handle_line()
 
-            if is_scroll_down(line):
+            elif is_scroll_down(line):
                 Popen(["pulsemixer", "--change-volume", "-5"])
                 handle_line()
 
-            if is_middle_click(line):
+            elif is_middle_click(line):
                 Popen(["pulsemixer", "--toggle-mute"])
 
             elif is_left_click(line):
                 toogle_process("pulsemixer")
 
-        if "music" in line:
+            elif is_right_click(line):
+                toogle_process("pulseaudio-equalizer-gtk", gui=True)
+
+        elif "music" in line:
             if is_left_click(line):
                 Popen(["cmus-remote", '-u'])
 
@@ -214,23 +220,23 @@ def handle_input():
 
             handle_line()
 
-        if "brightness" in line:
+        elif "brightness" in line:
             if is_scroll_up(line):
                 Popen(["xbacklight", "-inc", "10", "-time", "0"])
                 handle_line(interrupt=True)
 
-            if is_scroll_down(line):
+            elif is_scroll_down(line):
                 Popen(["xbacklight", "-dec", "10", "-time", "0"])
                 handle_line(interrupt=True)
 
-        if "layout" in line and is_left_click(line):
+        elif "layout" in line and is_left_click(line):
             Popen(["xkblayout-state", "set", "+1"])
             handle_line(interrupt=True)
 
-        if 'pacman' in line and is_left_click(line):
+        elif 'pacman' in line and is_left_click(line):
             toogle_process("yaupg")
 
-        if 'backup' in line:
+        elif 'backup' in line:
             if is_middle_click(line):
                 try:
                     remove('backup.txt')
