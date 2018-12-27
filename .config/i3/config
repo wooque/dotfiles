@@ -216,7 +216,7 @@ smart_gaps on
 
 exec --no-startup-id urxvtd -o
 exec --no-startup-id redshift
-exec --no-startup-id feh --bg-fill ~/.local/share/wallpaper.jpg
+exec --no-startup-id feh --bg-fill --randomize ~/.local/share/wallpapers
 exec --no-startup-id xss-lock -- i3lock -c 000000
 
 bindsym $mod+B exec --no-startup-id chromium
