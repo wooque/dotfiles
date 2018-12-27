@@ -1,2 +1,2 @@
 #!/bin/sh
-cal -m -y && sleep 60
+cal -mYS && sleep 60
