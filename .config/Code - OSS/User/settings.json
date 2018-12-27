@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'Monaco'",
+    "editor.fontFamily": "'Monospace'",
     "editor.fontSize": 12,
     "editor.dragAndDrop": true,
     "editor.minimap.enabled": true,
@@ -19,7 +19,7 @@
         "**/.vscode": true,
         "**/*.pyc": true
     },
-    "terminal.integrated.fontFamily": "'DejaVu Sans Mono'",
+    "terminal.integrated.fontFamily": "'Monospace'",
     "terminal.integrated.fontSize": 12,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
