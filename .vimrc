@@ -15,8 +15,9 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
-vmap <C-c> "+yi
+vmap <C-c> "+y
 vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
+vmap <C-v> "+p
+nmap <C-v> "+p
 imap <C-v> <C-r><C-o>+
 autocmd BufWritePre * %s/\s\+$//e
