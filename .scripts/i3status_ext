@@ -148,10 +148,10 @@ def handle_line(interrupt=False):
     printf(print_data)
 
 
-def toogle_process(process, gui=False):
+def toggle_process(process, gui=False, killsig="SIGTERM"):
     proc = Popen(["pgrep", "-f", process], stdout=PIPE)
     if proc.stdout.read():
-        Popen(["pkill", "-f", process])
+        Popen(["pkill", "-f", "-"+killsig, process])
     else:
         if gui:
             Popen([process], stdout=PIPE, stderr=PIPE)
@@ -184,10 +184,10 @@ def handle_input():
         line = stdin.readline()
 
         if "wireless" in line and is_left_click(line):
-            toogle_process("nmtui")
+            toggle_process("nmtui")
 
         elif "tztime" in line and is_left_click(line):
-            toogle_process("caly")
+            toggle_process("caly")
 
         elif "volume" in line:
             if is_scroll_up(line):
@@ -202,10 +202,10 @@ def handle_input():
                 Popen(["pulsemixer", "--toggle-mute"])
 
             elif is_left_click(line):
-                toogle_process("pulsemixer")
+                toggle_process("pulsemixer", killsig="SIGINT")
 
             elif is_right_click(line):
-                toogle_process("pulseaudio-equalizer-gtk", gui=True)
+                toggle_process("pulseaudio-equalizer-gtk", gui=True)
 
         elif "music" in line:
             if is_left_click(line):
@@ -234,7 +234,7 @@ def handle_input():
             handle_line(interrupt=True)
 
         elif 'pacman' in line and is_left_click(line):
-            toogle_process("yaupg")
+            toggle_process("yaupg")
 
         elif 'backup' in line:
             if is_middle_click(line):
@@ -246,10 +246,10 @@ def handle_input():
 
             elif is_left_click(line):
                 if "running" in line:
-                    toogle_process("tail -f backup.txt")
+                    toggle_process("tail -f backup.txt")
 
                 elif "info" in line:
-                    toogle_process("vim backup.txt")
+                    toggle_process("vim backup.txt")
 
 
 def main():
