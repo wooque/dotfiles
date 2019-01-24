@@ -10,4 +10,5 @@ x-scheme-handler/https=chromium.desktop
 text/html=chromium.desktop
 x-scheme-handler/about=chromium.desktop
 x-scheme-handler/unknown=chromium.desktop
+x-scheme-handler/mailto=chromium.desktop
 
