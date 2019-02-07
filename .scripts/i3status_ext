@@ -17,14 +17,11 @@ def printf(data):
     print(data, flush=True)
 
 
-SCREEN_LAYOUTS = ["laptop", "external", "laptop_external"]
-
 cnt = 0
 skip = 2
 raw_line = ''
 brightness = None
 layout = None
-screen_layout = 0
 work = True
 i3s = None
 
@@ -83,17 +80,6 @@ def handle_line(interrupt=False):
         layout = layout_data
 
     line = [layout] + line
-
-    screen_layout_desc = SCREEN_LAYOUTS[screen_layout]
-    if screen_layout_desc == "laptop":
-        screen_indicator = "💻"
-    elif screen_layout_desc == "laptop_external":
-        screen_indicator = "🖥️💻"
-    elif screen_layout_desc == "external":
-        screen_indicator = "🖥️"
-
-    screen_layout_data = dict(name="screen_layout", full_text=screen_indicator)
-    line = [screen_layout_data] + line
 
     music_status = Popen(['cmus-remote', '-Q'], stdout=PIPE, stderr=PIPE)
     music_status = music_status.stdout.read().decode('utf-8')
@@ -194,8 +180,6 @@ def is_scroll_down(line):
 
 
 def handle_input():
-    global screen_layout
-
     while work:
         line = stdin.readline()
 
@@ -248,12 +232,6 @@ def handle_input():
         elif "keyboard_layout" in line and is_left_click(line):
             Popen(["xkblayout-state", "set", "+1"])
             handle_line(interrupt=True)
-
-        elif "screen_layout" in line and is_left_click(line):
-            screen_layout = (screen_layout + 1) % 3
-            cmd = ".screenlayout/{}.sh".format(SCREEN_LAYOUTS[screen_layout])
-            Popen([cmd])
-            handle_line()
 
         elif 'pacman' in line and is_left_click(line):
             toggle_process("yaupg")
