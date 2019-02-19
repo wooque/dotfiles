@@ -47,6 +47,8 @@ alias clearcache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
 alias gclf="git clean -f"
 alias locate="sudo updatedb && locate"
 alias zshreload="source ~/.zshrc"
+alias ytd="youtube-dl -f 22"
+alias ytda="youtube-dl -f 140"
 
 if [[ $dist_plugin == "archlinux" ]] ; then
     alias pacstats="expac -HM '%m\t%n' | sort -n"
@@ -65,13 +67,6 @@ open() {
     nohup xdg-open "$@" &> /dev/null &; disown
 }
 alias o=open
-
-mpv_play() {
-    if [[ $# -eq 0 ]]; then return; fi
-    nohup mpv "$@" &> /dev/null &; disown
-}
-alias mpv=mpv_play
-alias yta="mpv_play --ytdl-format 140"
 
 find_all() {
     find . -iname "*$1*" "${@:2}"
