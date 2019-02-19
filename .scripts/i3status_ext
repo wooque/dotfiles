@@ -114,8 +114,8 @@ def handle_line(interrupt=False):
             else:
                 full_text = "{} {}".format(status, title)
 
-            if len(full_text) > 45:
-                full_text = full_text[:45] + '...'
+            if len(full_text) > 50:
+                full_text = full_text[:30] + '...' + full_text[-20:]
 
             music = dict(name="music", full_text=full_text)
             line = [music] + line
