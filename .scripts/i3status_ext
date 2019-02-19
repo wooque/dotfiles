@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from json import dumps, loads
 from os import remove
-from os.path import exists
+from os import path
 from signal import signal, SIGHUP, SIGINT
 from subprocess import Popen, PIPE
 from sys import stdin, exit
@@ -100,17 +100,22 @@ def handle_line(interrupt=False):
 
             if l.startswith('tag title'):
                 title = l.replace('tag title ', '')
-                if len(title) > 30:
-                    title = title[:30] + '...'
 
-            if l.startswith('file') and 'http' in l:
-                status += ' 📻'
+            if l.startswith('file'):
+                title = l.replace('file', '')
+                title = path.splitext(path.basename(title))[0]
+
+                if 'http' in l:
+                    status += ' 📻'
 
         if title:
             if artist:
                 full_text = "{} {} - {}".format(status, artist, title)
             else:
                 full_text = "{} {}".format(status, title)
+
+            if len(full_text) > 45:
+                full_text = full_text[:45] + '...'
 
             music = dict(name="music", full_text=full_text)
             line = [music] + line
@@ -126,7 +131,7 @@ def handle_line(interrupt=False):
         updates = dict(name="pacman", full_text="📦 {}".format(updates_num))
         line = [updates] + line
 
-    if exists('backup.txt'):
+    if path.exists('backup.txt'):
         processes = Popen(["pgrep", "-f", ".scripts/backup"], stdout=PIPE)
         running = processes.stdout.read()
 
