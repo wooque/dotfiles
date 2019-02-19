@@ -201,7 +201,7 @@ bindsym $mod+T exec --no-startup-id i3-sensible-terminal -e htop
 bindsym $mod+M exec --no-startup-id i3-sensible-terminal -e ranger
 bindsym $mod+N exec --no-startup-id i3-sensible-terminal -e nmtui
 bindsym $mod+Y exec --no-startup-id i3-sensible-terminal -e caly
-bindsym $mod+U exec --no-startup-id i3-sensible-terminal -e cmus
+bindsym $mod+U workspace $ws9; exec --no-startup-id i3-sensible-terminal -e cmus
 bindsym $mod+Z exec --no-startup-id pulseaudio-equalizer-gtk
 bindsym $mod+Q exec --no-startup-id clipboardqr
 bindsym $mod+O exec --no-startup-id change_output
