@@ -146,19 +146,19 @@ bindsym $mod+Shift+M move scratchpad
 bindsym $mod+Shift+S scratchpad show
 
 set_from_resource $background   URxvt.background
+set_from_resource $darkblack    URxvt.color0
+set_from_resource $black        URxvt.color8
 set_from_resource $darkred      URxvt.color1
 set_from_resource $red          URxvt.color9
 set_from_resource $darkblue     URxvt.color4
 set_from_resource $blue         URxvt.color12
-set_from_resource $darkmagenta  URxvt.color5
-set_from_resource $magenta      URxvt.color13
 set_from_resource $darkwhite    URxvt.color7
 set_from_resource $white        URxvt.color15
 
 #                       BORDER          BACKGROUND      TEXT        INDICATOR   CHILD_BORDER
 client.focused          $darkblue       $darkblue       $white      $blue       $darkblue
-client.focused_inactive $darkmagenta    $darkmagenta    $darkwhite  $magenta    $darkmagenta
-client.unfocused        $background     $background     $darkwhite  $darkwhite  $background
+client.focused_inactive $black          $black          $darkwhite  $black      $black
+client.unfocused        $background     $background     $darkwhite  $background $background
 client.urgent           $darkred        $darkred        $white      $red        $darkred
 
 client.background       $background
@@ -176,7 +176,7 @@ bar {
         separator           $background
 
         focused_workspace   $darkblue       $darkblue       $white
-        active_workspace    $darkmagenta    $darkmagenta    $white
+        active_workspace    $black          $black          $darkwhite
         inactive_workspace  $background     $background     $darkwhite
         urgent_workspace    $darkred        $darkred        $white
     }
@@ -201,7 +201,7 @@ bindsym $mod+T exec --no-startup-id i3-sensible-terminal -e htop
 bindsym $mod+M exec --no-startup-id i3-sensible-terminal -e ranger
 bindsym $mod+N exec --no-startup-id i3-sensible-terminal -e nmtui
 bindsym $mod+Y exec --no-startup-id i3-sensible-terminal -e caly
-bindsym $mod+U workspace $ws9; exec --no-startup-id i3-sensible-terminal -e cmus
+bindsym $mod+U workspace $ws10; exec --no-startup-id i3-sensible-terminal -e cmus
 bindsym $mod+Z exec --no-startup-id pulseaudio-equalizer-gtk
 bindsym $mod+Q exec --no-startup-id clipboardqr
 bindsym $mod+O exec --no-startup-id change_output
