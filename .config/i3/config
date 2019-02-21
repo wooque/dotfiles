@@ -182,10 +182,8 @@ bar {
     }
 }
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
-gaps inner 6
-smart_gaps on
 
 exec --no-startup-id urxvtd -o
 exec --no-startup-id redshift
