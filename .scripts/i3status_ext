@@ -81,6 +81,32 @@ def handle_line(interrupt=False):
 
     line = [layout] + line
 
+    try:
+        updates_num = open(".updates").read()
+        updates_num = int(updates_num)
+
+    except (ValueError, FileNotFoundError):
+        updates_num = 0
+
+    if updates_num > 0:
+        updates = dict(name="pacman", full_text="📦 {}".format(updates_num))
+        line = [updates] + line
+
+    if path.exists('backup.txt'):
+        processes = Popen(["pgrep", "-f", ".scripts/backup"], stdout=PIPE)
+        running = processes.stdout.read()
+
+        backup_text = "☁️ "
+        if running:
+            backup_text += "🔄"
+            instance = "running"
+        else:
+            backup_text += "ℹ️"
+            instance = "info"
+
+        backup = dict(name="backup", instance=instance, full_text=backup_text)
+        line = [backup] + line
+
     music_status = Popen(['cmus-remote', '-Q'], stdout=PIPE, stderr=PIPE)
     music_status = music_status.stdout.read().decode('utf-8')
     if music_status:
@@ -119,32 +145,6 @@ def handle_line(interrupt=False):
 
             music = dict(name="music", full_text=full_text)
             line = [music] + line
-
-    try:
-        updates_num = open(".updates").read()
-        updates_num = int(updates_num)
-
-    except (ValueError, FileNotFoundError):
-        updates_num = 0
-
-    if updates_num > 0:
-        updates = dict(name="pacman", full_text="📦 {}".format(updates_num))
-        line = [updates] + line
-
-    if path.exists('backup.txt'):
-        processes = Popen(["pgrep", "-f", ".scripts/backup"], stdout=PIPE)
-        running = processes.stdout.read()
-
-        backup_text = "☁️ "
-        if running:
-            backup_text += "🔄"
-            instance = "running"
-        else:
-            backup_text += "ℹ️"
-            instance = "info"
-
-        backup = dict(name="backup", instance=instance, full_text=backup_text)
-        line = [backup] + line
 
     print_data = json_dumpu(line)
     if not first:
