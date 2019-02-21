@@ -157,8 +157,8 @@ set_from_resource $white        URxvt.color15
 
 #                       BORDER          BACKGROUND      TEXT        INDICATOR   CHILD_BORDER
 client.focused          $darkblue       $darkblue       $white      $blue       $darkblue
-client.focused_inactive $black          $black          $darkwhite  $black      $black
-client.unfocused        $background     $background     $darkwhite  $background $background
+client.focused_inactive $background     $background     $darkwhite  $background $background
+client.unfocused        $darkblack      $darkblack      $darkwhite  $darkblack  $darkblack
 client.urgent           $darkred        $darkred        $white      $red        $darkred
 
 client.background       $background
