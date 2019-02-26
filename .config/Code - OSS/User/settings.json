@@ -27,5 +27,6 @@
     "go.lintOnSave": "off",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "keyboard.dispatch": "keyCode"
 }
