@@ -1,11 +1,11 @@
 {
     "editor.fontFamily": "'Monospace'",
-    "editor.fontSize": 12,
+    "editor.fontSize": 11,
     "editor.dragAndDrop": true,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "editor.minimap.renderCharacters": false,
     "editor.rulers": [
-        120
+        100
     ],
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "afterDelay",
@@ -20,7 +20,7 @@
         "**/*.pyc": true
     },
     "terminal.integrated.fontFamily": "'Monospace'",
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontSize": 11,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "workbench.colorTheme": "Monokai Dimmed",
