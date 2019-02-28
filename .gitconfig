@@ -11,4 +11,4 @@
     ui = auto
     pager = true
 [core]
-	pager = less -x1,5
+    pager = less -x1,5
