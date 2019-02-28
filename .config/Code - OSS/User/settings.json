@@ -1,6 +1,7 @@
 {
-    "editor.fontFamily": "'Monospace'",
-    "editor.fontSize": 11,
+    "editor.fontFamily": "'Terminus (TTF)'",
+    "editor.fontSize": 12,
+    "editor.lineHeight": 12,
     "editor.dragAndDrop": true,
     "editor.minimap.enabled": false,
     "editor.minimap.renderCharacters": false,
@@ -19,8 +20,8 @@
         "**/.vscode": true,
         "**/*.pyc": true
     },
-    "terminal.integrated.fontFamily": "'Monospace'",
-    "terminal.integrated.fontSize": 11,
+    "terminal.integrated.fontFamily": "'Terminus (TTF)'",
+    "terminal.integrated.fontSize": 12,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "workbench.colorTheme": "Monokai Dimmed",
