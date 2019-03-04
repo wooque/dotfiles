@@ -31,6 +31,7 @@ Expose usb device to guest:
 Command line control:
 -monitor stdio
 """
+win_cpu_opts = "host,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time"
 
 def run(*args):
     if len(args) == 1 and (args[0] in ["-h", "--help"]):
@@ -41,16 +42,19 @@ def run(*args):
     base_args = {
         "-daemonize": "",
         "-enable-kvm": "",
-        "-smp": "4",
+        "-cpu": "host",
+        "-smp": "4,cores=2",
         "-m": "2048",
-        "-hda": "",
+        "-drive": "",
         "-soundhw": "hda",
         "-nic": "user",
         "-usb": "",
         "-device": "usb-tablet",
     }
+    drive_fmt = 'file={},format=qcow2,l2-cache-size=4M'
+
     if len(args) and args[0].endswith("img"):
-        base_args["-hda"] = args[0]
+        drive = args[0]
         rest = args[1:]
     else:
         imgs = [e for e in os.listdir() if e.endswith("img")]
@@ -61,18 +65,30 @@ def run(*args):
             print("No images found")
             return
         else:
-            base_args["-hda"] = imgs[0]
+            drive = imgs[0]
             rest = args
 
+    base_args["-drive"] = drive_fmt.format(drive)
+    if "win" in drive.lower():
+        base_args["-cpu"] = win_cpu_opts
+    else:
+        base_args["-drive"] += ',if=virtio'
+        base_args["-nic"] += ',model=virtio'
+
     for a in args:
-        if a in ["-smp", "-m", "-hda", "-soundhw", "-nic"] and a in base_args:
+        if a in ["-cpu", "-smp", "-m", "-drive", "-soundhw", "-nic"] and a in base_args:
             del base_args[a]
-        if a == "-monitor":
+        elif a == "-monitor":
             del base_args["-daemonize"]
 
     flat_args = [e for e in itertools.chain.from_iterable(base_args.items()) if e != '']
-    p = subprocess.Popen(["qemu-system-x86_64"] + flat_args + list(rest))
-    p.wait()
+    all_args = flat_args + list(rest)
+    print("Options: {}".format(" ".join(all_args)))
+    p = subprocess.Popen(["qemu-system-x86_64"] + all_args)
+    try:
+        p.wait()
+    except:
+        pass
 
 def main():
     if len(sys.argv) == 1:
