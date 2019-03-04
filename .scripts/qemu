@@ -54,9 +54,11 @@ def run(*args):
         rest = args[1:]
     else:
         imgs = [e for e in os.listdir() if e.endswith("img")]
-        if len(imgs) != 1:
-            print("Found multiple images: {}".format(" ".join(imgs)))
-            print("Please specify image")
+        if len(imgs) > 1:
+            print("Found multiple images: {}".format(", ".join(imgs)))
+            return
+        elif len(imgs) == 0:
+            print("No images found")
             return
         else:
             base_args["-hda"] = imgs[0]
