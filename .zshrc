@@ -27,6 +27,13 @@ PROMPT='%{$fg_bold[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 SAVEHIST=1000
 HISTSIZE=1000
 
+export LESS=-R
+export LESS_TERMCAP_md=$'\E[1;34m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[1;32m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export SYSTEMD_LESS="FRSMK"
+
 alias r=ranger
 alias v=vim
 alias free="free -h"
@@ -41,6 +48,7 @@ alias ll="ls -lh"
 alias rm="rm -rf"
 alias mv="mv -f"
 alias cp="cp -rf"
+alias diff="diff --color=auto"
 alias sudo="sudo -E "
 alias cleartmp="rm -rf /tmp"
 alias clearcache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
