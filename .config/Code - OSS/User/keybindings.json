@@ -1,4 +1,3 @@
-// Place your key bindings in this file to overwrite the defaultsauto[]
 [
     {
         "key": "alt+right",
@@ -50,5 +49,13 @@
         "key": "ctrl+shift+alt+down",
         "command": "-editor.action.copyLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal"
     }
 ]
