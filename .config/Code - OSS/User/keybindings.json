@@ -57,5 +57,13 @@
     {
         "key": "ctrl+`",
         "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+alt+d",
+        "command": "workbench.debug.action.toggleRepl"
+    },
+    {
+        "key": "ctrl+shift+y",
+        "command": "-workbench.debug.action.toggleRepl"
     }
 ]
