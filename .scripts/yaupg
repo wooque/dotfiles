@@ -2,7 +2,7 @@
 set -e
 
 yay -Syu --combinedupgrade
-echo '0' > /home/vuk/.updates
+echo '0' > "$HOME/.updates"
 i3status_refresh
 sudo find /var/cache/pacman/pkg -mindepth 1 -delete
-find /home/vuk/.cache/yay -mindepth 1 -delete
+find "$HOME/.cache/yay" -mindepth 1 ! -name 'completion.cache' -delete
