@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# modification of the script from https://github.com/olemartinorg/i3-alternating-layout
 import i3
 import re
 import subprocess
@@ -29,6 +29,20 @@ def find_parent(window_id):
     return result[0]
 
 
+def new_layout(window):
+    if "rect" not in window:
+        return None
+
+    if window['layout'] == 'tabbed' or window['layout'] == 'stacked':
+        return None
+
+    width = window['rect']['width']
+    if width <= 640:
+        return 'v'
+    else:
+        return 'h'
+
+
 def set_layout():
     """
         Set the layout/split for the currently
@@ -37,20 +51,23 @@ def set_layout():
     """
     current_win = i3.filter(nodes=[], focused=True)
     for win in current_win:
+        nl = new_layout(win)
+        if not nl:
+            continue
         parent = find_parent(win['id'])
+        if not parent:
+            continue
+        for w in parent['nodes']:
+            nl = new_layout(w)
+            if not nl:
+                continue
+            if parent['layout'].startswith('split') and parent['layout'][-1] == nl:
+                continue
+            win_id = w['window']
+            if not win_id:
+                continue
 
-        if (parent and "rect" in parent
-                   and parent['layout'] != 'tabbed'
-                   and parent['layout'] != 'stacked'):
-            height = parent['rect']['height']
-            width = parent['rect']['width']
-
-            if height > width:
-                new_layout = 'vertical'
-            else:
-                new_layout = 'horizontal'
-
-            i3.split(new_layout)
+            i3.command(f'[id={win_id}] split {nl}')
 
 
 def print_help():
@@ -86,7 +103,7 @@ def main():
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
-    regex = re.compile(b'^_NET_CLIENT_LIST_STACKING|^_NET_ACTIVE_WINDOW')
+    regex = re.compile(b'^_NET_CLIENT_LIST_STACKING')
 
     last_line = ""
     while True:
