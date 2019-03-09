@@ -30,23 +30,23 @@
     "workbench.colorTheme": "Monokai Dimmed",
     "go.lintOnSave": "off",
     "go.alternateTools": {
-		"go-langserver": "bingo"
-	},
-	"go.useLanguageServer": true,
-	"go.languageServerFlags": ["-format-style=goimports"],
-	"go.languageServerExperimentalFeatures": {
-		"format": true,
-		"autoComplete": true,
-		"rename": true,
-		"goToDefinition": true,
-		"hover": true,
-		"signatureHelp": true,
-		"goToTypeDefinition": true,
-		"goToImplementation": true,
-		"documentSymbols": true,
-		"workspaceSymbols": true,
-		"findReferences": true
-	},
+        "go-langserver": "bingo"
+    },
+    "go.useLanguageServer": true,
+    "go.languageServerFlags": ["-format-style=goimports"],
+    "go.languageServerExperimentalFeatures": {
+        "format": true,
+        "autoComplete": true,
+        "rename": true,
+        "goToDefinition": true,
+        "hover": true,
+        "signatureHelp": true,
+        "goToTypeDefinition": true,
+        "goToImplementation": true,
+        "documentSymbols": true,
+        "workspaceSymbols": true,
+        "findReferences": true
+    },
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "window.titleBarStyle": "custom",
