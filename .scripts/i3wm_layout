@@ -1,17 +1,8 @@
 #!/usr/bin/env python3
-# modification of the script from https://github.com/olemartinorg/i3-alternating-layout
-import i3
-import re
-import subprocess
-import getopt
-import sys
-import os
+import i3ipc
 
 
-def find_parent(window_id):
-    """
-        Find the parent of a given window id
-    """
+def find_parent(i3, window_id):
     root_window = i3.get_tree()
     result = [None]
 
@@ -19,105 +10,55 @@ def find_parent(window_id):
         if result[0] is not None:
             return
         for node in n:
-            if node['id'] == window_id:
+            if node.id == window_id:
                 result[0] = p
                 return
-            if len(node['nodes']):
-                finder(node['nodes'], node)
+            if len(node.nodes):
+                finder(node.nodes, node)
 
-    finder(root_window['nodes'])
+    finder(root_window.nodes)
     return result[0]
 
 
 def new_layout(window):
-    if "rect" not in window:
+    if not window.rect:
         return None
 
-    if window['layout'] == 'tabbed' or window['layout'] == 'stacked':
+    if window.layout == 'tabbed' or window.layout == 'stacked':
         return None
 
-    width = window['rect']['width']
+    width = window.rect.width
     if width <= 640:
         return 'v'
     else:
         return 'h'
 
 
-def set_layout():
-    """
-        Set the layout/split for the currently
-        focused window to either vertical or
-        horizontal, depending on its width/height
-    """
-    current_win = i3.filter(nodes=[], focused=True)
-    for win in current_win:
-        nl = new_layout(win)
+def on_event(i3, e):
+    win = i3.get_tree().find_focused()
+    nl = new_layout(win)
+    if not nl:
+        return
+    parent = find_parent(i3, win.id)
+    if not parent:
+        return
+    for w in parent.nodes:
+        nl = new_layout(w)
         if not nl:
             continue
-        parent = find_parent(win['id'])
-        if not parent:
+        if parent.layout.startswith('split') and parent.layout[-1] == nl:
             continue
-        for w in parent['nodes']:
-            nl = new_layout(w)
-            if not nl:
-                continue
-            if parent['layout'].startswith('split') and parent['layout'][-1] == nl:
-                continue
-            win_id = w['window']
-            if not win_id:
-                continue
-
-            i3.command(f'[id={win_id}] split {nl}')
-
-
-def print_help():
-    print("Usage: " + sys.argv[0] + " [-p path/to/pid.file]")
-    print("")
-    print("Options:")
-    print("    -p path/to/pid.file   Saves the PID for this program in the filename specified")
-    print("")
-
-
-def main():
-    """
-        Main function - listen for window focus
-        changes and call set_layout when focus
-        changes
-    """
-    opt_list, args = getopt.getopt(sys.argv[1:], 'hp:')
-    pid_file = None
-    for opt in opt_list:
-        if opt[0] == "-h":
-            print_help()
-            sys.exit()
-        if opt[0] == "-p":
-            pid_file = opt[1]
-
-    if pid_file:
-        with open(pid_file, 'w') as f:
-            f.write(str(os.getpid()))
-
-
-    process = subprocess.Popen(
-        ['xprop', '-root', '-spy'],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
-    )
-    regex = re.compile(b'^_NET_CLIENT_LIST_STACKING')
-
-    last_line = ""
-    while True:
-        line = process.stdout.readline()
-        if line == b'': #X is dead
-            break
-        if line == last_line:
+        win_id = w.window
+        if not win_id:
             continue
-        if regex.match(line):
-            set_layout()
-        last_line = line
 
-    process.kill()
-    sys.exit()
+        i3.command(f'[id={win_id}] split {nl}')
 
-if __name__ == "__main__":
-    main()
+
+i3 = i3ipc.Connection()
+i3.on("window::new", on_event)
+i3.on("window::close", on_event)
+i3.on("window::move", on_event)
+#i3.on("window::focus", on_event)
+i3.main()
+
