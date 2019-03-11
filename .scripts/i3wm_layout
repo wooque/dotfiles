@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import i3ipc
+import time
 
 
 def new_layout(window):
@@ -30,8 +31,17 @@ def check(window, parent):
     if win_id:
         i3.command(f'[id={win_id}] split {nl}')
 
+last_event = time.time()
+
 
 def on_event(i3, e):
+    global last_event
+
+    event_time = time.time()
+    if event_time - last_event < 0.05:
+        return
+
+    last_event = event_time
     root = i3.get_tree()
     check(root, None)
 
