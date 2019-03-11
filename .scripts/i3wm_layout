@@ -2,24 +2,6 @@
 import i3ipc
 
 
-def find_parent(i3, window_id):
-    root_window = i3.get_tree()
-    result = [None]
-
-    def finder(n, p=None):
-        if result[0] is not None:
-            return
-        for node in n:
-            if node.id == window_id:
-                result[0] = p
-                return
-            if len(node.nodes):
-                finder(node.nodes, node)
-
-    finder(root_window.nodes)
-    return result[0]
-
-
 def new_layout(window):
     if not window.rect:
         return None
@@ -28,37 +10,36 @@ def new_layout(window):
         return None
 
     width = window.rect.width
-    if width <= 640:
+    if width < 960:
         return 'v'
     else:
         return 'h'
 
 
-def on_event(i3, e):
-    win = i3.get_tree().find_focused()
-    nl = new_layout(win)
+def check(window, parent):
+    if len(window.nodes):
+        for node in window.nodes:
+            check(node, window)
+        return
+    nl = new_layout(window)
     if not nl:
         return
-    parent = find_parent(i3, win.id)
-    if not parent:
+    if parent.layout.startswith('split') and parent.layout[-1] == nl:
         return
-    for w in parent.nodes:
-        nl = new_layout(w)
-        if not nl:
-            continue
-        if parent.layout.startswith('split') and parent.layout[-1] == nl:
-            continue
-        win_id = w.window
-        if not win_id:
-            continue
-
+    win_id = window.window
+    if win_id:
         i3.command(f'[id={win_id}] split {nl}')
+
+
+def on_event(i3, e):
+    root = i3.get_tree()
+    check(root, None)
 
 
 i3 = i3ipc.Connection()
 i3.on("window::new", on_event)
 i3.on("window::close", on_event)
 i3.on("window::move", on_event)
-#i3.on("window::focus", on_event)
+i3.on("window::resize", on_event)
 i3.main()
 
