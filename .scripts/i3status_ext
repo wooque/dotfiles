@@ -156,10 +156,18 @@ def handle_line(interrupt=False):
     printf(print_data)
 
 
-def toggle_process(process, gui=False, killsig="SIGTERM"):
+def is_running(process):
     proc = Popen(["pgrep", "-f", process], stdout=PIPE)
-    if proc.stdout.read():
-        Popen(["pkill", "-f", "-"+killsig, process])
+    return bool(proc.stdout.read())
+
+
+def kill(process, killsig="SIGTERM"):
+    Popen(["pkill", "-f", "-"+killsig, process])
+
+
+def toggle_process(process, gui=False, killsig="SIGTERM"):
+    if is_running(process):
+        kill(process, killsig=killsig)
     else:
         if gui:
             Popen([process], stdout=PIPE, stderr=PIPE)
@@ -253,11 +261,15 @@ def handle_input():
                 handle_line()
 
             elif is_left_click(line):
+                backup_progress = "tail -f backup.txt"
                 if "running" in line:
-                    toggle_process("tail -f backup.txt")
+                    toggle_process(backup_progress)
 
                 elif "info" in line:
-                    toggle_process("vim backup.txt")
+                    if is_running(backup_progress):
+                        kill(backup_progress)
+                    else:
+                        toggle_process("vim backup.txt")
 
 
 def main():
