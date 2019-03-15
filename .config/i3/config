@@ -217,6 +217,8 @@ bindsym Control+$mod+S exec --no-startup-id systemctl suspend
 bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute
 bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5
+bindsym Ctrl+XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -1
+bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +1
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -time 0 && i3status_refresh
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -time 0 && i3status_refresh
 bindsym Menu exec --no-startup-id i3status_refresh
