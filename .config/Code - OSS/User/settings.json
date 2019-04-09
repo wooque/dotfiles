@@ -31,11 +31,24 @@
     "go.lintOnSave": "off",
     "go.useLanguageServer": true,
     "go.alternateTools": {
-        "go-langserver": "bingo"
+        "go-langserver": "gopls"
     },
     "go.languageServerExperimentalFeatures": {
         "format": true,
-        "autoComplete": true
+        "autoComplete": true,
+        "diagnostics": true,
+        "goToDefinition": true,
+        "hover": true,
+        "signatureHelp": true,
+        "goToTypeDefinition": true
+    },
+    "go.buildOnSave": "off",
+    "go.vetOnSave": "off",
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
     },
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
