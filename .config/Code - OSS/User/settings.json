@@ -28,7 +28,6 @@
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "workbench.colorTheme": "Monokai Dimmed",
-    "go.lintOnSave": "off",
     "go.useLanguageServer": true,
     "go.alternateTools": {
         "go-langserver": "gopls"
