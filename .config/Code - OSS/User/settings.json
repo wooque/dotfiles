@@ -52,5 +52,7 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "window.titleBarStyle": "custom",
-    "keyboard.dispatch": "keyCode"
+    "keyboard.dispatch": "keyCode",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false
 }
