@@ -72,9 +72,13 @@ elif [[ $dist_plugin == "yum" ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi
 
-open() {
+launch() {
     if [[ $# -eq 0 ]]; then return; fi
-    nohup xdg-open "$@" &> /dev/null &; disown
+    nohup "$@" &> /dev/null &; disown
+}
+
+open() {
+    launch xdg-open "$@"
 }
 alias o=open
 
