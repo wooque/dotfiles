@@ -166,13 +166,13 @@ client.background       $background
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    i3bar_command i3bar
-    status_command i3status_ext
+    status_command i3status
+    separator_symbol " "
     position top
 
     colors {
         background          $background
-        statusline          $white
+        statusline          $darkwhite
         separator           $background
 
         focused_workspace   $darkblue       $darkblue       $white
@@ -189,7 +189,6 @@ exec --no-startup-id urxvtd -o
 exec --no-startup-id redshift
 exec --no-startup-id feh --bg-fill --randomize ~/.wallpapers
 exec --no-startup-id xss-lock -- i3lock -c 000000
-exec_always --no-startup-id i3wm_layout
 
 bindsym $mod+B exec --no-startup-id chromium
 bindsym $mod+I exec --no-startup-id chromium --incognito
@@ -203,9 +202,6 @@ bindsym $mod+U workspace $ws10; exec --no-startup-id i3-sensible-terminal -e cmu
 bindsym $mod+Z exec --no-startup-id pulseaudio-equalizer-gtk
 bindsym $mod+Q exec --no-startup-id clipboardqr
 bindsym $mod+O exec --no-startup-id change_output
-bindsym Control+$mod+C exec --no-startup-id cmus-remote -u && i3status_refresh
-bindsym Control+$mod+B exec --no-startup-id cmus-remote -n && i3status_refresh
-bindsym Control+$mod+Q exec --no-startup-id pkill cmus && i3status_refresh
 bindsym --release Print exec --no-startup-id scrot -s
 bindsym Control+Print exec --no-startup-id scrot
 
@@ -219,6 +215,5 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5
 bindsym Ctrl+XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -1
 bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +1
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -time 0 && i3status_refresh
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -time 0 && i3status_refresh
-bindsym Menu exec --no-startup-id i3status_refresh
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -time 0
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -time 0

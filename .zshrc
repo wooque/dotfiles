@@ -67,7 +67,6 @@ if [[ $dist_plugin == "archlinux" ]] ; then
 elif [[ $dist_plugin == "debian" ]] ; then
     alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
     alias apr="sudo apt-get autoremove --purge"
-    alias ai="sudo apt-get install"
 elif [[ $dist_plugin == "yum" ]] ; then
     alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
 fi

@@ -7,8 +7,10 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        output_format = "i3bar"
         colors = true
+        color_good = "#D3D7CF"
+        color_degraded = "#C4A000"
+        color_bad = "#CD0000"
         interval = 5
 }
 
@@ -18,25 +20,20 @@ order += "wireless _first_"
 order += "tztime local"
 
 volume master {
-        format = "🔊 %volume"
-        format_muted = "🔇 (%volume)"
+        format = "VOL %volume"
+        format_muted = "VOL (%volume)"
         device = "pulse"
 }
 
 wireless _first_ {
-        format_up = "📶%quality (%essid)"
-        format_down = "📶❌"
+        format_up = "%essid"
+        format_down = "WiFi down"
 }
 
 battery all {
         format = "%status %percentage %remaining"
-        format_down = "🔋❌"
-        status_chr = "⚡"
-        status_bat = "🔋"
-        status_unk = "🔋❓"
-        status_full = "🔌"
 }
 
 tztime local {
-        format = "📅 %b %d 🕓 %H:%M"
+        format = "%b %d  %H:%M"
 }

@@ -18,9 +18,6 @@ URxvt.iso14755:                 false
 URxvt.keysym.Shift-Control-V:   eval:paste_clipboard
 URxvt.keysym.Shift-Control-C:   eval:selection_to_clipboard
 
-URxvt.transparent:  true
-URxvt.tintColor:    #2F343F
-
 URxvt.foreground:   #D3D7CF
 URxvt.background:   #2F343F
 URxvt.color0:       #000000
