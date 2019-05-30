@@ -7,7 +7,6 @@ Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 
 URxvt.font:         xft:Monospace:size=8.5
-!URxvt.letterSpace:  -1
 
 URxvt.saveLines:                1000
 URxvt.scrollBar:                false

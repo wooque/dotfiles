@@ -1,9 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh/"
 ZSH_THEME=""
 
-#ENABLE_CORRECTION="true"
-#COMPLETION_WAITING_DOTS="true"
-
 if type pacman > /dev/null ; then
     dist_plugin=archlinux
 elif type apt-get > /dev/null ; then
