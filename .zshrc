@@ -1,84 +1,43 @@
-export ZSH="$HOME/.oh-my-zsh/"
-ZSH_THEME=""
-
-if type pacman > /dev/null ; then
-    dist_plugin=archlinux
-elif type apt-get > /dev/null ; then
-    dist_plugin=debian
-elif type yum > /dev/null ; then
-    dist_plugin=yum
-fi
-
-plugins=(git $dist_plugin common-aliases dirhistory last-working-dir sudo systemd z)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg_bold[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[blue]%}) %{$fg[yellow]%}×"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[blue]%})"
-
-PROMPT='%{$fg_bold[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
-
 SAVEHIST=1000
 HISTSIZE=1000
+HISTFILE="$HOME/.zsh_history"
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
 
-export LESS=-R
-export LESS_TERMCAP_md=$'\E[1;34m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[1;32m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export SYSTEMD_LESS="FRSMK"
+cyan=$'%{\e[96m%}'
+red=$'%{\e[91m%}'
+blue=$'%{\e[94m%}'
+yellow=$'%{\e[93m%}'
+reset_color=$'%{\e[0m%}'
 
-alias r=ranger
-alias v=vim
-alias ll="ls -lh"
-alias rm="rm -rf"
-alias mv="mv -f"
-alias cp="cp -rf"
-alias grep="grep -iI --color=auto"
-alias diff="diff --color=auto"
-alias sudo="sudo -E "
-alias free="free -h"
-alias top="top -d1"
-alias htop="htop -d10"
-alias psmem="sudo ps_mem"
-alias slabtop="sudo slabtop -s c"
-alias iotop="sudo iotop -oP"
-alias df="df -x tmpfs -x devtmpfs -h"
-alias dus="du -sh"
-alias ncdu="ncdu --color dark"
-alias cleartmp="rm -rf /tmp"
-alias clearcache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
-alias gclf="git clean -f"
-alias locate="sudo updatedb && locate"
-alias zshreload="source ~/.zshrc"
-alias ytd="youtube-dl -f 22"
-alias ytda="youtube-dl -f 140"
-
-if [[ $dist_plugin == "archlinux" ]] ; then
-    alias pacstats="expac -HM '%m\t%n' | sort -n"
-    alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
-    alias yaupg="$HOME/.scripts/yaupg"
-elif [[ $dist_plugin == "debian" ]] ; then
-    alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
-    alias apr="sudo apt-get autoremove --purge"
-elif [[ $dist_plugin == "yum" ]] ; then
-    alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
-fi
-
-launch() {
-    if [[ $# -eq 0 ]]; then return; fi
-    nohup "$@" &> /dev/null &; disown
+git_branch() {
+    ret="$(git branch 2> /dev/null | grep \* | cut -d ' ' -f2)"
+    if [[ -n $ret ]]; then
+        echo "$blue($red$ret$blue) "
+    fi
 }
 
-open() {
-    launch xdg-open "$@"
+git_status () {
+    ret="$(git status -s 2> /dev/null)"
+    if [[ -n $ret ]]; then
+        echo "$yellow× "
+    fi
 }
-alias o=open
 
-find_all() {
-    find . -iname "*$1*" "${@:2}"
-}
-alias fa=find_all
+setopt PROMPT_SUBST
+PROMPT="$cyan%c \$(git_branch)\$(git_status)$reset_color"
+
+source ~/.shrc
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
+
+bindkey "${terminfo[khome]}"    beginning-of-line
+bindkey "${terminfo[kend]}"     end-of-line
+bindkey "${terminfo[kdch1]}"    delete-char
+bindkey "${terminfo[kpp]}"      beginning-of-buffer-or-history
+bindkey "${terminfo[knp]}"      end-of-buffer-or-history
+bindkey '^R' history-incremental-search-backward
