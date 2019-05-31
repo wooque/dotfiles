@@ -7,8 +7,8 @@ export SYSTEMD_LESS="FRSMK"
 
 alias r=ranger
 alias v=vim
-alias ll="ls -lFh --group-directories-first --color=auto"
-alias la="ls -lFAh --group-directories-first --color=auto"
+alias ll="ls -lh --group-directories-first --color=auto"
+alias la="ls -lAh --group-directories-first --color=auto"
 alias rm="rm -rf"
 alias mv="mv -f"
 alias cp="cp -rf"
