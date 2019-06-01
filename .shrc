@@ -42,6 +42,8 @@ alias gco="git checkout"
 alias grhh="git reset --hard HEAD"
 alias gclf="git clean -f"
 
+if type pacman &> /dev/null; then
+
 alias pacin="sudo pacman -S"
 alias pacrem="sudo pacman -Rns"
 alias pacrmorphans="sudo pacman -Rs \$(pacman -Qtdq)"
@@ -49,9 +51,19 @@ alias pacstats="expac -HM '%m\t%n' | sort -n"
 alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
 alias yaupg="$HOME/.scripts/yaupg"
 
+elif type apt &> /dev/null; then
+
+alias ai="sudo apt install"
+alias apr="sudo apt autoremove --purge"
+alias adu="sudo apt update && sudo apt dist-upgrade"
+alias ac="sudo apt clean"
 alias astats="dpkg-query -Wf '\${Installed-Size}\t\${Package}\n' | sort -n"
-alias apr="sudo apt-get autoremove --purge"
+
+elif type rpm &> /dev/null; then
+
 alias rstats="rpm -qa --queryformat '%10{size} - %-25{name} \t %{version}\n' | sort -n"
+
+fi
 
 launch() {
     if [[ $# -eq 0 ]]; then return; fi
