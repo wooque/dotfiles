@@ -9,24 +9,29 @@ cyan=$'%{\e[96m%}'
 red=$'%{\e[91m%}'
 blue=$'%{\e[94m%}'
 yellow=$'%{\e[93m%}'
+orange=$'%{\e[33m%}'
 reset_color=$'%{\e[0m%}'
 
-git_branch() {
-    ret="$(git branch 2> /dev/null | grep \* | cut -d ' ' -f2)"
-    if [[ -n $ret ]]; then
-        echo "$blue($red$ret$blue) "
+git_status() {
+    ret="$(git status -b --porcelain 2> /dev/null)"
+    if [[ -z "$ret" ]]; then return; fi
+    res=""
+    branch=${ret/$'\n'*/}
+    branch=${branch/...*/}
+    branch=${branch/\#\# /}
+    branch=${branch/No commits yet on /}
+    if [[ -n $branch ]]; then res="$blue($red$branch$blue) "; fi
+    lines=$(wc -l <<< "$ret")
+    if [[ $lines -gt 1 ]]; then
+        res="$res$yellow× "
+    elif [[ "$ret" == *"ahead"* ]]; then
+        res="$res$orange× "
     fi
-}
-
-git_status () {
-    ret="$(git status -s 2> /dev/null)"
-    if [[ -n $ret ]]; then
-        echo "$yellow× "
-    fi
+    echo "$res"
 }
 
 setopt PROMPT_SUBST
-PROMPT="$cyan%c \$(git_branch)\$(git_status)$reset_color"
+PROMPT="$cyan%c \$(git_status)$reset_color"
 
 source ~/.shrc
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
