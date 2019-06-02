@@ -42,6 +42,9 @@ alias gco="git checkout"
 alias grhh="git reset --hard HEAD"
 alias gclf="git clean -f"
 
+alias sc-start="sudo systemctl start"
+alias sc-stop="sudo systemctl stop"
+
 if type pacman &> /dev/null; then
 
 alias pacin="sudo pacman -S"
