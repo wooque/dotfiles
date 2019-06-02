@@ -4,3 +4,4 @@ set -e
 yay -Syu --combinedupgrade
 sudo find /var/cache/pacman/pkg -mindepth 1 -delete
 find "$HOME/.cache/yay" -mindepth 1 ! -name 'completion.cache' -delete
+find "$HOME" -maxdepth 1 -name 'updates.log' -delete
