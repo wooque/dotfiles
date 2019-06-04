@@ -190,8 +190,8 @@ exec --no-startup-id redshift
 exec --no-startup-id feh --bg-fill --randomize ~/.wallpapers
 exec --no-startup-id xss-lock -- i3lock -c 000000
 
-bindsym $mod+B exec --no-startup-id chromium
-bindsym $mod+I exec --no-startup-id chromium --incognito
+bindsym $mod+B exec --no-startup-id firefox
+bindsym $mod+I exec --no-startup-id firefox --private-window
 bindsym $mod+P exec --no-startup-id i3-sensible-terminal -e pulsemixer
 bindsym $mod+C exec --no-startup-id i3-sensible-terminal -e python -q
 bindsym $mod+T exec --no-startup-id i3-sensible-terminal -e htop
