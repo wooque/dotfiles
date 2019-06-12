@@ -189,6 +189,7 @@ exec --no-startup-id urxvtd -o
 exec --no-startup-id redshift
 exec --no-startup-id feh --bg-fill --randomize ~/.wallpapers
 exec --no-startup-id xss-lock -- i3lock -c 000000
+exec --no-startup-id firefox
 
 bindsym $mod+B exec --no-startup-id firefox
 bindsym $mod+I exec --no-startup-id firefox --private-window
