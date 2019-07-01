@@ -14,6 +14,8 @@ general {
         interval = 5
 }
 
+order += "read_file UPDATES"
+order += "read_file BACKUP"
 order += "volume master"
 order += "battery all"
 order += "wireless _first_"
@@ -32,8 +34,21 @@ wireless _first_ {
 
 battery all {
         format = "%status %percentage %remaining"
+        integer_battery_capacity = true
 }
 
 tztime local {
         format = "%b %d  %H:%M"
+}
+
+read_file UPDATES {
+    path = "~/updates.log"
+    format = "updates ✓"
+    format_bad = ""
+}
+
+read_file BACKUP {
+    path = "~/backup.log"
+    format = "backup ✓"
+    format_bad = ""
 }
