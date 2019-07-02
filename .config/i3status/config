@@ -42,13 +42,13 @@ tztime local {
 }
 
 read_file UPDATES {
-    path = "~/updates.log"
+    path = "/home/vuk/updates.log"
     format = "updates ✓"
     format_bad = ""
 }
 
 read_file BACKUP {
-    path = "~/backup.log"
+    path = "/home/vuk/backup.log"
     format = "backup ✓"
     format_bad = ""
 }
