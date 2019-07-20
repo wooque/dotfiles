@@ -20,7 +20,7 @@ URxvt.keysym.Shift-Control-C:   eval:selection_to_clipboard
 URxvt.foreground:   #D3D7CF
 URxvt.background:   #2F343F
 URxvt.color0:       #000000
-URxvt.color1:       #CD0000
+URxvt.color1:       #CC0000
 URxvt.color2:       #4E9A06
 URxvt.color3:       #C4A000
 URxvt.color4:       #3465A4
