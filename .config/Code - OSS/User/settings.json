@@ -27,7 +27,7 @@
     "debug.console.lineHeight": 14,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
-    "workbench.colorTheme": "GitHub Plus",
+    "workbench.colorTheme": "Github",
     "go.useLanguageServer": true,
     "go.alternateTools": {
         "go-langserver": "gopls"
