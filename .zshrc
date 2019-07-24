@@ -1,15 +1,16 @@
 SAVEHIST=1000
 HISTSIZE=1000
 HISTFILE="$HOME/.zsh_history"
+setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
 
-cyan=$'%{\e[96m%}'
-red=$'%{\e[91m%}'
-blue=$'%{\e[94m%}'
-yellow=$'%{\e[93m%}'
-orange=$'%{\e[33m%}'
+cyan=$'%{\e[1;96m%}'
+red=$'%{\e[1;91m%}'
+blue=$'%{\e[1;94m%}'
+yellow=$'%{\e[1;93m%}'
+green=$'%{\e[1;92m%}'
 reset_color=$'%{\e[0m%}'
 
 git_status() {
@@ -25,7 +26,7 @@ git_status() {
     if [[ $lines -gt 1 ]]; then
         res="$res$yellow× "
     elif [[ "$ret" == *"ahead"* ]]; then
-        res="$res$orange× "
+        res="$res$green× "
     fi
     echo "$res"
 }

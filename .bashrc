@@ -5,11 +5,11 @@ HISTFILESIZE=1000
 HISTSIZE=1000
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-cyan=$'\001\e[96m\002'
-red=$'\001\e[91m\002'
-blue=$'\001\e[94m\002'
-yellow=$'\001\e[93m\002'
-orange=$'\001\e[33m\002'
+cyan=$'\001\e[1;96m\002'
+red=$'\001\e[1;91m\002'
+blue=$'\001\e[1;94m\002'
+yellow=$'\001\e[1;93m\002'
+green=$'\001\e[1;92m\002'
 reset_color=$'\001\e[0m\002'
 
 git_status() {
@@ -25,7 +25,7 @@ git_status() {
     if [[ $lines -gt 1 ]]; then
         res="$res$yellow× "
     elif [[ "$ret" == *"ahead"* ]]; then
-        res="$res$orange× "
+        res="$res$green× "
     fi
     echo "$res"
 }

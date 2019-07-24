@@ -1,7 +1,7 @@
 {
-    "editor.fontFamily": "'Terminus (TTF)'",
+    "editor.fontFamily": "'Monospace'",
     "editor.fontSize": 12,
-    "editor.lineHeight": 12,
+    "editor.lineHeight": 14,
     "editor.dragAndDrop": true,
     "editor.minimap.enabled": false,
     "editor.minimap.renderCharacters": false,
@@ -20,14 +20,14 @@
         "**/.vscode": true,
         "**/*.pyc": true
     },
-    "terminal.integrated.fontFamily": "'Terminus (TTF)'",
+    "terminal.integrated.fontFamily": "'Monospace'",
     "terminal.integrated.fontSize": 12,
-    "debug.console.fontFamily": "'Terminus (TTF)'",
+    "debug.console.fontFamily": "'Monospace'",
     "debug.console.fontSize": 12,
-    "debug.console.lineHeight": 12,
+    "debug.console.lineHeight": 14,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "GitHub Plus",
     "go.useLanguageServer": true,
     "go.alternateTools": {
         "go-langserver": "gopls"

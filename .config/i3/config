@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8.5
+font pango:Monospace 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -145,15 +145,15 @@ bindsym Control+$mod+Right resize grow width 5 px or 5 ppt
 bindsym $mod+Shift+M move scratchpad
 bindsym $mod+Shift+S scratchpad show
 
-set_from_resource $background   URxvt.background
-set_from_resource $darkblack    URxvt.color0
-set_from_resource $black        URxvt.color8
-set_from_resource $darkred      URxvt.color1
-set_from_resource $red          URxvt.color9
-set_from_resource $darkblue     URxvt.color4
-set_from_resource $blue         URxvt.color12
-set_from_resource $darkwhite    URxvt.color7
-set_from_resource $white        URxvt.color15
+set $background #2F343F
+set $darkblack  #000000
+set $black      #555753
+set $darkred    #CC0000
+set $red        #EF2929
+set $darkblue   #3465A4
+set $blue       #729FCF
+set $darkwhite  #D3D7CF
+set $white      #EEEEEC
 
 #                       BORDER          BACKGROUND      TEXT        INDICATOR   CHILD_BORDER
 client.focused          $darkblue       $darkblue       $white      $blue       $darkblue
@@ -172,7 +172,7 @@ bar {
 
     colors {
         background          $background
-        statusline          $darkwhite
+        statusline          $white
         separator           $background
 
         focused_workspace   $darkblue       $darkblue       $white
