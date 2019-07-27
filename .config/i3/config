@@ -157,8 +157,8 @@ set $white      #EEEEEC
 
 #                       BORDER          BACKGROUND      TEXT        INDICATOR   CHILD_BORDER
 client.focused          $darkblue       $darkblue       $white      $blue       $darkblue
-client.focused_inactive $background     $background     $darkwhite  $background $background
-client.unfocused        $darkblack      $darkblack      $darkwhite  $darkblack  $darkblack
+client.focused_inactive $darkwhite      $darkwhite      $black      $darkwhite  $darkwhite
+client.unfocused        $white          $white          $black      $white      $white
 client.urgent           $darkred        $darkred        $white      $red        $darkred
 
 client.background       $background
