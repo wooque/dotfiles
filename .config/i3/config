@@ -135,7 +135,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "pkill redshift; pkill xss-lock; i3-msg exit"
+bindsym $mod+Shift+e exec "pkill redshift; i3-msg exit"
 
 bindsym Control+$mod+Left resize shrink width 5 px or 5 ppt
 bindsym Control+$mod+Down resize grow height 5 px or 5 ppt
@@ -188,7 +188,7 @@ hide_edge_borders smart
 exec --no-startup-id urxvtd -o
 exec --no-startup-id redshift
 exec --no-startup-id feh --bg-fill --randomize ~/.wallpapers
-exec --no-startup-id xss-lock -- i3lock -c 000000
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000
 exec --no-startup-id chromium
 
 bindsym $mod+B exec --no-startup-id chromium
@@ -211,10 +211,10 @@ bindsym Control+$mod+R exec --no-startup-id systemctl reboot
 bindsym Control+$mod+P exec --no-startup-id systemctl poweroff
 bindsym Control+$mod+S exec --no-startup-id systemctl suspend
 
-bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute
-bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -5
-bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5
-bindsym Ctrl+XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -1
-bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +1
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym Ctrl+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1%
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -time 0
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -time 0
