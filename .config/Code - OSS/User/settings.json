@@ -1,7 +1,7 @@
 {
     "editor.fontFamily": "'Monospace'",
     "editor.fontSize": 12,
-    "editor.lineHeight": 14,
+    "editor.lineHeight": 15,
     "editor.dragAndDrop": true,
     "editor.minimap.enabled": false,
     "editor.minimap.renderCharacters": false,
@@ -24,7 +24,7 @@
     "terminal.integrated.fontSize": 12,
     "debug.console.fontFamily": "'Monospace'",
     "debug.console.fontSize": 12,
-    "debug.console.lineHeight": 14,
+    "debug.console.lineHeight": 15,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "workbench.colorTheme": "Github",
