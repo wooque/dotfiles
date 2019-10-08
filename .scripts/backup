@@ -1,2 +1,3 @@
 #!/bin/sh
-rsync -azP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup
+rsync -azP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup \
+ | grep -v 'incremental' | while read line; do [[ -n "${line// }" ]] && echo "$line" >> ~/backup.log ; done
