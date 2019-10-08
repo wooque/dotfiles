@@ -44,8 +44,7 @@
         }
     },
     "gopls": {
-        "usePlaceholders": true,
-        "enhancedHover": true
+        "usePlaceholders": true
     },
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
