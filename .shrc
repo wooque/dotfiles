@@ -45,6 +45,10 @@ alias gclf="git clean -f"
 alias sc-start="sudo systemctl start"
 alias sc-stop="sudo systemctl stop"
 
+alias dcl="docker container prune -f && docker image prune -f"
+alias di="docker images"
+alias dps="docker ps -a"
+
 if type pacman &> /dev/null; then
 
 alias pacin="sudo pacman -S"
