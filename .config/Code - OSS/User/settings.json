@@ -43,12 +43,8 @@
             "source.organizeImports": true
         }
     },
-    "gopls": {
-        "usePlaceholders": true
-    },
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "window.titleBarStyle": "custom",
     "keyboard.dispatch": "keyCode",
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false
