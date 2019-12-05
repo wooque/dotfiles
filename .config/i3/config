@@ -189,10 +189,10 @@ exec --no-startup-id urxvtd -o
 exec --no-startup-id redshift
 exec --no-startup-id feh --bg-fill --randomize ~/.wallpapers
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000
-exec --no-startup-id chromium
+exec --no-startup-id brave
 
-bindsym $mod+B exec --no-startup-id chromium
-bindsym $mod+I exec --no-startup-id chromium --incognito
+bindsym $mod+B exec --no-startup-id brave
+bindsym $mod+I exec --no-startup-id brave --incognito
 bindsym $mod+P exec --no-startup-id i3-sensible-terminal -e pulsemixer
 bindsym $mod+C exec --no-startup-id i3-sensible-terminal -e python -q
 bindsym $mod+T exec --no-startup-id i3-sensible-terminal -e htop
