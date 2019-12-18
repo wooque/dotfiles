@@ -34,8 +34,8 @@ git_status() {
 setopt PROMPT_SUBST
 PROMPT="$cyan%c \$(git_status)$reset_color"
 
+eval "$(fasd --init auto)"
 source ~/.shrc
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 autoload -Uz compinit
 compinit
@@ -48,10 +48,7 @@ bindkey "${terminfo[kpp]}"      beginning-of-buffer-or-history
 bindkey "${terminfo[knp]}"      end-of-buffer-or-history
 bindkey '^R' history-incremental-search-backward
 
-alias -g H='| head'
-alias -g T='| tail'
 alias -g G='| grep'
-alias -g L="| less"
 
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history

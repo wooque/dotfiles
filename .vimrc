@@ -1,6 +1,6 @@
 filetype plugin indent on
 syntax on
-colorscheme github-light
+colorscheme default
 set ttimeoutlen=0
 set clipboard=unnamedplus
 set mouse=a

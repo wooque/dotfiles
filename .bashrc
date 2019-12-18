@@ -32,5 +32,5 @@ git_status() {
 
 PS1="$cyan\W \$(git_status)$reset_color"
 
+eval "$(fasd --init auto)"
 source ~/.shrc
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh

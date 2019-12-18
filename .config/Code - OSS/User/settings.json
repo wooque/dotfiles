@@ -27,7 +27,7 @@
     "debug.console.lineHeight": 15,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
-    "workbench.colorTheme": "Github",
+    "workbench.colorTheme": "Visual Studio Light",
     "go.useLanguageServer": true,
     "go.alternateTools": {
         "go-langserver": "gopls"

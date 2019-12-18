@@ -5,8 +5,8 @@ export LESS_TERMCAP_us=$'\e[1;32m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export SYSTEMD_LESS="FRSMK"
 
+alias vz="f -e vim"
 alias r=ranger
-alias v=vim
 alias ll="ls -lh --group-directories-first --color=auto"
 alias la="ls -lAh --group-directories-first --color=auto"
 alias rm="rm -rf"
@@ -17,23 +17,14 @@ alias xclip="xclip -selection clipboard"
 alias grep="grep -iI --color=auto"
 alias diff="diff --color=auto"
 alias sudo="sudo -E "
-alias pls="sudo -E \$(fc -ln -1) "
 alias free="free -h"
-alias top="top -d1"
 alias htop="htop -d10"
-alias psmem="sudo ps_mem"
-alias iotop="sudo iotop -oP"
-alias slabtop="sudo slabtop -s c"
 alias df="df -x tmpfs -x devtmpfs -h"
 alias dus="du -sh"
 alias ncdu="ncdu --color dark -x"
-alias locate="sudo updatedb && locate"
-alias cleartmp="rm -rf /tmp"
-alias clearcache="sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'"
-alias ytd="youtube-dl -f 22"
-alias ytda="youtube-dl -f 140"
 
 alias gst="git status"
+alias gb="git branch"
 alias gd="git diff"
 alias gdca="git diff --cached"
 alias gp="git push"
@@ -57,7 +48,6 @@ alias pacin="sudo pacman -S"
 alias pacrem="sudo pacman -Rns"
 alias pacrmorphans="sudo pacman -Rs \$(pacman -Qtdq)"
 alias pacstats="expac -HM '%m\t%n' | sort -n"
-alias paccl="sudo rm -rf /var/cache/pacman/pkg/*"
 alias yaupg="$HOME/.scripts/yaupg"
 
 elif type apt &> /dev/null; then
@@ -84,9 +74,4 @@ open() {
     launch xdg-open "$@"
 }
 alias o=open
-
-find_all() {
-    find . -iname "*$1*" "${@:2}"
-}
-alias fa=find_all
 
