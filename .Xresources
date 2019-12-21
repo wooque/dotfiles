@@ -18,11 +18,10 @@ URxvt.iso14755:                 false
 URxvt.keysym.Shift-Control-V:   eval:paste_clipboard
 URxvt.keysym.Shift-Control-C:   eval:selection_to_clipboard
 
-*.foreground:  #4d4d4c
+*.foreground:  #333333
 *.background:  #ffffff
-*.cursorColor: #4d4d4c
 ! Black
-*.color0:      #000000
+*.color0:      #333333
 *.color8:      #000000
 ! Red
 *.color1:      #c82829
@@ -43,7 +42,5 @@ URxvt.keysym.Shift-Control-C:   eval:selection_to_clipboard
 *.color6:      #3e999f
 *.color14:     #3e999f
 ! White
-*.color7:      #cccccc
+*.color7:      #eeeeee
 *.color15:     #ffffff
-! Bold, Italic, Underline
-*.colorBD:     #4d4d4c
