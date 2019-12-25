@@ -38,7 +38,7 @@ battery all {
 }
 
 tztime local {
-        format = "%b %d  %H:%M"
+        format = "%b %d  %H:%M "
 }
 
 read_file UPDATES {
