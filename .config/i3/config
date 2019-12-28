@@ -195,6 +195,7 @@ exec --no-startup-id urxvtd -o
 exec --no-startup-id redshift
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000
 exec --no-startup-id brave
+exec --no-startup-id bt_autoconnect
 
 bindsym $mod+B exec --no-startup-id brave
 bindsym $mod+I exec --no-startup-id brave --incognito

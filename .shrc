@@ -37,6 +37,7 @@ alias gclf="git clean -f"
 
 alias sc-start="sudo systemctl start"
 alias sc-stop="sudo systemctl stop"
+alias sc-status="sudo systemctl status"
 
 alias dcl="docker container prune -f && docker image prune -f"
 alias di="docker images"
