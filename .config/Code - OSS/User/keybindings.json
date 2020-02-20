@@ -65,5 +65,13 @@
     {
         "key": "ctrl+shift+y",
         "command": "-workbench.debug.action.toggleRepl"
+    },
+    {
+        "key": "ctrl+alt+u",
+        "command": "editor.action.transformToUppercase"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "editor.action.transformToLowercase"
     }
 ]
