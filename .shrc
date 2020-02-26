@@ -40,7 +40,7 @@ alias sc-stop="sudo systemctl stop"
 alias sc-restart="sudo systemctl restart"
 alias sc-status="sudo systemctl status"
 
-alias dcl="docker container prune -f && docker image prune -f"
+alias dcl="docker container prune -f && docker image prune -f && docker volume prune -f"
 alias di="docker images"
 alias dps="docker ps -a"
 
