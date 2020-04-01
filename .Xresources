@@ -6,7 +6,6 @@ Xft.autohint:   false
 Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 
-URxvt.termName:     xterm-256color
 URxvt.font:         xft:Monospace:size=9
 URxvt.letterSpace: -1
 
@@ -18,10 +17,6 @@ URxvt.perl-ext-common:          default,vtwheel
 URxvt.iso14755:                 false
 URxvt.keysym.Shift-Control-V:   eval:paste_clipboard
 URxvt.keysym.Shift-Control-C:   eval:selection_to_clipboard
-URxvt.keysym.Home:      \033[H
-URxvt.keysym.End:       \033[F
-URxvt.keysym.KP_Home:   \033[H
-URxvt.keysym.KP_End:    \033[F
 
 *.foreground:  #333333
 *.background:  #ffffff

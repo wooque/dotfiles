@@ -47,8 +47,6 @@ bindkey "${terminfo[kdch1]}"    delete-char
 bindkey "${terminfo[kpp]}"      beginning-of-buffer-or-history
 bindkey "${terminfo[knp]}"      end-of-buffer-or-history
 bindkey '^R' history-incremental-search-backward
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
 
 alias -g G='| grep'
 
