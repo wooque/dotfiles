@@ -42,7 +42,8 @@ alias sc-status="sudo systemctl status"
 
 alias dcl="docker container prune -f && docker image prune -f && docker volume prune -f"
 alias di="docker images"
-alias dps="docker ps -a --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'"
+alias dps="docker ps -a --format 'table {{.Names}} {{.Image}} {{.Status}} {{.Ports}}'"
+alias docker-compose="sudo podman-compose"
 
 if type pacman &> /dev/null; then
 
