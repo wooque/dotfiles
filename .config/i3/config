@@ -203,9 +203,7 @@ bindsym $mod+P exec --no-startup-id i3-sensible-terminal -e pulsemixer
 bindsym $mod+C exec --no-startup-id i3-sensible-terminal -e python -q
 bindsym $mod+T exec --no-startup-id i3-sensible-terminal -e htop
 bindsym $mod+M exec --no-startup-id i3-sensible-terminal -e ranger
-bindsym $mod+N exec --no-startup-id i3-sensible-terminal -e nmtui
 bindsym $mod+Y exec --no-startup-id i3-sensible-terminal -e caly
-bindsym $mod+U workspace $ws10; exec --no-startup-id i3-sensible-terminal -e cmus
 bindsym $mod+Q exec --no-startup-id clipboardqr
 bindsym $mod+O exec --no-startup-id change_output
 bindsym --release Print exec --no-startup-id scrot -s
