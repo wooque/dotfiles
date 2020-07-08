@@ -47,6 +47,5 @@
     "explorer.confirmDragAndDrop": false,
     "keyboard.dispatch": "keyCode",
     "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "debug.javascript.usePreview": false
+    "telemetry.enableCrashReporter": false
 }
