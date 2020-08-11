@@ -49,5 +49,7 @@
     "keyboard.dispatch": "keyCode",
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "debug.javascript.usePreview": false
+    "debug.javascript.usePreview": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }
