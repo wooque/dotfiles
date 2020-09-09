@@ -1,5 +1,0 @@
-rofi.modi:                  window,drun
-rofi.show-icons:            true
-rofi.drun-display-format:   {name}
-rofi.theme:                 Arc-Dark
-rofi.font:                  Monospace 11
