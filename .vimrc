@@ -7,9 +7,9 @@ set mouse=a
 set number relativenumber
 set pastetoggle=<F9>
 set autoindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set noswapfile
 nnoremap ; :
