@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'Monospace'",
+    "editor.fontFamily": "Monospace",
     "editor.fontSize": 12,
     "editor.lineHeight": 15,
     "editor.dragAndDrop": true,
@@ -21,35 +21,19 @@
         "**/.vscode": true,
         "**/*.pyc": true
     },
-    "terminal.integrated.fontFamily": "'Monospace'",
+    "terminal.integrated.fontFamily": "Monospace",
     "terminal.integrated.fontSize": 12,
-    "debug.console.fontFamily": "'Monospace'",
+    "debug.console.fontFamily": "Monospace",
     "debug.console.fontSize": 12,
     "debug.console.lineHeight": 15,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "workbench.colorTheme": "Visual Studio Light",
-    "go.useLanguageServer": true,
-    "go.alternateTools": {
-        "go-langserver": "gopls"
-    },
-    "go.languageServerExperimentalFeatures": {
-        "format": true,
-        "autoComplete": true
-    },
-    "[go]": {
-        "editor.snippetSuggestions": "none",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        }
-    },
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "keyboard.dispatch": "keyCode",
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "debug.javascript.usePreview": false,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "javascript.updateImportsOnFileMove.enabled": "always"
 }
