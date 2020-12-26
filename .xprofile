@@ -1,2 +1,0 @@
-setxkbmap -layout us,rs -variant altgr-intl,latinyz -option grp:menu_toggle,caps:swapescape
-xinput set-prop "AlpsPS/2 ALPS DualPoint TouchPad" "libinput Tapping Enabled" 1

@@ -1,39 +1,18 @@
 {
-    "editor.fontFamily": "Monospace",
     "editor.fontSize": 12,
-    "editor.lineHeight": 15,
-    "editor.dragAndDrop": true,
-    "editor.minimap.enabled": false,
-    "editor.minimap.renderCharacters": false,
     "editor.rulers": [
-        100
+        80
     ],
     "editor.tabSize": 2,
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 500,
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/.DS_Store": true,
-        "**/.idea": true,
-        "**/.vscode": true,
-        "**/*.pyc": true
-    },
-    "terminal.integrated.fontFamily": "Monospace",
     "terminal.integrated.fontSize": 12,
-    "debug.console.fontFamily": "Monospace",
     "debug.console.fontSize": 12,
-    "debug.console.lineHeight": 15,
-    "git.confirmSync": false,
-    "git.enableSmartCommit": true,
     "workbench.colorTheme": "Visual Studio Light",
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
     "keyboard.dispatch": "keyCode",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "window.titleBarStyle": "custom"
 }

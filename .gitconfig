@@ -3,14 +3,5 @@
     name = Vuk Mirovic
 [push]
     default = current
-[color]
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
-    ui = auto
-    pager = true
-[core]
-    pager = less -x1,5
 [pull]
 	rebase = true

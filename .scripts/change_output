@@ -1,6 +1,0 @@
-#!/bin/sh
-choice=$(ls "$HOME/.screenlayout" | sed 's/\.sh//g' | rofi -dmenu)
-if [ -n "$choice" ]
-then
-    "$HOME/.screenlayout/$choice.sh"
-fi

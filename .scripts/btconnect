@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/bin/sh
 bluetoothctl connect 30:21:63:2E:65:CD

@@ -1,2 +1,0 @@
-#!/bin/sh
-cal -mYS && sleep 9999

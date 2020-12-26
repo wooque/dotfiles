@@ -1,2 +1,0 @@
-#!/bin/bash
-find "$1" -xdev -iname "*$2*" "${@:3}"

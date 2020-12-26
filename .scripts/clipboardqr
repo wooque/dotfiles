@@ -1,2 +1,0 @@
-#!/bin/sh
-xclip -out | qrencode -s 5 -o - > /tmp/qr.png && sxiv /tmp/qr.png

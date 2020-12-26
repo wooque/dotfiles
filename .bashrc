@@ -1,8 +1,8 @@
 [[ $- != *i* ]] && return
 
 HISTCONTROL=ignoredups:ignorespace
-HISTFILESIZE=1000
-HISTSIZE=1000
+HISTFILESIZE=10000
+HISTSIZE=10000
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 cyan=$'\001\e[1;96m\002'
@@ -33,4 +33,22 @@ git_status() {
 PS1="$cyan\W \$(git_status)$reset_color"
 
 eval "$(fasd --init auto)"
-source ~/.shrc
+
+alias ll="ls -lh --group-directories-first --color=auto"
+alias la="ls -lAh --group-directories-first --color=auto"
+alias grep="grep -iI --color=auto"
+alias diff="diff --color=auto"
+alias rr='sudo $(history -p !!)'
+alias gst="git status"
+alias gd="git diff"
+alias gdca="git diff --cached"
+alias gp="git push"
+alias gl="git pull"
+alias ga="git add"
+alias gcm="git commit -m"
+alias gco="git checkout"
+function qemu() {
+  qemu-system-x86_64 -daemonize -enable-kvm -cpu host -smp 4,cores=2 -m 2048 -usb -device usb-tablet -device intel-hda -device hda-duplex -drive file="$1" "${@:2}"
+}
+export -f qemu
+alias qemuimg="qemu-img create -f qcow2"
