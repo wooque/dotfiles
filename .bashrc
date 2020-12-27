@@ -39,6 +39,7 @@ alias la="ls -lAh --group-directories-first --color=auto"
 alias grep="grep -iI --color=auto"
 alias diff="diff --color=auto"
 alias rr='sudo $(history -p !!)'
+
 alias gst="git status"
 alias gd="git diff"
 alias gdca="git diff --cached"
@@ -47,8 +48,11 @@ alias gl="git pull"
 alias ga="git add"
 alias gcm="git commit -m"
 alias gco="git checkout"
+
 function qemu() {
   qemu-system-x86_64 -daemonize -enable-kvm -cpu host -smp 4,cores=2 -m 2048 -usb -device usb-tablet -device intel-hda -device hda-duplex -drive file="$1" "${@:2}"
 }
 export -f qemu
 alias qemuimg="qemu-img create -f qcow2"
+
+alias upgrade="yay -Syu --combinedupgrade"
