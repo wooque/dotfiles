@@ -9,7 +9,7 @@ cyan=$'\e[1;36m'
 red=$'\e[1;31m'
 blue=$'\e[1;94m'
 yellow=$'\e[1;93m'
-green=$'\e[1;92m'
+green=$'\e[1;32m'
 reset_color=$'\e[0m'
 
 git_status() {
