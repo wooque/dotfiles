@@ -4,6 +4,4 @@ export PAGER="less"
 export LESS=-RSF
 export SYSTEMD_LESS="RSF"
 
-if [[ $0 == "bash" ]]; then
-    . ~/.bashrc
-fi
+[[ -f ~/.bashrc ]] && . ~/.bashrc
