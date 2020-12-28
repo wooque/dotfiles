@@ -1,4 +1,5 @@
 {
+    "editor.fontFamily": "monospace",
     "editor.fontSize": 12,
     "editor.rulers": [
         80
@@ -6,7 +7,9 @@
     "editor.tabSize": 2,
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "afterDelay",
+    "terminal.integrated.fontFamily": "monospace",
     "terminal.integrated.fontSize": 12,
+    "debug.console.fontFamily": "monospace",
     "debug.console.fontSize": 12,
     "workbench.colorTheme": "Visual Studio Light",
     "keyboard.dispatch": "keyCode",
