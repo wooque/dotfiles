@@ -5,12 +5,12 @@ HISTFILESIZE=10000
 HISTSIZE=10000
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-cyan=$'\e[1;36m'
-red=$'\e[1;31m'
-blue=$'\e[1;94m'
-yellow=$'\e[1;93m'
-green=$'\e[1;32m'
-reset_color=$'\e[0m'
+cyan=$'\001\e[1;36m\002'
+red=$'\001\e[1;31m\002'
+blue=$'\001\e[1;94m\002'
+yellow=$'\001\e[1;93m\002'
+green=$'\001\e[1;32m\002'
+reset_color=$'\001\e[0m\002'
 
 git_status() {
     ret="$(git status -b --porcelain 2> /dev/null)"
