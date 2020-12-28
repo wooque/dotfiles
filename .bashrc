@@ -32,7 +32,7 @@ git_status() {
 
 PS1="$cyan\W \$(git_status)$reset_color"
 
-eval "$(fasd --init auto)"
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 alias ll="ls -lh --group-directories-first --color=auto"
 alias la="ls -lAh --group-directories-first --color=auto"
