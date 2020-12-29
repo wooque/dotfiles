@@ -13,13 +13,16 @@ green=$'\001\e[1;32m\002'
 reset_color=$'\001\e[0m\002'
 
 git_status() {
-    ret="$(git status -b --porcelain 2> /dev/null)"
+    ret="$(git status -b --porcelain 2> /dev/null | head -3)"
     if [[ -z "$ret" ]]; then return; fi
     res=""
     branch=${ret/$'\n'*/}
     branch=${branch/...*/}
     branch=${branch/\#\# /}
     branch=${branch/No commits yet on /}
+    if [[ $branch = "HEAD (no branch)" ]]; then
+        branch=$(git log -1 --pretty=%h)
+    fi
     if [[ -n $branch ]]; then res="$blue($red$branch$blue) "; fi
     lines=$(wc -l <<< "$ret")
     if [[ $lines -gt 1 ]]; then
