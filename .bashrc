@@ -3,37 +3,18 @@
 HISTCONTROL=ignoredups:ignorespace
 HISTFILESIZE=10000
 HISTSIZE=10000
-PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
-cyan=$'\001\e[1;36m\002'
-red=$'\001\e[1;31m\002'
-blue=$'\001\e[1;94m\002'
-yellow=$'\001\e[1;93m\002'
-green=$'\001\e[1;32m\002'
-reset_color=$'\001\e[0m\002'
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUPSTREAM=auto
+# GIT_PS1_SHOWUNTRACKEDFILES=true
 
-git_status() {
-    ret="$(git status -b --porcelain 2> /dev/null | head -3)"
-    if [[ -z "$ret" ]]; then return; fi
-    res=""
-    branch=${ret/$'\n'*/}
-    branch=${branch/...*/}
-    branch=${branch/\#\# /}
-    branch=${branch/No commits yet on /}
-    if [[ $branch = "HEAD (no branch)" ]]; then
-        branch=$(git log -1 --pretty=%h)
-    fi
-    if [[ -n $branch ]]; then res="$blue($red$branch$blue) "; fi
-    lines=$(wc -l <<< "$ret")
-    if [[ $lines -gt 1 ]]; then
-        res="$res$yellow× "
-    elif [[ "$ret" == *"ahead"* ]]; then
-        res="$res$green× "
-    fi
-    echo "$res"
-}
-
-PS1="$cyan\W \$(git_status)$reset_color"
+if [[ -r "/usr/share/git/completion/git-prompt.sh" ]]; then
+    source /usr/share/git/completion/git-prompt.sh
+elif [[ -r "/usr/lib/git-core/git-sh-prompt" ]]; then
+    source /usr/lib/git-core/git-sh-prompt
+fi
+PS1='\[\e[1;36m\]\W $(__git_ps1 "\[\e[1;94m\](\[\e[1;31m\]%s\[\e[1;94m\]) ")\[\e[0m\]'
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
