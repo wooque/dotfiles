@@ -1,7 +1,7 @@
 export PATH="$HOME/.scripts:$PATH"
 export EDITOR="nano"
 export PAGER="less"
-export LESS=-RSF
-export SYSTEMD_LESS="RSF"
+export LESS=-RF
+export SYSTEMD_LESS="RF"
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc

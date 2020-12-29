@@ -1,0 +1,13 @@
+set atblanks
+set autoindent
+set indicator
+set linenumbers
+set mouse
+#set nohelp
+set nonewlines
+set regexp
+#set saveonexit
+set softwrap
+set tabsize 2
+set tabstospaces
+set zap

@@ -6,8 +6,7 @@ HISTSIZE=10000
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUPSTREAM=auto
-# GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
 
 if [[ -r "/usr/share/git/completion/git-prompt.sh" ]]; then
     source /usr/share/git/completion/git-prompt.sh
