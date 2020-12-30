@@ -5,6 +5,7 @@
         80
     ],
     "editor.tabSize": 2,
+    "editor.minimap.enabled": false,
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "afterDelay",
     "terminal.integrated.fontFamily": "monospace",

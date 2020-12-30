@@ -3,10 +3,9 @@ set autoindent
 set indicator
 set linenumbers
 set mouse
-#set nohelp
-set nonewlines
+set nohelp
 set regexp
-#set saveonexit
+set saveonexit
 set softwrap
 set tabsize 2
 set tabstospaces
