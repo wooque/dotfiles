@@ -20,7 +20,14 @@ alias ll="ls -lh --group-directories-first --color=auto"
 alias la="ls -lAh --group-directories-first --color=auto"
 alias grep="grep -iI --color=auto"
 alias diff="diff --color=auto"
-alias rr='sudo $(history -p !!)'
+function rr() {
+  cmd=$(history -p !!)
+  new_cmd="sudo $cmd"
+  echo "$new_cmd"
+  history -s "$new_cmd"
+  $new_cmd
+}
+export -f rr
 
 alias gst="git status"
 alias gd="git diff"
