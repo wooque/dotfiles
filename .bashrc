@@ -37,6 +37,7 @@ alias gl="git pull"
 alias ga="git add"
 alias gcm="git commit -m"
 alias gco="git checkout"
+alias glg="git log"
 
 function qemu() {
   qemu-system-x86_64 -daemonize -enable-kvm -cpu host -smp 4,cores=2 -m 2048 -usb -device usb-tablet -device intel-hda -device hda-duplex -drive file="$1" "${@:2}"
