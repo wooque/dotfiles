@@ -1,7 +1,7 @@
 [user]
-    email = contact@vukmirovic.org
-    name = Vuk Mirovic
+  email = contact@vukmirovic.org
+  name = Vuk Mirovic
 [push]
-    default = current
+  default = current
 [pull]
-	rebase = true
+  rebase = true
