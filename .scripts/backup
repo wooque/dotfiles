@@ -1,2 +1,0 @@
-#!/bin/sh
-rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee -a ~/backup.log
