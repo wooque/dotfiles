@@ -12,7 +12,7 @@ if [[ -r "/usr/share/git/completion/git-prompt.sh" ]]; then
 elif [[ -r "/usr/lib/git-core/git-sh-prompt" ]]; then
     source /usr/lib/git-core/git-sh-prompt
 fi
-PS1='\[\e[1;36m\]\W $(__git_ps1 "\[\e[1;94m\](\[\e[1;31m\]%s\[\e[1;94m\]) ")\[\e[0m\]'
+PS1='\[\e[1;34m\]\w $(__git_ps1 "\[\e[1;35m\](%s) ")\[\e[0m\]'
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
@@ -38,6 +38,7 @@ alias ga="git add"
 alias gcm="git commit -m"
 alias gco="git checkout"
 alias glg="git log"
+alias gb="git branch"
 
 function qemu() {
   qemu-system-x86_64 -daemonize -enable-kvm -cpu host -smp 4,cores=2 -m 2048 -usb -device usb-tablet -device intel-hda -device hda-duplex -drive file="$1" "${@:2}"
