@@ -6,12 +6,10 @@ HISTSIZE=10000
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 GIT_PS1_SHOWDIRTYSTATE=true
-
 if [[ -r "/usr/share/git/completion/git-prompt.sh" ]]; then
     source /usr/share/git/completion/git-prompt.sh
-elif [[ -r "/usr/lib/git-core/git-sh-prompt" ]]; then
-    source /usr/lib/git-core/git-sh-prompt
 fi
+
 PS1='\[\e[1;34m\]\w $(__git_ps1 "\[\e[1;35m\](%s) ")\[\e[0m\]'
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
