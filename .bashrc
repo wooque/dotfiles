@@ -27,16 +27,23 @@ function rr() {
 }
 export -f rr
 
+if [[ -r "/usr/share/git/completion/git-completion.bash" ]]; then
+  source "/usr/share/git/completion/git-completion.bash"
+fi
+
 alias gst="git status"
 alias gd="git diff"
 alias gdca="git diff --cached"
 alias gp="git push"
 alias gl="git pull"
 alias ga="git add"
+__git_complete ga _git_add
 alias gcm="git commit -m"
 alias gco="git checkout"
+__git_complete gco _git_checkout
 alias glg="git log"
 alias gb="git branch"
+__git_complete gb _git_branch
 
 function qemu() {
   qemu-system-x86_64 -daemonize -enable-kvm -cpu host -smp 4,cores=2 -m 2048 -usb -device usb-tablet -device intel-hda -device hda-duplex -drive file="$1" "${@:2}"
