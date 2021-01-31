@@ -1,5 +1,7 @@
 [[ $- != *i* ]] && return
 
+bind 'set match-hidden-files off'
+bind 'set enable-bracketed-paste off'
 HISTCONTROL=ignoredups:ignorespace
 HISTFILESIZE=10000
 HISTSIZE=10000
