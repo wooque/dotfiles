@@ -12,6 +12,7 @@ if [[ -r "/usr/share/git/completion/git-prompt.sh" ]]; then
     source /usr/share/git/completion/git-prompt.sh
 fi
 
+PROMPT_DIRTRIM=2
 PS1='\[\e[1;34m\]\w $(__git_ps1 "\[\e[1;35m\](%s) ")\[\e[0m\]'
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
