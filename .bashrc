@@ -52,7 +52,7 @@ function qemu() {
   qemu-system-x86_64 -daemonize -enable-kvm -cpu host -smp 4,cores=2 -m 2048 -usb -device usb-tablet -device intel-hda -device hda-duplex -drive file="$1" "${@:2}"
 }
 export -f qemu
-alias qemuimg="qemu-img create -f qcow2"
+alias qemu-img="qemu-img create -f qcow2"
 
 alias upgrade="yay -Syu --combinedupgrade"
 alias backup="rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee -a ~/backup.log"
