@@ -56,3 +56,5 @@ alias qemuimg="qemu-img create -f qcow2"
 
 alias upgrade="yay -Syu --combinedupgrade"
 alias backup="rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee -a ~/backup.log"
+
+[[ -r "/opt/asdf-vm/asdf.sh" ]] && source /opt/asdf-vm/asdf.sh
