@@ -47,6 +47,7 @@ __git_complete gco _git_checkout
 alias glg="git log"
 alias gb="git branch"
 __git_complete gb _git_branch
+alias grhh="git reset --hard HEAD"
 
 function qemu() {
   qemu-system-x86_64 -daemonize -enable-kvm -cpu host -smp 4,cores=2 -m 2048 -usb -device usb-tablet -device intel-hda -device hda-duplex -drive file="$1" "${@:2}"
