@@ -1,6 +1,7 @@
 {
     "editor.fontFamily": "monospace",
-    "editor.fontSize": 12,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 16,
     "editor.rulers": [
         80
     ],
@@ -9,9 +10,10 @@
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "afterDelay",
     "terminal.integrated.fontFamily": "monospace",
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontSize": 14,
     "debug.console.fontFamily": "monospace",
-    "debug.console.fontSize": 12,
+    "debug.console.fontSize": 14,
+    "debug.console.lineHeight": 16,
     "workbench.colorTheme": "Visual Studio Light",
     "keyboard.dispatch": "keyCode",
     "git.enableSmartCommit": true,
