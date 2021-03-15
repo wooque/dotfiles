@@ -80,4 +80,4 @@ audio/x-s3m=rhythmbox.desktop;
 audio/x-stm=rhythmbox.desktop;
 audio/x-xm=rhythmbox.desktop;
 text/plain=org.gnome.gedit.desktop;
-application/pdf=org.gnome.Evince.desktop;
+application/pdf=gimp.desktop;libreoffice-draw.desktop;org.gnome.Evince.desktop;
