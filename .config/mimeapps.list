@@ -37,10 +37,12 @@ audio/x-mod=rhythmbox.desktop
 audio/x-s3m=rhythmbox.desktop
 audio/x-stm=rhythmbox.desktop
 audio/x-xm=rhythmbox.desktop
-text/html=chromium.desktop
-x-scheme-handler/mailto=chromium.desktop
+text/html=firefox-developer-edition.desktop
 x-scheme-handler/viber=viber.desktop
 application/pdf=org.gnome.Evince.desktop
+x-scheme-handler/http=firefox-developer-edition.desktop
+application/xhtml+xml=firefox-developer-edition.desktop
+x-scheme-handler/https=firefox-developer-edition.desktop
 
 [Added Associations]
 image/bmp=org.gnome.eog.desktop;
@@ -81,3 +83,7 @@ audio/x-stm=rhythmbox.desktop;
 audio/x-xm=rhythmbox.desktop;
 text/plain=org.gnome.gedit.desktop;
 application/pdf=gimp.desktop;libreoffice-draw.desktop;org.gnome.Evince.desktop;
+x-scheme-handler/http=firefox-developer-edition.desktop;
+text/html=firefox-developer-edition.desktop;
+application/xhtml+xml=firefox-developer-edition.desktop;
+x-scheme-handler/https=firefox-developer-edition.desktop;
