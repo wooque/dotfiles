@@ -86,3 +86,4 @@ text/plain=org.gnome.gedit.desktop;
 application/pdf=gimp.desktop;libreoffice-draw.desktop;org.gnome.Evince.desktop;
 inode/directory=org.gnome.Nautilus.desktop;
 image/jpeg=gimp.desktop;
+text/vnd.trolltech.linguist=org.gnome.gedit.desktop;
