@@ -20,5 +20,6 @@
     "git.confirmSync": false,
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "go.toolsManagement.autoUpdate": true
 }
