@@ -9,6 +9,10 @@
     "editor.minimap.enabled": false,
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/__pycache__": true,
+    },
     "terminal.integrated.fontFamily": "monospace",
     "terminal.integrated.fontSize": 14,
     "debug.console.fontFamily": "monospace",
@@ -22,7 +26,4 @@
     "telemetry.enableCrashReporter": false,
     "window.titleBarStyle": "custom",
     "go.toolsManagement.autoUpdate": true,
-    "files.exclude": {
-        "**/node_modules": true
-    }
 }
