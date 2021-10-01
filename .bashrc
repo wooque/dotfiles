@@ -21,6 +21,7 @@ alias ll="ls -lh --group-directories-first --color=auto"
 alias la="ls -lAh --group-directories-first --color=auto"
 alias grep="grep -iI --color=auto"
 alias diff="diff --color=auto"
+alias top="top -o%MEM -em -d1.5"
 function rr() {
   cmd=$(history -p !!)
   new_cmd="sudo $cmd"
