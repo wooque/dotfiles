@@ -22,8 +22,7 @@
     "keyboard.dispatch": "keyCode",
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
+    "telemetry.telemetryLevel": "off",
     "window.titleBarStyle": "custom",
     "go.toolsManagement.autoUpdate": true,
 }
