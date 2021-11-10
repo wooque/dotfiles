@@ -1,7 +1,7 @@
 {
-    "editor.fontFamily": "monospace",
-    "editor.fontSize": 14,
-    "editor.lineHeight": 16,
+    "editor.fontFamily": "Ubuntu Mono",
+    "editor.fontSize": 13.5,
+    "editor.lineHeight": 15,
     "editor.rulers": [
         80
     ],
@@ -16,8 +16,8 @@
     "terminal.integrated.fontFamily": "monospace",
     "terminal.integrated.fontSize": 14,
     "debug.console.fontFamily": "monospace",
-    "debug.console.fontSize": 14,
-    "debug.console.lineHeight": 16,
+    "debug.console.fontSize": 13.5,
+    "debug.console.lineHeight": 15,
     "workbench.colorTheme": "Visual Studio Light",
     "keyboard.dispatch": "keyCode",
     "git.enableSmartCommit": true,
