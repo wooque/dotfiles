@@ -51,6 +51,6 @@ __git_complete gb _git_branch
 alias grhh="git reset --hard HEAD"
 
 alias upgrade="yay -Syu --combinedupgrade"
-alias backup="rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee -a ~/backup.log"
+alias backup="rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee -a ~/backup-\$(date +%Y-%m-%d-%H-%M-%S).log"
 
 [[ -r "/opt/asdf-vm/asdf.sh" ]] && source /opt/asdf-vm/asdf.sh
