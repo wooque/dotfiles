@@ -25,4 +25,5 @@
     "telemetry.telemetryLevel": "off",
     "window.titleBarStyle": "custom",
     "go.toolsManagement.autoUpdate": true,
+    "editor.cursorBlinking": "solid",
 }
