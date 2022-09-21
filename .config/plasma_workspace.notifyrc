@@ -1,0 +1,11 @@
+[Event/messageWarning]
+Action=Taskbar
+Execute=
+Logfile=
+TTS=
+
+[Event/warning]
+Action=Popup
+Execute=
+Logfile=
+TTS=

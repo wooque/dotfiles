@@ -1,29 +1,17 @@
 {
-    "editor.fontFamily": "Ubuntu Mono",
-    "editor.fontSize": 13.5,
-    "editor.lineHeight": 15,
-    "editor.rulers": [
-        80
-    ],
-    "editor.tabSize": 2,
-    "editor.minimap.enabled": false,
-    "files.trimTrailingWhitespace": true,
-    "files.autoSave": "afterDelay",
-    "files.exclude": {
-        "**/node_modules": true,
-        "**/__pycache__": true,
-    },
-    "terminal.integrated.fontFamily": "monospace",
-    "terminal.integrated.fontSize": 14,
-    "debug.console.fontFamily": "monospace",
-    "debug.console.fontSize": 13.5,
-    "debug.console.lineHeight": 15,
-    "workbench.colorTheme": "Visual Studio Light",
-    "keyboard.dispatch": "keyCode",
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    "telemetry.telemetryLevel": "off",
-    "window.titleBarStyle": "custom",
-    "go.toolsManagement.autoUpdate": true,
+    "debug.console.fontSize": 12,
     "editor.cursorBlinking": "solid",
+    "editor.fontSize": 12,
+    "editor.minimap.enabled": false,
+    "files.autoSave": "afterDelay",
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "telemetry.telemetryLevel": "off",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.enablePersistentSessions": false,
+    "window.titleBarStyle": "custom",
+    "workbench.colorTheme": "Visual Studio Light",
+    "json.schemas": []
 }

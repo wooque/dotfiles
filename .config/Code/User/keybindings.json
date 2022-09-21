@@ -24,28 +24,5 @@
         "key": "ctrl+shift+alt+down",
         "command": "-editor.action.copyLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+u",
-        "command": "-cursorUndo",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+u",
-        "command": "editor.action.transformToUppercase"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "-notebook.centerActiveCell",
-        "when": "notebookEditorFocused"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "-expandLineSelection",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "editor.action.transformToLowercase"
-    },
+    }
 ]

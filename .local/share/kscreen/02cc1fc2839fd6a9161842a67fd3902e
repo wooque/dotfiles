@@ -1,0 +1,27 @@
+[
+    {
+        "enabled": true,
+        "id": "265f574863a813eda1db0df9ea4f6d29",
+        "metadata": {
+            "fullname": "xrandr-Chimei Innolux Corporation",
+            "name": "Chimei Innolux Corporation eDP-1-unknown"
+        },
+        "mode": {
+            "refresh": 60.007999420166016,
+            "size": {
+                "height": 1080,
+                "width": 1920
+            }
+        },
+        "overscan": 0,
+        "pos": {
+            "x": 0,
+            "y": 0
+        },
+        "primary": true,
+        "rgbrange": 0,
+        "rotation": 1,
+        "scale": 1,
+        "vrrpolicy": 0
+    }
+]
