@@ -25,7 +25,9 @@ iconViewIconSize=64
 eDP-1 HDMI-A-1 Height 2560x1440=439
 eDP-1 HDMI-A-1 Width 2560x1440=433
 eDP-1 Height 1920x1080=427
+eDP-1 Height 1920x1080 eDP-1=578
 eDP-1 Width 1920x1080=431
+eDP-1 Width 1920x1080 eDP-1=447
 
 [MainWindow]
 MenuBar=Disabled

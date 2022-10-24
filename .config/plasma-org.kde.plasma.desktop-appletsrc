@@ -71,7 +71,7 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][2][Applets][5][Configuration][General]
-launchers=applications:brave-browser.desktop,applications:com.viber.Viber.desktop,applications:slack.desktop,applications:code.desktop,applications:beekeeper-studio.desktop,preferred://filemanager,applications:org.kde.konsole.desktop
+launchers=applications:brave-browser.desktop,applications:code.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop
 
 [Containments][2][Applets][7]
 immutability=1
@@ -90,6 +90,7 @@ AppletOrder=35;26;4;5;21;7;15
 
 [Containments][32]
 ItemGeometries-1920x1080=
+ItemGeometries-2560x1440=
 ItemGeometriesHorizontal=
 activityId=146dfd80-c089-4bd0-a83f-4a0d831c7b25
 formfactor=0
@@ -185,6 +186,9 @@ plugin=org.kde.plasma.battery
 [Containments][8][Applets][17][Configuration]
 PreloadWeight=100
 
+[Containments][8][Applets][17][Configuration][General]
+showPercentage=true
+
 [Containments][8][Applets][18]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
@@ -197,7 +201,7 @@ immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][8][Applets][19][Configuration]
-PreloadWeight=36
+PreloadWeight=100
 
 [Containments][8][Applets][25]
 immutability=1
@@ -219,6 +223,7 @@ DialogWidth=1047
 
 [Containments][8][General]
 extraItems=org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.devicenotifier
+hiddenItems=org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.keyboardlayout,Plasma_microphone
 knownItems=org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.bluetooth,org.kde.plasma.mediacontroller,org.kde.plasma.manage-inputmethod,org.kde.plasma.devicenotifier
 shownItems=org.kde.plasma.bluetooth,org.kde.plasma.battery
 

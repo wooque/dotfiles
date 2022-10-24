@@ -2,12 +2,11 @@
 
 bind 'set match-hidden-files off'
 bind 'set enable-bracketed-paste off'
-shopt -s histappend
 shopt -s checkwinsize
 HISTCONTROL=ignoreboth
 HISTFILESIZE=10000
 HISTSIZE=10000
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 
 GIT_PS1_SHOWDIRTYSTATE=true
 if [[ -r "/usr/share/git/completion/git-prompt.sh" ]]; then
@@ -44,6 +43,9 @@ alias glg="git log"
 alias gb="git branch"
 __git_complete gb _git_branch
 alias grhh="git reset --hard HEAD"
+alias gss="git stash save"
+alias gsp="git stash pop"
+alias gld="git stash save && git pull && git stash pop"
 
 alias upgrade="yay -Syu --combinedupgrade"
 alias backup="rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee ~/backup-\$(date +%Y-%m-%d-%H-%M-%S).log"

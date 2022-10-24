@@ -27,9 +27,6 @@ value=20
 idleTime=300
 lockBeforeTurnOff=0
 
-[Battery][DimDisplay]
-idleTime=120000
-
 [Battery][HandleButtonEvents]
 lidAction=1
 powerButtonAction=16

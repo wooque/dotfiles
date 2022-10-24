@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Viber
 Comment=Viber VoIP and messenger
-Exec=viber %u
+Exec=sh -c "QT_QPA_PLATFORM=wayland viber %u"
 Icon=/opt/viber/icons/256x256.png
 Terminal=false
 Type=Application

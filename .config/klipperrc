@@ -1,4 +1,6 @@
 [General]
+AutoStart=false
 KeepClipboardContents=false
+Number of Actions=0
 SelectionTextOnly=false
-Version=5.25.5
+Version=5.25.90

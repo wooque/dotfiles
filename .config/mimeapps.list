@@ -1,6 +1,18 @@
 [Added Associations]
 application/json=org.kde.kate.desktop;firefox.desktop;org.kde.kwrite.desktop;libreoffice-writer.desktop;okularApplication_txt.desktop;visual-studio-code.desktop;code.desktop;
 audio/mpeg=mpv.desktop;org.kde.juk.desktop;
+application/pdf=org.gnome.Evince.desktop;okularApplication_pdf.desktop;gimp.desktop;
+image/jpeg=gimp.desktop;org.kde.gwenview.desktop;org.gnome.eog.desktop;
+image/png=org.gnome.eog.desktop;
+image/webp=org.gnome.eog.desktop;
+inode/directory=org.gnome.Nautilus.desktop;
+image/gif=org.gnome.eog.desktop;
+image/svg+xml=org.gnome.gedit.desktop;org.gnome.eog.desktop;
+application/x-mozilla-bookmarks=org.gnome.gedit.desktop;
+application/zip=org.gnome.FileRoller.desktop;org.kde.ark.desktop;
+video/x-matroska=mpv.desktop;
+video/mp4=mpv.desktop;org.gnome.Totem.desktop;io.github.celluloid_player.Celluloid.desktop;
+text/plain=org.gnome.gedit.desktop;
 
 [Default Applications]
 application/json=org.kde.kate.desktop;
@@ -12,3 +24,6 @@ x-scheme-handler/insomnia=insomnia.desktop
 x-scheme-handler/slack=slack.desktop
 x-scheme-handler/viber=viber.desktop
 x-scheme-handler/mailto=brave-browser.desktop
+image/png=org.gnome.eog.desktop
+image/jpeg=org.gnome.eog.desktop
+text/plain=org.gnome.gedit.desktop

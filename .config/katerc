@@ -126,9 +126,11 @@ Word Completion Minimal Word Length=3
 Word Completion Remove Tail=true
 
 [KTextEditor::Search]
-Search History=egrep,mesa,amd
+Search History=trash,egrep,mesa,amd
 
 [MainWindow]
+HDMI-A-1 Window-Maximized 2560x1440 HDMI-A-1=true
+XWAYLAND0 Window-Maximized 1920x1080 XWAYLAND0=true
 eDP-1 HDMI-A-1 Height 1920x1080=761
 eDP-1 HDMI-A-1 Height 2560x1440=766
 eDP-1 HDMI-A-1 Width 1920x1080=1470

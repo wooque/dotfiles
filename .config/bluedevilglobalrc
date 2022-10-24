@@ -2,7 +2,4 @@
 68:54:5A:64:BB:84_powered=true
 
 [Devices]
-connectedDevices=
-
-[Global]
-bluetoothBlocked=true
+connectedDevices=30:21:63:2E:65:CD
