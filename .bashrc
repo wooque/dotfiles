@@ -1,5 +1,9 @@
 [[ $- != *i* ]] && return
 
+if [ -r /usr/share/bash-completion/bash_completion ]; then
+  . /usr/share/bash-completion/bash_completion
+fi
+
 bind 'set match-hidden-files off'
 bind 'set enable-bracketed-paste off'
 shopt -s checkwinsize
@@ -9,12 +13,20 @@ HISTSIZE=10000
 PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 
 GIT_PS1_SHOWDIRTYSTATE=true
-if [[ -r "/usr/share/git/completion/git-prompt.sh" ]]; then
-    source /usr/share/git/completion/git-prompt.sh
-fi
-
 PROMPT_DIRTRIM=2
 PS1='\[\033[01;34m\]\w $(__git_ps1 "\[\033[01;35m\](%s) ")\[\033[00m\]'
+
+show_command_in_title_bar() {
+  case "$BASH_COMMAND" in
+    history\ *|_z\ *|cd\ *|ls\ *)
+      echo -ne "\033]0;$PWD\007" 1>&2
+      ;;
+    *)
+      echo -ne "\033]0;${BASH_COMMAND}\007" 1>&2
+      ;;
+  esac
+}
+trap show_command_in_title_bar DEBUG
 
 alias ll="ls -lh --group-directories-first --color=auto"
 alias la="ls -lAh --group-directories-first --color=auto"
@@ -23,32 +35,31 @@ alias diff="diff --color=auto"
 alias top="top -c -o%MEM -em -d1.5"
 alias ncdu="ncdu --color=off"
 
-if [[ -r "/usr/share/git/completion/git-completion.bash" ]]; then
-  source "/usr/share/git/completion/git-completion.bash"
-fi
-
 alias gst="git status"
 alias gd="git diff"
 alias gdca="git diff --cached"
 alias gp="git push"
-__git_complete gp _git_push
 alias gl="git pull"
 alias ga="git add"
-__git_complete ga _git_add
 alias gcm="git commit -m"
 alias gca="git add . && git commit --amend --no-edit"
 alias gco="git checkout"
-__git_complete gco _git_checkout
 alias glg="git log"
 alias gb="git branch"
-__git_complete gb _git_branch
 alias grhh="git reset --hard HEAD"
 alias gss="git stash save"
 alias gsp="git stash pop"
 alias gld="git stash save && git pull && git stash pop"
 
-alias upgrade="yay -Syu --combinedupgrade"
+if [ -r /usr/share/bash-completion/completions/git ]; then
+  . /usr/share/bash-completion/completions/git
+  __git_complete gp _git_push
+  __git_complete ga _git_add
+  __git_complete gco _git_checkout
+  __git_complete gb _git_branch
+fi
+
 alias backup="rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee ~/backup-\$(date +%Y-%m-%d-%H-%M-%S).log"
 
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
-[[ -r "/opt/asdf-vm/asdf.sh" ]] && source /opt/asdf-vm/asdf.sh
+[ -r $HOME/.z.sh ] && . $HOME/.z.sh
+[ -r $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
