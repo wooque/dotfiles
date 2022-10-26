@@ -19,7 +19,7 @@ PS1='\[\033[01;34m\]\w $(__git_ps1 "\[\033[01;35m\](%s) ")\[\033[00m\]'
 show_command_in_title_bar() {
   case "$BASH_COMMAND" in
     history\ *|_z\ *|cd\ *|ls\ *)
-      echo -ne "\033]0;$PWD\007" 1>&2
+      echo -ne "\033]0;${PWD/"$HOME"/\~}\007" 1>&2
       ;;
     *)
       echo -ne "\033]0;${BASH_COMMAND}\007" 1>&2
@@ -60,6 +60,7 @@ if [ -r /usr/share/bash-completion/completions/git ]; then
 fi
 
 alias backup="rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee ~/backup-\$(date +%Y-%m-%d-%H-%M-%S).log"
+alias upgrade="sudo apt update && sudo apt full-upgrade && sudo apt autoremove --purge"
 
 [ -r $HOME/.z.sh ] && . $HOME/.z.sh
 [ -r $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
