@@ -1,4 +1,7 @@
-[[ $- != *i* ]] && return
+case $- in
+  *i*) ;;
+    *) return;;
+esac
 
 if [ -r /usr/share/bash-completion/bash_completion ]; then
   . /usr/share/bash-completion/bash_completion
@@ -62,5 +65,9 @@ fi
 alias backup="rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee ~/backup-\$(date +%Y-%m-%d-%H-%M-%S).log"
 alias upgrade="sudo apt update && sudo apt full-upgrade && sudo apt autoremove --purge"
 
-[ -r $HOME/.z.sh ] && . $HOME/.z.sh
-[ -r $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
+if [ -r $HOME/.z.sh ]; then
+  . $HOME/.z.sh
+fi
+if [ -r $HOME/.asdf/asdf.sh ]; then
+  . $HOME/.asdf/asdf.sh
+fi
