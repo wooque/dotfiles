@@ -111,6 +111,7 @@ Terminal=false
 Icon=brave-browser
 Type=Application
 Categories=Network;WebBrowser;
+MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ipfs;x-scheme-handler/ipns;
 Actions=new-window;new-private-window;
 
 [Desktop Action new-window]
@@ -165,7 +166,7 @@ Name[uk]=Нове вікно
 Name[vi]=Cửa sổ Mới
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=/usr/bin/brave-browser-stable
+Exec=/usr/bin/brave-browser-stable --enable-features=OverlayScrollbar,VaapiVideoDecoder,VaapiVideoEncoder,WebRTCPipeWireCapturer --enable-zero-copy --disable-features=UseChromeOSDirectVideoDecoder --disable-smooth-scrolling --ozone-platform=wayland --password-store=gnome %U
 
 [Desktop Action new-private-window]
 Name=New Incognito Window
@@ -218,4 +219,3 @@ Name[vi]=Cửa sổ ẩn danh mới
 Name[zh_CN]=新建隐身窗口
 Name[zh_TW]=新增無痕式視窗
 Exec=/usr/bin/brave-browser-stable --incognito
-MimeType=x-scheme-handler/mailto;x-scheme-handler/unknown;x-scheme-handler/about;application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ipfs;x-scheme-handler/ipns;
