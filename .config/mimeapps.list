@@ -12,3 +12,4 @@ image/webp=org.gnome.eog.desktop
 [Added Associations]
 text/plain=org.gnome.TextEditor.desktop;
 image/webp=org.gnome.eog.desktop;
+video/mp4=mpv.desktop;
