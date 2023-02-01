@@ -1,20 +1,23 @@
 [Default Applications]
 text/plain=org.gnome.TextEditor.desktop
-text/html=firefox.desktop
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
 x-scheme-handler/mailto=brave-browser.desktop
 x-scheme-handler/viber=viber.desktop
 image/webp=org.gnome.eog.desktop
-application/xhtml+xml=firefox.desktop
+application/xhtml+xml=brave-browser.desktop
+video/webm=mpv.desktop
 
 [Added Associations]
 text/plain=org.gnome.TextEditor.desktop;
 image/webp=org.gnome.eog.desktop;
 video/mp4=mpv.desktop;
-x-scheme-handler/http=firefox.desktop;
-text/html=firefox.desktop;
-application/xhtml+xml=firefox.desktop;
-x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/http=firefox.desktop;brave-browser.desktop;
+text/html=firefox.desktop;brave-browser.desktop;
+application/xhtml+xml=firefox.desktop;brave-browser.desktop;
+x-scheme-handler/https=firefox.desktop;brave-browser.desktop;
+video/webm=mpv.desktop;
+video/x-matroska=mpv.desktop;
