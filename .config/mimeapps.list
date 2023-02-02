@@ -21,3 +21,4 @@ application/xhtml+xml=firefox.desktop;brave-browser.desktop;
 x-scheme-handler/https=firefox.desktop;brave-browser.desktop;
 video/webm=mpv.desktop;
 video/x-matroska=mpv.desktop;
+image/jpeg=gimp.desktop;

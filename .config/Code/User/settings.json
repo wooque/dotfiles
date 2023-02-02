@@ -1,17 +1,29 @@
 {
-    "debug.console.fontSize": 12,
-    "editor.cursorBlinking": "solid",
-    "editor.fontSize": 12,
-    "editor.minimap.enabled": false,
-    "files.autoSave": "afterDelay",
-    "files.trimTrailingWhitespace": true,
-    "files.exclude": {
-        "**/__pycache__": true
-    },
-    "telemetry.telemetryLevel": "off",
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.enablePersistentSessions": false,
-    "window.titleBarStyle": "custom",
-    "workbench.colorTheme": "Visual Studio Light",
-    "json.schemas": []
+  "debug.console.fontSize": 12,
+  "editor.cursorBlinking": "solid",
+  "editor.fontSize": 12,
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
+  "files.autoSave": "afterDelay",
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/__pycache__": true
+  },
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.enablePersistentSessions": false,
+  "window.titleBarStyle": "custom",
+  "workbench.colorTheme": "Visual Studio Light",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
