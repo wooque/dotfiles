@@ -10,6 +10,7 @@ x-scheme-handler/viber=viber.desktop
 image/webp=org.gnome.eog.desktop
 application/xhtml+xml=brave-browser.desktop
 video/webm=mpv.desktop
+audio/mp4=mpv.desktop
 
 [Added Associations]
 text/plain=org.gnome.TextEditor.desktop;
@@ -22,3 +23,4 @@ x-scheme-handler/https=firefox.desktop;brave-browser.desktop;
 video/webm=mpv.desktop;
 video/x-matroska=mpv.desktop;
 image/jpeg=gimp.desktop;
+audio/mp4=mpv.desktop;
