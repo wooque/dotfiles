@@ -54,6 +54,7 @@ alias gb="git branch"
 alias grhh="git reset --hard HEAD"
 alias grbm="git rebase master"
 alias grbc="git rebase --continue"
+alias grpo="git remote prune origin"
 
 if [ -r /usr/share/bash-completion/completions/git ]; then
   . /usr/share/bash-completion/completions/git
