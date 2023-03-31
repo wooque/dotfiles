@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Signal
-Exec=/opt/Signal/signal-desktop --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland --use-tray-icon --no-sandbox %U
+Exec=/opt/Signal/signal-desktop --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland --password-store=gnome --use-tray-icon --no-sandbox %U
 Terminal=false
 Type=Application
 Icon=signal-desktop
