@@ -49,6 +49,10 @@ alias ga="git add"
 alias gcm="git commit -m"
 alias gca="git add . && git commit --amend --no-edit"
 alias gco="git checkout"
+gcd_func() {
+  git stash save && git checkout $1 && git stash pop
+}
+alias gcd=gcd_func
 alias glg="git log"
 alias gb="git branch"
 alias grhh="git reset --hard HEAD"
@@ -61,6 +65,7 @@ if [ -r /usr/share/bash-completion/completions/git ]; then
   __git_complete gp _git_push
   __git_complete ga _git_add
   __git_complete gco _git_checkout
+  __git_complete gcd _git_checkout
   __git_complete gb _git_branch
 fi
 
