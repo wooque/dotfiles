@@ -1,0 +1,3 @@
+set follow=true
+set shuffle=tracks
+set format_title=cmus - %a - %l - %t (%y)

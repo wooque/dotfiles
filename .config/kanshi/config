@@ -1,0 +1,8 @@
+profile laptop {
+  output eDP-1 enable mode 1920x1080 position 0,0  
+}
+profile external {
+  output HDMI-A-1 enable mode 2560x1440 position 0,0
+  output eDP-1 enable mode 1920x1080 position 320,1440
+  exec swaymsg workspace 1, move workspace to HDMI-A-1
+}

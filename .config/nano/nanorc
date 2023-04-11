@@ -1,6 +1,5 @@
 set atblanks
 set autoindent
-set indicator
 set linenumbers
 set mouse
 set regexp
@@ -8,3 +7,4 @@ set softwrap
 set tabsize 2
 set tabstospaces
 include "/usr/share/nano/*.nanorc"
+bind M-M "{mouse}{linenumbers}" main

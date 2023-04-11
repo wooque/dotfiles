@@ -1,0 +1,18 @@
+#input {
+  font-family: monospace;
+  border-radius: 0;
+}
+
+label {
+  font-family: monospace;
+  font-size: 14px;
+  color: black;
+}
+
+#selected label {
+  color: white;
+}
+
+image {
+  padding-right: 5px;
+}

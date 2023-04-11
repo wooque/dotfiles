@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+case $1 in
+  cal)
+    foot -a float_title -T calendar -o font=monospace:size=10.5 sh -c 'ncal -bM -B3 -A8; sleep 1000'
+    ;;
+  nm)
+    foot -a float_title -T network sh -c 'sleep 0.1; nmtui'
+    ;;
+  bt)
+    foot -a float_term bash -ic bt-toggle
+    ;;
+  powermenu)
+    swaynag -t warning -m 'Power menu' -B 'Power off' 'systemctl poweroff' -B 'Reboot' 'systemctl reboot' -B 'Suspend' 'systemctl suspend'
+    ;;
+  powermanagment)
+    swaynag -t warning -m 'Power management' -z 'Battery' 'bash -ic pm-bat' -z 'AC' 'bash -ic pm-ac'
+    ;;
+  *)
+    swaynag -m "Unknown command"
+    ;;
+esac

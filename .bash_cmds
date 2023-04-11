@@ -1,0 +1,57 @@
+function upgrade() {
+  exec 5>&1
+  local res=$(sudo apt update | tee /dev/fd/5)
+  if [[ "$res" == *"can be upgraded"* ]]; then
+    sudo apt full-upgrade --no-install-recommends --purge
+    sudo apt autoremove --purge
+  fi
+}
+alias backup="rclone sync -lv --fast-list --transfers 32 --delete-excluded --exclude-from /mnt/PODACI/.backupignore /mnt/PODACI b2-crypt: 2>&1 | tee ~/backup-\$(date +%Y-%m-%d-%H-%M-%S).log"
+
+function pm-bat() {
+  brightnessctl s 20%
+  bluetoothctl power off
+  dropbox stop
+  pkill -9 "nicotine|signal-desktop|Viber|gammastep|swayidle"
+  swaymsg exec -- "swayidle -w \
+timeout 90 'swaylock -f -c 000000' \
+timeout 120 'swaymsg \"output * power off\"' resume 'swaymsg \"output * power on\"' \
+before-sleep 'swaylock -f -c 000000'"
+}
+function pm-ac() {
+  brightnessctl s 50%
+  bluetoothctl power on
+  pkill -9 gammastep && swaymsg exec -- gammastep
+  pkill swayidle
+  swaymsg exec -- "swayidle -w \
+timeout 300 'swaylock -f -c 000000' \
+before-sleep 'swaylock -f -c 000000'"
+}
+function pm-apply() {
+  if [ "$(cat /sys/class/power_supply/BAT*/status)" = "Discharging" ]; then
+    pm-bat
+  else
+    pm-ac
+  fi
+}
+
+function autostart() {
+  if [ "$(cat /sys/class/power_supply/BAT*/status)" = "Discharging" ]; then
+    echo "Not starting on battery"
+  else
+    for file in .config/autostart/*; do
+      exo-open $file
+    done
+  fi
+}
+
+function bt-toggle() {
+  local dev=30:21:63:2E:65:CD
+  local status="$(bluetoothctl info $dev | grep connected | grep -o no)"
+  if [ "$status" = "no" ]; then
+    bluetoothctl connect $dev
+  else
+    bluetoothctl disconnect
+  fi
+}
+alias cmus-refresh='cmus-remote -C clear; cmus-remote -C "add /mnt/PODACI/muzika"; cmus-remote -C "update-cache -f"'

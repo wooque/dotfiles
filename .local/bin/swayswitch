@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+row=$(swaymsg -t get_tree | jq  -r '
+    ..
+    | objects
+    | select(.type == "workspace") as $ws
+    | ..
+    | objects
+    | select(has("app_id"))
+    | (if .focused == true then "*" else " " end) as $asterisk
+    | "[\($ws.name)] \($asterisk) <span weight=\"bold\">\(.app_id)</span> \(.name) <!-- \(.id) -->"' \
+| sed 's/&/&amp;/g' \
+| wofi -d -p windows)
+
+if [ ! -z "$row" ]
+then
+    winid=$(echo "$row" | sed 's/.*<!-- \([0-9]*\) -->.*/\1/')
+    swaymsg "[con_id=$winid] focus"
+fi

@@ -1,0 +1,91 @@
+{
+    "height": 20,
+    "spacing": 0,
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+    "modules-right": ["custom/media", "tray", "pulseaudio", "network", "battery", "clock"],
+    "sway/workspaces": {
+        "enable-bar-scroll": true,
+        "smooth-scrolling-threshold": 10,
+        "disable-scroll-wraparound": true,
+        "on-click-right": "swayswitch",
+        "on-click-middle": "wofi -S drun"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}",
+        "on-click": "swaymsg scratchpad show",
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 16
+    },
+    "clock": {
+        "format": "{:%d %b %H:%M}",
+        "tooltip-format": "<tt><big>{:%B %Y}</big>\n{calendar}</tt>",
+        "on-click": "swaytui cal",
+        "on-click-middle": "swaytui powermenu"
+    },
+    "sway/language": {
+        "format": "{short}",
+        "tooltip-format": "{long}"
+    },
+    "battery": {
+        "states": {
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-time": "{H}:{m}h",
+        "format-discharging": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "",
+        "format-full": "",
+        "tooltip-format": "{capacity}% {time} {power}W",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "swaytui powermanagment",
+        "on-click-middle": "swaytui powermenu"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [""]
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "",
+        "tooltip-format": "{essid} {signalStrength}%",
+        "tooltip-format-ethernet": "{ifname}",
+        "format-linked": " (No IP)",
+        "format-disconnected": " ",
+        "on-click": "swaytui nm"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%  {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "default": ["", "", ""]
+        },
+        "tooltip-format": "{desc}",
+        "on-click": "pavucontrol -t 3",
+        "on-click-middle": "swaytui bt",
+        "smooth-scrolling-threshold": 1
+    },
+    "custom/media": {
+        "format": "{icon}",
+        "return-type": "json",
+        "format-icons": {
+            "Playing": "",
+            "Paused": "",
+            "Stopped": ""
+        },
+        "exec": "pgrep playerctl | head -n -$(($(swaymsg -t get_outputs -p | grep Output | wc -l)-1)) | xargs kill -9; playerctl metadata --format '{\"tooltip\": \"{{markup_escape(title)}} - {{markup_escape(artist)}} [{{playerName}}]\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "playerctl play-pause",
+        "on-click-right": "cmus-remote -C player-next-album || playerctl next",
+        "on-click-middle": "playerctl -a stop"
+    }
+}

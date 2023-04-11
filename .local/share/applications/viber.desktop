@@ -1,9 +1,8 @@
 [Desktop Entry]
 Name=Viber
 Comment=Viber VoIP and messenger
-Exec=env QT_QPA_PLATFORM=wayland XCURSOR_SIZE=16 /opt/viber/Viber %u
+Exec=env QT_QPA_PLATFORM=xcb /opt/viber/Viber %u
 Icon=/usr/share/pixmaps/viber.png
-StartupWMClass=com.viber.Viber
 Terminal=false
 Type=Application
 Categories=Network;InstantMessaging;P2P;

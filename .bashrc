@@ -9,11 +9,12 @@ fi
 
 bind 'set match-hidden-files off'
 bind 'set enable-bracketed-paste off'
+bind 'set completion-ignore-case on'
 shopt -s checkwinsize
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth:erasedups
 HISTFILESIZE=10000
 HISTSIZE=10000
-PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 GIT_PS1_SHOWDIRTYSTATE=true
 PROMPT_DIRTRIM=2
@@ -69,9 +70,9 @@ if [ -r /usr/share/bash-completion/completions/git ]; then
   __git_complete gb _git_branch
 fi
 
-alias backup="rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee ~/backup-\$(date +%Y-%m-%d-%H-%M-%S).log"
-alias upgrade="sudo apt update && sudo apt full-upgrade --no-install-recommends && sudo apt autoremove --purge"
-
+if [ -r $HOME/.bash_cmds ]; then
+  . $HOME/.bash_cmds
+fi
 if [ -r $HOME/.z.sh ]; then
   . $HOME/.z.sh
 fi
