@@ -3,10 +3,8 @@ set autoindent
 set indicator
 set linenumbers
 set mouse
-set nohelp
 set regexp
 set softwrap
 set tabsize 2
 set tabstospaces
-set zap
 include "/usr/share/nano/*.nanorc"

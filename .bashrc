@@ -70,7 +70,7 @@ if [ -r /usr/share/bash-completion/completions/git ]; then
 fi
 
 alias backup="rsync -azzP --delete --exclude-from='/mnt/PODACI/.backupignore' /mnt/PODACI backup:/root/backup | tee ~/backup-\$(date +%Y-%m-%d-%H-%M-%S).log"
-alias upgrade="sudo apt update && sudo apt full-upgrade && sudo apt autoremove --purge"
+alias upgrade="sudo apt update && sudo apt full-upgrade --no-install-recommends && sudo apt autoremove --purge"
 
 if [ -r $HOME/.z.sh ]; then
   . $HOME/.z.sh
