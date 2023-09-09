@@ -6,12 +6,14 @@ function upgrade() {
     sudo apt autoremove --purge
   fi
 }
-alias backup="rclone sync -lv --fast-list --transfers 32 --delete-excluded --exclude-from /mnt/PODACI/.backupignore /mnt/PODACI b2-crypt: 2>&1 | tee ~/backup-\$(date +%Y-%m-%d-%H-%M-%S).log"
+function backup() {
+  rclone sync -lv --fast-list --transfers 32 --delete-excluded --exclude-from /mnt/PODACI/.backupignore /mnt/PODACI b2-crypt: 2>&1 | tee ~/backup-$(date +%Y-%m-%d-%H-%M-%S).log
+  dropbox start && sleep 15 && dropbox stop
+}
 
 function pm-bat() {
   brightnessctl s 20%
   bluetoothctl power off
-  dropbox stop
   pkill -9 "nicotine|signal-desktop|Viber|gammastep|swayidle"
   swaymsg exec -- "swayidle -w \
 timeout 90 'swaylock -f -c 000000' \
