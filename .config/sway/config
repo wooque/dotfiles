@@ -61,7 +61,7 @@ output * bg ~/.local/share/backgrounds/wallpaper.jpg fill
   input type:keyboard {
       xkb_layout "us,rs"
       xkb_variant "altgr-intl,yz"
-      xkb_options "compose:caps,grp:shifts_toggle"
+      xkb_options "compose:caps,grp:alt_space_toggle"
       repeat_delay 500
       repeat_rate 35
   }
