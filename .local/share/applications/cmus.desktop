@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=foot -a cmus cmus
+Icon=audio-speakers
+Terminal=false
+Categories=AudioVideo;Audio;Player;
+Keywords=media;player;audio;
+Name=cmus
+GenericName=Music player
+Comment=Music player

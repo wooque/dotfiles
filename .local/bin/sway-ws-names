@@ -1,0 +1,123 @@
+#!/usr/bin/env python3
+import re
+import i3ipc
+
+APP_ICON_CONFIG = {
+    "firefox": "",
+    "google-chrome": "",
+    "foot": "",
+    "float_term": "",
+    "code-url-handler": "",
+    "beekeeper-studio": "",
+    "thunar": "",
+    "Viber": "",
+    "signal": "",
+    "org.nicotine_plus.Nicotine": "",
+    "cmus": "",
+    "mpv": "",
+    "pavucontrol": "",
+    "network": "",
+    "calendar": "",
+    "mate-calc": "",
+    "gimp-2.10": "",
+    "libreoffice-writer": "",
+    "libreoffice-calc": "",
+    "mousepad": "",
+    "xarchiver": "",
+    "org.gnome.Meld": "",
+    "ristretto": "",
+    "org.pwmt.zathura": "",
+    "transmission-gtk": "",
+    "gitk": "",
+    "wofi": "",
+    "_no_match": "",
+}
+DELIM = "  "
+DEBUG = False
+
+
+def get_icon_or_name(leaf):
+    icon = None
+    for identifier in ("app_id", "window_instance", "window_class"):
+        name = getattr(leaf, identifier, None)
+        if name is None:
+            continue
+        if DEBUG:
+            print(f"Window {identifier} {name}")
+
+        for name_re in APP_ICON_CONFIG.keys():
+            if re.match(name_re, name, re.IGNORECASE):
+                icon = APP_ICON_CONFIG[name_re]
+
+    if icon is None:
+        icon = APP_ICON_CONFIG["_no_match"]
+    return icon
+
+
+def escape(name):
+    return name.replace('"', '\\"')
+
+
+def rename(i3, e):
+    if e and DEBUG:
+        print(f"Event {e.change}")
+
+    workspaces = i3.get_tree().workspaces()
+
+    commands = []
+    if len(workspaces) == 1 or (
+        len(workspaces) == 2 and len(workspaces[1].leaves()) == 0
+    ):
+        for workspace in workspaces:
+            if workspace.name != str(workspace.num):
+                commands.append(
+                    f'rename workspace "{escape(workspace.name)}" to "{workspace.num}"'
+                )
+    else:
+        for workspace in workspaces:
+            names = [get_icon_or_name(leaf) for leaf in workspace.leaves()]
+            names = DELIM.join([n for n in names if n])
+
+            if workspace.floating_nodes:
+                floating_names = [
+                    get_icon_or_name(leaf) for leaf in workspace.floating_nodes
+                ]
+                floating_names = DELIM.join(n for n in floating_names if n)
+                if floating_names:
+                    floating_names = f"[{floating_names}]"
+                    if names:
+                        names = f"{names} {floating_names}"
+                    else:
+                        names = floating_names
+
+            if names:
+                newname = f"{workspace.num}: {names}"
+            else:
+                newname = str(workspace.num)
+
+            if workspace.name != newname:
+                commands.append(
+                    f'rename workspace "{escape(workspace.name)}" to "{escape(newname)}"'
+                )
+    if commands:
+        if DEBUG:
+            print(f"Commands: {'; '.join(commands)}")
+        i3.command(";".join(commands))
+
+
+def main():
+    i3 = i3ipc.Connection()
+    for case in [
+        "window::move",
+        "window::new",
+        "window::close",
+        "window::floating",
+    ]:
+        i3.on(case, rename)
+
+    rename(i3, None)
+    i3.main()
+
+
+if __name__ == "__main__":
+    main()

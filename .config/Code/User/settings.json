@@ -1,6 +1,7 @@
 {
   "debug.console.fontSize": 12,
   "editor.cursorBlinking": "solid",
+  "editor.fontFamily": "Monospace, FontAwesome",
   "editor.fontSize": 12,
   "editor.tabSize": 2,
   "editor.minimap.enabled": false,
