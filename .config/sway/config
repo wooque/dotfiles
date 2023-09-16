@@ -261,7 +261,7 @@ hide_edge_borders --i3 smart
 client.focused #3584e4 #3584e4 #ffffff #2e9ef4 #3584e4
 
 for_window [title="^Viber$"] border normal 2
-for_window [app_id="signal|transmission-gtk|beekeeper-studio|pavucontrol|network|calendar"] border normal 2
+for_window [app_id="signal|transmission-gtk|beekeeper-studio|pavucontrol|network|calendar|cmus"] border normal 2
 for_window [app_id="mate-calc|thunar|Thunar|float_term"] floating enable, border normal 2
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
 for_window [app_id="otpclient"] floating enable
