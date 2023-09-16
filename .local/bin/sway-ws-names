@@ -65,8 +65,10 @@ def rename(i3, e):
     workspaces = i3.get_tree().workspaces()
 
     commands = []
-    if len(workspaces) == 1 or (
-        len(workspaces) == 2 and len(workspaces[1].leaves()) == 0
+    # only one workspace with windows
+    if (
+        len(workspaces) == 1
+        or sum(1 if len(w.nodes + w.floating_nodes) > 0 else 0 for w in workspaces) == 1
     ):
         for workspace in workspaces:
             if workspace.name != str(workspace.num):
