@@ -267,6 +267,8 @@ for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, bord
 for_window [app_id="otpclient"] floating enable
 for_window [title="ViberPC|Open File|Open Folder|Save File|Save As|Picture in picture|Picture-in-Picture"] floating enable
 
+assign [app_id="cmus"] workspace number 10
+
 exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway
 exec mako
 exec_always killall kanshi; kanshi
