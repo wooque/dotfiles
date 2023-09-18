@@ -265,7 +265,7 @@ for_window [app_id="signal|transmission-gtk|beekeeper-studio|pavucontrol|network
 for_window [app_id="mate-calc|thunar|Thunar|float_term"] floating enable, border normal 2
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
 for_window [app_id="otpclient"] floating enable
-for_window [title="ViberPC|Open File|Open Folder|Save File|Save As|Picture in picture|Picture-in-Picture"] floating enable
+for_window [title="ViberPC|Open File|Open Folder|Save File|Save As|Picture in picture|Picture-in-Picture|Create a new archive"] floating enable
 
 assign [app_id="cmus"] workspace number 10
 
