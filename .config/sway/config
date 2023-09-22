@@ -276,4 +276,3 @@ exec kanshi
 exec gammastep
 exec sway-ws-names
 exec bash -ic pm-apply
-exec bash -ic autostart

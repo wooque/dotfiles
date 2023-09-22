@@ -28,6 +28,7 @@ function pm-ac() {
   swaymsg exec -- "swayidle -w \
 timeout 300 'swaylock -f -c 000000' \
 before-sleep 'swaylock -f -c 000000'"
+  autostart
 }
 function pm-apply() {
   if [ "$(cat /sys/class/power_supply/BAT*/status)" = "Discharging" ]; then
