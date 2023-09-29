@@ -10,7 +10,7 @@ APP_ICON_CONFIG = {
     "code-url-handler": "",
     "beekeeper-studio": "",
     "thunar": "",
-    "Viber": "",
+    "com.viber.Viber": "",
     "signal": "",
     "org.nicotine_plus.Nicotine": "",
     "cmus": "",
