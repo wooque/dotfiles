@@ -253,18 +253,15 @@ bindsym --release $mod+Shift+Print exec --no-startup-id grim -o $(swaymsg -t get
 bindsym $mod+l exec swaylock -f -c 000000
 bindsym Mod1+Control+delete exec swaytui powermenu
 
-default_border pixel 2
 titlebar_border_thickness 1
 titlebar_padding 8 2
 hide_edge_borders --i3 smart
 
 client.focused #3584e4 #3584e4 #ffffff #2e9ef4 #3584e4
 
-for_window [class="Signal"] border normal 2
-for_window [app_id="com.viber.Viber|signal|transmission-gtk|beekeeper-studio|pavucontrol|network|calendar|cmus"] border normal 2
-for_window [app_id="mate-calc|thunar|Thunar|float_term"] floating enable, border normal 2
+for_window [app_id="firefox|google-chrome|code-url-handler|foot"] border pixel 2
+for_window [app_id="mate-calc|thunar|Thunar|float_term|otpclient"] floating enable
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
-for_window [app_id="otpclient"] floating enable
 for_window [title="ViberPC|Open File|Open Folder|Save File|Save As|Picture in picture|Picture-in-Picture|Create a new archive"] floating enable, border none
 
 assign [app_id="cmus"] workspace number 10
