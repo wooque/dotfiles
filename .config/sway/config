@@ -262,7 +262,7 @@ client.focused #3584e4 #3584e4 #ffffff #2e9ef4 #3584e4
 for_window [app_id="firefox|google-chrome|code-url-handler|foot"] border pixel 2
 for_window [app_id="mate-calc|thunar|Thunar|float_term|otpclient"] floating enable
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
-for_window [title="ViberPC|Open File|Open Folder|Save File|Save As|Picture in picture|Picture-in-Picture|Create a new archive"] floating enable, border none
+for_window [title="ViberPC|Open File|Open Folder|Save File|Save As|File Upload|Picture in picture|Picture-in-Picture|Create a new archive"] floating enable, border none
 
 assign [app_id="cmus"] workspace number 10
 
