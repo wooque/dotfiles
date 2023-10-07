@@ -251,7 +251,7 @@ bindsym --release $mod+Print exec --no-startup-id swaymsg -t get_tree | jq -r '.
 bindsym --release $mod+Shift+Print exec --no-startup-id grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
 bindsym $mod+l exec swaylock -f -c 000000
-bindsym Mod1+Control+delete exec swaytui powermenu
+bindsym Mod1+Control+delete exec swaypower
 
 titlebar_border_thickness 1
 titlebar_padding 8 2
