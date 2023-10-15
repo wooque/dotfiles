@@ -2,7 +2,7 @@
 
 case $1 in
   cal)
-    foot -a calendar -T calendar -o font=monospace:size=10.5 sh -c 'ncal -bM -B3 -A8; sleep 1000'
+    foot -a calendar -T calendar -H -o font=monospace:size=10.5 sh -c 'ncal -bM -B3 -A8'
     ;;
   nm)
     foot -a network -T network sh -c 'sleep 0.1; nmtui'
