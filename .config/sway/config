@@ -247,8 +247,8 @@ bindsym $mod+c exec --no-startup-id mate-calc
 bindsym $mod+Tab exec --no-startup-id swayswitch
 bindsym $mod+Shift+d exec --no-startup-id xdg-open "$(recent | wofi -d -p recent)"
 bindsym --release Print exec --no-startup-id grim -g "$(slurp)"
-bindsym --release $mod+Print exec --no-startup-id swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | "\(.rect.x + .window_rect.x),\(if .deco_rect.width != 0 and .rect.width != .deco_rect.width then .rect.y else .rect.y + .window_rect.y end) \(.window_rect.width)x\(.window_rect.height)"' | slurp | xargs -I {} grim -g "{}"
-bindsym --release $mod+Shift+Print exec --no-startup-id grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+bindsym --release $mod+Shift+Print exec --no-startup-id swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | "\(.rect.x + .window_rect.x),\(if .deco_rect.width != 0 and .rect.width != .deco_rect.width then .rect.y else .rect.y + .window_rect.y end) \(.window_rect.width)x\(.window_rect.height)"' | slurp | xargs -I {} grim -g "{}"
+bindsym --release $mod+Print exec --no-startup-id grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
 bindsym $mod+l exec swaylock -f -c 000000
 bindsym Mod1+Control+delete exec swaypower
