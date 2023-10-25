@@ -70,6 +70,9 @@ if [ -r /usr/share/bash-completion/completions/git ]; then
   __git_complete gb _git_branch
 fi
 
+alias gdh='diff2html -t "$(basename $PWD) ($(git branch --show-current))"'
+alias gdhp="${BASH_ALIASES[gdh]} -- HEAD~1"
+
 if [ -r $HOME/.bash_cmds ]; then
   . $HOME/.bash_cmds
 fi
