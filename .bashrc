@@ -72,6 +72,7 @@ fi
 
 alias gdh='diff2html -t "$(basename $PWD) ($(git branch --show-current))"'
 alias gdhp="${BASH_ALIASES[gdh]} -- HEAD~1"
+alias serve="python3 -m http.server"
 
 if [ -r $HOME/.bash_cmds ]; then
   . $HOME/.bash_cmds
