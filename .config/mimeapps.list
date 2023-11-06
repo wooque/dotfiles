@@ -23,6 +23,7 @@ application/x-shellscript=org.xfce.mousepad.desktop;
 text/x-dbus-service=org.xfce.mousepad.desktop;
 video/webm=mpv.desktop
 application/xml=org.xfce.mousepad.desktop
+image/webp=org.xfce.ristretto.desktop
 
 [Added Associations]
 application/pdf=gimp.desktop;
@@ -30,3 +31,5 @@ image/png=gimp.desktop;
 video/webm=mpv.desktop;
 image/jpeg=gimp.desktop;
 application/xml=org.xfce.mousepad.desktop;
+image/webp=org.xfce.ristretto.desktop;
+image/svg+xml=gimp.desktop;org.xfce.mousepad.desktop;firefox.desktop;
