@@ -56,10 +56,14 @@ gcd_func() {
 alias gcd=gcd_func
 alias glg="git log"
 alias gb="git branch"
+alias grh="git reset --hard"
 alias grhh="git reset --hard HEAD"
-alias grbm="git rebase master"
+alias grb="git rebase"
 alias grbc="git rebase --continue"
 alias grpo="git remote prune origin"
+alias glc="git rev-parse HEAD"
+alias gcp="git cherry-pick"
+alias gcpc="git cherry-pick --continue"
 
 if [ -r /usr/share/bash-completion/completions/git ]; then
   . /usr/share/bash-completion/completions/git
@@ -68,6 +72,9 @@ if [ -r /usr/share/bash-completion/completions/git ]; then
   __git_complete gco _git_checkout
   __git_complete gcd _git_checkout
   __git_complete gb _git_branch
+  __git_complete grh _git_reset
+  __git_complete grb _git_rebase
+  __git_complete gcp _git_cherry_pick
 fi
 
 alias gdh='diff2html -t "$(basename $PWD) ($(git branch --show-current))"'
