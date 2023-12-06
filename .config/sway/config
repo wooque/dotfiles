@@ -242,7 +242,7 @@ bindsym --locked $mod+End exec cmus-remote -C player-next-album || playerctl nex
 bindsym $mod+Home exec cmus-remote -C player-prev-album || playerctl previous
 
 bindsym $mod+e exec --no-startup-id thunar
-bindsym $mod+w exec --no-startup-id firefox
+bindsym $mod+w exec --no-startup-id exo-open ~/.local/share/applications/brave-browser.desktop
 bindsym $mod+c exec --no-startup-id mate-calc
 bindsym $mod+Tab exec --no-startup-id swayswitch
 bindsym $mod+Shift+d exec --no-startup-id xdg-open "$(recent | wofi -d -p recent)"
@@ -260,7 +260,7 @@ hide_edge_borders --i3 smart
 client.focused #3584e4 #3584e4 #ffffff #2e9ef4 #3584e4
 
 for_window [app_id="signal"] floating enable
-for_window [app_id="firefox|google-chrome|code-url-handler|foot"] border pixel 2
+for_window [app_id="firefox|google-chrome|code-url-handler|foot|brave-browser"] border pixel 2
 for_window [app_id="mate-calc|thunar|Thunar|float_term|otpclient"] floating enable
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
 for_window [title="ViberPC|Open File|Open Folder|Save File|Save As|Save Image|File Upload|Picture in picture|Picture-in-Picture|Create a new archive"] floating enable, border none

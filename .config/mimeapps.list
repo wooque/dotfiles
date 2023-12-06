@@ -1,12 +1,12 @@
 [Default Applications]
 inode/directory=thunar.desktop
 text/plain=org.xfce.mousepad.desktop;
-text/html=firefox.desktop
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
-x-scheme-handler/about=firefox.desktop
-x-scheme-handler/unknown=firefox.desktop
-x-scheme-handler/mailto=firefox.desktop
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
+x-scheme-handler/mailto=brave-browser.desktop
 x-scheme-handler/viber=viber.desktop
 image/jpeg=org.xfce.ristretto.desktop;
 image/png=org.xfce.ristretto.desktop;
@@ -32,4 +32,4 @@ video/webm=mpv.desktop;
 image/jpeg=gimp.desktop;
 application/xml=org.xfce.mousepad.desktop;
 image/webp=org.xfce.ristretto.desktop;
-image/svg+xml=gimp.desktop;org.xfce.mousepad.desktop;firefox.desktop;
+image/svg+xml=gimp.desktop;org.xfce.mousepad.desktop;
