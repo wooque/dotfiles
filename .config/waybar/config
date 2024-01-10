@@ -23,7 +23,7 @@
         "spacing": 16
     },
     "clock": {
-        "format": "{:%d %b %H:%M}",
+        "format": "{:%a %d %b %H:%M}",
         "tooltip-format": "<tt><big>{:%B %Y}</big>\n{calendar}</tt>",
         "on-click": "swaytui cal",
         "on-click-middle": "swaytui powermenu"
