@@ -30,6 +30,7 @@ APP_ICON_CONFIG = {
     "org.pwmt.zathura": "",
     "transmission-gtk": "",
     "gitk": "",
+    "qemu": "",
     "wofi": "",
     "_no_match": "",
 }
