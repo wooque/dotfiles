@@ -268,8 +268,7 @@ assign [app_id="cmus"] workspace number 10
 
 exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway
 exec mako
-exec_always killall kanshi; kanshi
-exec kanshi
 exec gammastep
 exec sway-ws-names
 exec bash -ic pm-apply
+exec_always sh -c "sleep 1; killall kanshi; kanshi"
