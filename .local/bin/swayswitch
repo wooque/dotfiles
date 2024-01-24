@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+killall /usr/bin/wofi
+sleep 0.01
 row=$(swaymsg -t get_tree | jq  -r '
     ..
     | objects
