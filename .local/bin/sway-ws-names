@@ -31,6 +31,7 @@ APP_ICON_CONFIG = {
     "transmission-gtk": "",
     "gitk": "",
     "qemu": "",
+    "otpclient": "",
     "wofi": "",
     "_no_match": "",
 }
