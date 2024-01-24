@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=foot -a cmus cmus
+Exec=bash -ic "foot -a cmus cmus & sleep 0.1; cmus-refresh"
 Icon=audio-speakers
 Terminal=false
 Categories=AudioVideo;Audio;Player;
