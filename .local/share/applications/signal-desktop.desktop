@@ -4,7 +4,7 @@ Exec=/opt/Signal/signal-desktop --ozone-platform=wayland --use-tray-icon --no-sa
 Terminal=false
 Type=Application
 Icon=signal-desktop
-StartupWMClass=Signal
+StartupWMClass=signal
 Comment=Private messaging from your desktop
 MimeType=x-scheme-handler/sgnl;x-scheme-handler/signalcaptcha;
 Categories=Network;InstantMessaging;Chat;

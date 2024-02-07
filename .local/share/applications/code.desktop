@@ -6,7 +6,7 @@ Exec=/usr/share/code/code --unity-launch --enable-features=WaylandWindowDecorati
 Icon=vscode
 Type=Application
 StartupNotify=false
-StartupWMClass=Code
+StartupWMClass=code-url-handler
 Categories=TextEditor;Development;IDE;
 MimeType=text/plain;inode/directory;application/x-code-workspace;
 Actions=new-empty-window;
