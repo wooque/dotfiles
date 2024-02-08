@@ -23,12 +23,11 @@ before-sleep 'swaylock -f -c 000000'"
 function pm-ac() {
   brightnessctl s 50%
   bluetoothctl power on
-  pkill -9 gammastep && swaymsg exec -- gammastep
-  pkill swayidle
+  pkill -9 "gammastep|swayidle"
+  swaymsg exec -- gammastep
   swaymsg exec -- "swayidle -w \
 timeout 300 'swaylock -f -c 000000' \
 before-sleep 'swaylock -f -c 000000'"
-  autostart
 }
 function pm-apply() {
   if [ "$(cat /sys/class/power_supply/BAT*/status)" = "Discharging" ]; then

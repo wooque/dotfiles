@@ -271,4 +271,5 @@ exec mako
 exec gammastep
 exec sway-ws-names
 exec bash -ic pm-apply
+exec bash -ic autostart
 exec_always sh -c "sleep 1; killall kanshi; kanshi"
