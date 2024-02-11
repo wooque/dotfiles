@@ -5,7 +5,7 @@ import i3ipc
 APP_ICON_CONFIG = {
     "firefox": "",
     "google-chrome": "",
-    "brave-browser": "",
+    "brave-browser": "",
     "foot": "",
     "float_term": "",
     "code-url-handler": "",
