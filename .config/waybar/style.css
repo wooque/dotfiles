@@ -26,7 +26,7 @@ button:hover {
 }
 
 #workspaces button.focused.current_output {
-    background-color: #3584e4;
+    background-color: #3465a4;
 }
 
 #workspaces button.urgent {

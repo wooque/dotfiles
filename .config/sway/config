@@ -257,7 +257,8 @@ titlebar_border_thickness 1
 titlebar_padding 8 2
 hide_edge_borders --i3 smart
 
-client.focused #3584e4 #3584e4 #ffffff #2e9ef4 #3584e4
+# class        border  backgr. text    indicator child_border
+client.focused #3465a4 #3465a4 #ffffff #2e9ef4 #3465a4
 
 for_window [app_id="firefox|google-chrome|code-url-handler|foot|brave-browser"] border pixel 2
 for_window [app_id="mate-calc|thunar|Thunar|float_term|otpclient"] floating enable
