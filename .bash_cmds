@@ -50,7 +50,7 @@ function autostart() {
 }
 
 function bt-toggle() {
-  local dev=30:21:63:2E:65:CD
+  local dev=$(bluetoothctl devices Paired | grep -oE '[A-F0-9:]{17}')
   local status="$(bluetoothctl info $dev | grep connected | grep -o no)"
   if [ "$status" = "no" ]; then
     bluetoothctl connect $dev
