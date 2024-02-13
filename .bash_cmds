@@ -58,4 +58,13 @@ function bt-toggle() {
     bluetoothctl disconnect
   fi
 }
+
 alias cmus-refresh='cmus-remote -C clear; cmus-remote -C "add /mnt/PODACI/muzika"; cmus-remote -C "update-cache -f"'
+function cmus-start() {
+  foot -a cmus -T cmus cmus &
+  sleep 0.1
+  cmus-refresh
+  sleep 0.5
+  cmus-remote -C player-next
+  cmus-remote -C player-play
+}
