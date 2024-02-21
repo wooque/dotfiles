@@ -62,9 +62,10 @@ function bt-toggle() {
 alias cmus-refresh='cmus-remote -C clear; cmus-remote -C "add /mnt/PODACI/muzika"; cmus-remote -C "update-cache -f"'
 function cmus-start() {
   foot -a cmus -T cmus cmus &
-  sleep 0.1
+  sleep 0.05
   cmus-refresh
-  sleep 0.7
+  sleep 1
   cmus-remote -C player-next
+  sleep 0.05
   cmus-remote -C player-play
 }
