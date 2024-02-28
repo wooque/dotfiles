@@ -38,7 +38,7 @@
         },
         "format": "{icon} {capacity}%",
         "format-time": "{H}:{m}h",
-        "format-discharging": "{icon} {capacity}%",
+        "format-discharging": "{icon} {capacity}% {power}W",
         "format-charging": " {capacity}%",
         "format-plugged": "",
         "format-full": "",
