@@ -5,7 +5,7 @@ import i3ipc
 
 APP_ICON_CONFIG = {
     "firefox": "",
-    ".*Mozilla Firefox Private Browsing": "",
+    "name=.*Mozilla Firefox Private Browsing": "",
     "google-chrome": "",
     "brave-browser": "",
     "foot": "",
@@ -53,7 +53,15 @@ def get_icon_or_name(leaf):
             print(f"Window {identifier} {name}")
 
         for name_re in APP_ICON_CONFIG.keys():
-            if re.match(name_re, name, re.IGNORECASE):
+            re_cleaned = name_re
+            if name_re.startswith("name="):
+              if identifier != "name":
+                continue
+              re_cleaned = name_re.replace("name=", "")
+            elif identifier == "name":
+              continue
+
+            if re.match(re_cleaned, name, re.IGNORECASE):
                 icon = APP_ICON_CONFIG[name_re]
                 if icon is not None:
                     if DEBUG:
