@@ -33,5 +33,5 @@ image/jpeg=gimp.desktop;
 application/xml=org.xfce.mousepad.desktop;
 image/webp=org.xfce.ristretto.desktop;
 image/svg+xml=gimp.desktop;org.xfce.mousepad.desktop;
-text/csv=org.xfce.mousepad.desktop;
+text/csv=libreoffice-calc.desktop;org.xfce.mousepad.desktop;
 application/json=org.xfce.mousepad.desktop;

@@ -66,6 +66,6 @@ function cmus-start() {
   cmus-refresh
   sleep 0.5
   cmus-remote -C player-next
-  sleep 0.05
+  sleep 0.1
   cmus-remote -C player-play
 }
