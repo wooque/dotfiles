@@ -5,6 +5,7 @@ import i3ipc
 
 APP_ICON_CONFIG = {
     "firefox": "",
+    "thunderbird-default": "",
     "name=.*Mozilla Firefox Private Browsing": "",
     "google-chrome": "",
     "brave-browser": "",

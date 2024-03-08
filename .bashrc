@@ -38,6 +38,7 @@ alias grep="grep -iI --color=auto"
 alias diff="diff --color=auto"
 alias top="top -c -o%MEM -em -d1.5"
 alias ncdu="ncdu --color=off"
+alias reset="tput reset"
 
 alias gst="git status"
 alias gd="git diff"
