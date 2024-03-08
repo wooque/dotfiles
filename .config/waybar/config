@@ -34,7 +34,7 @@
     },
     "battery": {
         "states": {
-            "critical": 15
+            "critical": 10
         },
         "format": "{icon} {capacity}%",
         "format-time": "{H}:{m}h",
