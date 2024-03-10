@@ -70,8 +70,6 @@ function cmus-start() {
   foot -a cmus -T cmus cmus &
   sleep 0.5
   cmus-refresh
-  sleep 0.5
-  cmus-remote -C player-next
-  sleep 0.1
+  sleep 2.5
   cmus-remote -C player-play
 }
