@@ -16,7 +16,7 @@ function backup() {
 }
 
 function pm-bat() {
-  brightnessctl s 20%
+  brightnessctl s 25%
   bluetoothctl power off
   pkill -9 "nicotine|signal-desktop|Viber|gammastep|swayidle"
   swaymsg exec -- "swayidle -w \
