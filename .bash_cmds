@@ -7,9 +7,12 @@ function upgrade() {
   fi
 }
 function backup() {
-  rclone sync -lv --fast-list --transfers 32 --delete-excluded --exclude-from /mnt/PODACI/.backupignore /mnt/PODACI b2-crypt: 2>&1 | tee ~/backup-$(date +%Y-%m-%d-%H-%M-%S).log
-  dropbox start && sleep 15 && dropbox stop
+  echo "thunderbird sync..."
   timeout 15 thunderbird --headless
+  echo "rclone sync..."
+  rclone sync -lv --fast-list --transfers 32 --delete-excluded --exclude-from /mnt/PODACI/.backupignore /mnt/PODACI b2-crypt: 2>&1 | tee ~/backup-$(date +%Y-%m-%d-%H-%M-%S).log
+  echo "dropbox sync..."
+  dropbox start && sleep 15 && dropbox stop
 }
 
 function pm-bat() {
