@@ -242,8 +242,7 @@ bindsym --locked $mod+End exec cmus-remote -C player-next-album || playerctl nex
 bindsym $mod+Home exec cmus-remote -C player-prev-album || playerctl previous
 
 bindsym $mod+e exec --no-startup-id thunar
-bindsym $mod+w exec --no-startup-id firefox
-bindsym $mod+Shift+w exec --no-startup-id firefox --private-window
+bindsym $mod+w exec --no-startup-id exo-open .local/share/applications/brave-browser.desktop
 bindsym $mod+c exec --no-startup-id mate-calc
 bindsym $mod+Tab exec --no-startup-id swayswitch
 bindsym $mod+Shift+d exec --no-startup-id xdg-open "$(recent | wofi -d -p recent)"
@@ -264,7 +263,8 @@ client.focused #3465a4 #3465a4 #ffffff #2e9ef4 #3465a4
 for_window [app_id="firefox|google-chrome|code-url-handler|foot|brave-browser|thunderbird-default"] border pixel 2
 for_window [app_id="mate-calc|thunar|Thunar|float_term|otpclient"] floating enable
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
-for_window [title="ViberPC|Open File|Open Folder|Save File|Save As|Save Image|File Upload|Picture in picture|Picture-in-Picture|Create a new archive"] floating enable, border none
+for_window [title="ViberPC|Open File|Open Folder|Save File|Save As|Save Image|File Upload|Create a new archive"] floating enable, border none
+for_window [title="Picture in picture|Picture-in-Picture"] floating enable, sticky toggle, border none
 
 assign [app_id="cmus"] workspace number 10
 
