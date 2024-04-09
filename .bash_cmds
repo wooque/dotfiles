@@ -62,6 +62,7 @@ function bt-toggle() {
   local dev=$(bt-dev)
   local status="$(bluetoothctl info $dev | grep connected | grep -o no)"
   if [ "$status" = "no" ]; then
+    bluetoothctl power on
     bluetoothctl connect $dev
   else
     bluetoothctl disconnect
