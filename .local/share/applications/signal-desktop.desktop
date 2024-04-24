@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Signal
-Exec=/opt/Signal/signal-desktop --ozone-platform=wayland --use-tray-icon --no-sandbox %U
+Exec=/opt/Signal/signal-desktop --disable-smooth-scrolling --ozone-platform=wayland --use-tray-icon --no-sandbox %U
 Terminal=false
 Type=Application
 Icon=signal-desktop
