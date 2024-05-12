@@ -13,7 +13,7 @@
   },
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 12,
-  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.scrollback": 2000,
   "terminal.integrated.enablePersistentSessions": false,
   "window.titleBarStyle": "custom",
   "workbench.colorTheme": "Visual Studio Light",
