@@ -13,6 +13,8 @@ APP_ICON_CONFIG = {
     "float_term": "",
     "code": "",
     "code-url-handler": "",
+    "cursor": "",
+    "cursor-url-handler": "",
     "beekeeper-studio": "",
     "thunar": "",
     "com.viber.Viber": "",

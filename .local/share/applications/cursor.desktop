@@ -1,0 +1,18 @@
+[Desktop Entry]
+Name=Cursor
+Comment=Code Editing. Redefined.
+GenericName=Text Editor
+Exec=cursor --unity-launch --enable-features=WaylandWindowDecorations --ozone-platform=wayland %F
+Icon=/home/vuk/.local/share/applications/cursor.png
+Type=Application
+StartupNotify=false
+StartupWMClass=cursor-url-handler
+Categories=TextEditor;Development;IDE;
+MimeType=text/plain;inode/directory;application/x-code-workspace;
+Actions=new-empty-window;
+Keywords=vscode;
+
+[Desktop Action new-empty-window]
+Name=New Empty Window
+Exec=cursor --new-window %F
+Icon=/home/vuk/.local/share/applications/cursor.png
