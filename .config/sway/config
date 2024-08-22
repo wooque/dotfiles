@@ -216,16 +216,16 @@ bar swaybar_command waybar
 
 include /etc/sway/config.d/*
 
-bindsym $mod+Control+Left workspace prev
-bindsym $mod+Control+Right workspace next
+bindsym $mod+Control+Left workspace prev_on_output
+bindsym $mod+Control+Right workspace next_on_output
 bindsym $mod+Control+Shift+Left move workspace to output left
 bindsym $mod+Control+Shift+Down move workspace to output down
 bindsym $mod+Control+Shift+Up move workspace to output up
 bindsym $mod+Control+Shift+Right move workspace to output right
 bindsym button2 kill
 bindsym button3 split toggle, layout tabbed
-bindgesture swipe:right workspace next
-bindgesture swipe:left workspace prev
+bindgesture swipe:right workspace next_on_output
+bindgesture swipe:left workspace prev_on_output
 bindgesture swipe:down exec swayswitch
 bindgesture swipe:up exec wofi -S drun
 
