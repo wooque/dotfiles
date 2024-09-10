@@ -17,6 +17,7 @@ user_pref("browser.urlbar.suggest.trending", false);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.warnOnClose", true);
 user_pref("dom.private-attribution.submission.enabled", false);
+user_pref("extensions.pocket.enabled", false);
 user_pref("findbar.highlightAll", true);
 user_pref("font.default.x-western", "sans-serif");
 user_pref("font.name-list.sans-serif.x-unicode", "sans-serif,Noto Color Emoji");
