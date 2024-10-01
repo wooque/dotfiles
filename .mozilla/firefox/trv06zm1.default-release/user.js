@@ -14,6 +14,7 @@ user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-f
 user_pref("browser.uidensity", 1);
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false);
 user_pref("browser.urlbar.suggest.trending", false);
+user_pref("browser.tabs.hoverPreview.enabled", false);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.warnOnClose", true);
 user_pref("dom.private-attribution.submission.enabled", false);
