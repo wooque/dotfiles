@@ -1,2 +1,2 @@
 #!/bin/bash
-/usr/bin/brave-browser --enable-features=OverlayScrollbar,BraveCompactHorizontalTabs --disable-features=BraveRoundTimeStamps --enable-zero-copy --disable-smooth-scrolling --ozone-platform=wayland --password-store=gnome "$@"
+/usr/bin/brave-browser-stable --enable-features=OverlayScrollbar,BraveCompactHorizontalTabs --disable-features=BraveRoundTimeStamps --enable-zero-copy --disable-smooth-scrolling --ozone-platform=wayland --password-store=gnome "$@"
