@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/share/code/bin/code --enable-features=WaylandWindowDecorations --enable-zero-copy --ozone-platform=wayland "$@"
