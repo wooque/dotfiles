@@ -58,7 +58,9 @@
         "tooltip-format-ethernet": "{ifname}",
         "format-linked": " (No IP)",
         "format-disconnected": " ",
-        "on-click": "swaytui nm"
+        "on-click": "nm-applet --indicator",
+        "on-click-right": "nm-connection-editor",
+        "on-click-middle": "pkill nm-applet"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%  {format_source}",
@@ -72,6 +74,7 @@
         },
         "tooltip-format": "{desc}",
         "on-click": "pavucontrol -t 3",
+        "on-click-right": "blueman-manager",
         "on-click-middle": "swaytui bt",
         "smooth-scrolling-threshold": 1
     },
