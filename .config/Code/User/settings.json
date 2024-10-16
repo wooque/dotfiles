@@ -38,5 +38,6 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.trailingComma": "all"
+  "prettier.trailingComma": "all",
+  "python.analysis.autoImportCompletions": true
 }
