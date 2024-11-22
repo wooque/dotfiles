@@ -19,6 +19,7 @@ APP_ICON_CONFIG = {
     "thunar": "",
     "com.viber.Viber": "",
     "signal": "",
+    "Slack": "",
     "org.nicotine_plus.Nicotine": "",
     "cmus": "",
     "mpv": "",
