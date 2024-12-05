@@ -276,3 +276,4 @@ exec sway-ws-names
 exec bash -ic pm-apply
 exec bash -ic autostart
 exec_always bash -ic kanshi-start
+exec dconf write /org/gtk/settings/file-chooser/window-size "(900,700)"
