@@ -9,5 +9,5 @@ export MOZ_ENABLE_WAYLAND=1
 . $HOME/.bashrc
 
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec sway
+  exec sway > .sway.log 2>&1
 fi
