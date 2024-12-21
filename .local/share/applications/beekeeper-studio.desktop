@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Beekeeper Studio
-Exec="/opt/Beekeeper Studio/beekeeper-studio" --disable-smooth-scrolling --ozone-platform=wayland --password-store=gnome %U
+Exec="/opt/Beekeeper Studio/beekeeper-studio" --disable-smooth-scrolling --ozone-platform=wayland --password-store=gnome-libsecret %U
 Terminal=false
 Type=Application
 Icon=beekeeper-studio

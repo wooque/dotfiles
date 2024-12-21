@@ -1,2 +1,2 @@
 #!/bin/bash
-cursor-appimage --enable-features=WaylandWindowDecorations --enable-zero-copy --ozone-platform=wayland "$@"
+cursor-appimage --enable-features=WaylandWindowDecorations --enable-zero-copy --ozone-platform=wayland --password-store=gnome-libsecret "$@"
