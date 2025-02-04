@@ -242,8 +242,8 @@ bindsym --locked $mod+End exec cmus-remote -C player-next-album || playerctl nex
 bindsym $mod+Home exec cmus-remote -C player-prev-album || playerctl previous
 
 bindsym $mod+e exec --no-startup-id thunar
-bindsym $mod+w exec --no-startup-id brave-browser
-bindsym $mod+Shift+w exec --no-startup-id brave-browser --incognito
+bindsym $mod+w exec --no-startup-id firefox
+bindsym $mod+Shift+w exec --no-startup-id firefox --private-window
 bindsym $mod+c exec --no-startup-id mate-calc
 bindsym $mod+Tab exec --no-startup-id swayswitch
 bindsym $mod+Shift+d exec --no-startup-id xdg-open "$(recent | wofi -d -p recent)"
