@@ -6,13 +6,22 @@ function upgrade() {
     sudo apt autoremove --purge
   fi
 }
-function backup() {
+function backup_mail() {
   echo "thunderbird sync..."
   timeout 15 thunderbird --headless
+}
+function backup_data() {
   echo "rclone sync..."
   rclone sync -lv --fast-list --transfers 32 --delete-excluded --exclude-from /mnt/PODACI/.backupignore /mnt/PODACI b2-crypt: 2>&1 | tee ~/backup-$(date +%Y-%m-%d-%H-%M-%S).log
+}
+function backup_dropbox() {
   echo "dropbox sync..."
   dropbox start && sleep 15 && dropbox stop
+}
+function backup() {
+  backup_mail
+  backup_data
+  backup_dropbox
 }
 
 function pm-bat() {
