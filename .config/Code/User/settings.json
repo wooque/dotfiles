@@ -42,5 +42,11 @@
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "basic",
   "black-formatter.args": ["-l", "80"],
-  "isort.args": ["--profile", "black", "-l", "80"]
+  "isort.args": [
+    "--profile",
+    "black",
+    "-l",
+    "80"
+  ],
+  "github.copilot.nextEditSuggestions.enabled": true
 }
