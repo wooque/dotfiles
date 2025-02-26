@@ -1,7 +1,24 @@
 [user]
   email = contact@vukmirovic.org
   name = Vuk Mirovic
+[column]
+  ui = auto
+[branch]
+  sort = -committerdate
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 [push]
-  default = current
+  autoSetupRemote = true
+[fetch]
+  prune = true
+  all = true
 [pull]
   rebase = true
+[rebase]
+  autoStash = true
+  updateRefs = true
+[merge]
+  conflictstyle = zdiff3
