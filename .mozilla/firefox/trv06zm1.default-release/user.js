@@ -1,5 +1,6 @@
 user_pref("apz.gtk.kinetic_scroll.enabled", false);
 user_pref("apz.overscroll.enabled", false);
+user_pref("app.normandy.enable", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.compactmode.show", true);
 user_pref("browser.contentblocking.category", "custom");
@@ -17,6 +18,7 @@ user_pref("browser.urlbar.suggest.trending", false);
 user_pref("browser.tabs.hoverPreview.enabled", false);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.warnOnClose", true);
+user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("extensions.pocket.enabled", false);
 user_pref("findbar.highlightAll", true);
