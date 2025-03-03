@@ -63,6 +63,11 @@ function autostart() {
   fi
 }
 
+function system-end() {
+  clipman clear -a
+  systemctl "$@"
+}
+
 function bt-dev() {
   echo "$(bluetoothctl devices Paired | grep -oE '[A-F0-9:]{17}' | head -1)"
 }

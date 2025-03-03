@@ -1,11 +1,11 @@
-#!/usr/bin/bash
+#!/usr/bin/bash -i
 commands="Power off\nReboot\nSuspend"
 row=$(printf "$commands" | sed 's/.*/<span weight="bold">&<\/span>/' | wofi -d -p power)
 
 if [[ "$row" =~ "Power off" ]]; then
-    systemctl poweroff
+    system-end poweroff
 elif [[ "$row" =~ "Reboot" ]]; then
-    systemctl reboot
+    system-end reboot
 elif [[ "$row" =~ "Suspend" ]]; then
-    systemctl suspend
+    system-end suspend
 fi
