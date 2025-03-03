@@ -11,10 +11,15 @@ case $1 in
     foot -a float_term bash -ic bt-toggle
     ;;
   powermenu)
-    swaynag -t warning -m 'Power menu' -B 'Power off' 'bash -ic system-end poweroff' -B 'Reboot' 'bash -ic system-end reboot' -B 'Suspend' 'bash -ic system-end suspend'
+    swaynag -t warning -m 'Power menu' \
+      -z 'Power off' 'bash -ic "system-end poweroff"' \
+      -z 'Reboot' 'bash -ic "system-end reboot"' \
+      -z 'Suspend' 'bash -ic "system-end suspend"'
     ;;
   powermanagment)
-    swaynag -t warning -m 'Power management' -z 'Battery' 'bash -ic pm-bat' -z 'AC' 'bash -ic pm-ac'
+    swaynag -t warning -m 'Power management' \
+      -z 'Battery' 'bash -ic pm-bat' \
+      -z 'AC' 'bash -ic pm-ac'
     ;;
   *)
     swaynag -m "Unknown command"
