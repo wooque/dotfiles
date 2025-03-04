@@ -276,6 +276,7 @@ exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway
 exec mako
 exec gammastep
 exec wl-paste --watch cliphist store
+exec wl-clip-persist --clipboard regular
 exec sway-ws-names
 exec bash -ic pm-apply
 exec bash -ic autostart
