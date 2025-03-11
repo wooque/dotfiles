@@ -27,7 +27,7 @@ function backup() {
 function pm-bat() {
   brightnessctl s 25%
   bluetoothctl power off
-  pkill -9 "nicotine|signal-desktop|Viber|gammastep|swayidle"
+  pkill -9 "nicotine|Viber|gammastep|swayidle"
   swaymsg exec -- "swayidle -w \
 timeout 90 'swaylock -f -c 000000' \
 timeout 120 'swaymsg \"output * power off\"' resume 'swaymsg \"output * power on\"' \
