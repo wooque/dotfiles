@@ -49,7 +49,7 @@ alias gl="git pull"
 alias gld="git stash save && git pull && git stash pop"
 alias ga="git add"
 alias gcm="git commit -m"
-alias gca="git add . && git commit --amend --no-edit"
+alias gaca="git add . && git commit --amend --no-edit"
 alias gco="git checkout"
 gcd_func() {
   git stash save && git checkout $1 && git stash pop
