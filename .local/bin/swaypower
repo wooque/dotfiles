@@ -1,6 +1,6 @@
 #!/usr/bin/bash -i
 commands="Power off\nReboot\nSuspend"
-row=$(printf "$commands" | sed 's/.*/<span weight="bold">&<\/span>/' | wofi -d -p power)
+row=$(printf "$commands" | sed 's/.*/&/' | fuzzel -d)
 
 if [[ "$row" =~ "Power off" ]]; then
     system-end poweroff

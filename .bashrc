@@ -43,6 +43,7 @@ alias reset="tput reset"
 alias gst="git status"
 alias gd="git diff"
 alias gdca="git diff --cached"
+alias gdt="git difftool -d --cached &"
 alias gp="git push"
 alias gpf="git push -f"
 alias gl="git pull"
@@ -78,6 +79,7 @@ if [ -r /usr/share/bash-completion/completions/git ]; then
   __git_complete gcp _git_cherry_pick
 fi
 
+alias gitk="gitk &"
 alias gdh='diff2html -t "$(basename $PWD) ($(git branch --show-current))"'
 alias gdhp="${BASH_ALIASES[gdh]} -- HEAD~1"
 alias serve="python3 -m http.server"
@@ -88,6 +90,4 @@ fi
 if [ -r $HOME/.z.sh ]; then
   . $HOME/.z.sh
 fi
-if [ -r $HOME/.asdf/asdf.sh ]; then
-  . $HOME/.asdf/asdf.sh
-fi
+. <(asdf completion bash)

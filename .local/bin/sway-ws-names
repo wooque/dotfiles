@@ -12,9 +12,7 @@ APP_ICON_CONFIG = {
     "foot": "",
     "float_term": "",
     "code": "",
-    "code-url-handler": "",
     "cursor": "",
-    "cursor-url-handler": "",
     "beekeeper-studio": "",
     "thunar": "",
     "com.viber.Viber": "",
@@ -27,7 +25,7 @@ APP_ICON_CONFIG = {
     "network": "",
     "calendar": "",
     "mate-calc": "",
-    "gimp-2.10": "",
+    "gimp-3.0": "",
     "libreoffice-startcenter": "",
     "libreoffice-writer": "",
     "libreoffice-calc": "",
@@ -39,8 +37,6 @@ APP_ICON_CONFIG = {
     "transmission-gtk": "",
     "gitk": "",
     "qemu": "",
-    "otpclient": "",
-    "wofi": "",
     "_no_match": "",
 }
 DELIM = "  "

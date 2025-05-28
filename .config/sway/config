@@ -18,7 +18,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi -S drun
+set $menu fuzzel
 
 include /etc/sway/config-vars.d/*
 
@@ -227,7 +227,7 @@ bindsym button3 split toggle, layout tabbed
 bindgesture swipe:right workspace next_on_output
 bindgesture swipe:left workspace prev_on_output
 bindgesture swipe:down exec swayswitch
-bindgesture swipe:up exec wofi -S drun
+bindgesture swipe:up exec fuzzel
 
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
@@ -246,11 +246,11 @@ bindsym $mod+w exec --no-startup-id firefox
 bindsym $mod+Shift+w exec --no-startup-id firefox --private-window
 bindsym $mod+c exec --no-startup-id mate-calc
 bindsym $mod+Tab exec --no-startup-id swayswitch
-bindsym $mod+Shift+d exec --no-startup-id xdg-open "$(recent | wofi -d -p recent)"
+bindsym $mod+Shift+d exec --no-startup-id xdg-open "$(recent | fuzzel -d -w 80 | sed -n 's/.*(\(.*\)).*/\1/p')"
 bindsym --release Print exec --no-startup-id grim -g "$(slurp)"
 bindsym --release $mod+Shift+Print exec --no-startup-id swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | "\(.rect.x + .window_rect.x),\(if .deco_rect.width != 0 and .rect.width != .deco_rect.width then .rect.y else .rect.y + .window_rect.y end) \(.window_rect.width)x\(.window_rect.height)"' | slurp | xargs -I {} grim -g "{}"
 bindsym --release $mod+Print exec --no-startup-id grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
-bindsym $mod+z exec --no-startup-id cliphist list | wofi -d -p clipboard | cliphist decode | wl-copy
+bindsym $mod+z exec --no-startup-id cliphist list | fuzzel -d -w 80 | cliphist decode | wl-copy
 
 bindsym $mod+l exec swaylock -f -c 000000
 bindsym Mod1+Control+delete exec swaypower
@@ -262,7 +262,7 @@ hide_edge_borders --i3 smart
 # class        border  backgr. text    indicator child_border
 client.focused #3465a4 #3465a4 #ffffff #2e9ef4 #3465a4
 
-for_window [tiling app_id="firefox|google-chrome|code|cursor|foot|brave-browser|thunderbird|beekeeper-studio|nicotine"] border pixel 2
+for_window [tiling app_id="foot|firefox|google-chrome|brave-browser|code|cursor|beekeeper-studio|nicotine|thunderbird|org.gnome.Meld"] border pixel 2
 for_window [app_id="mate-calc|thunar|Thunar|float_term|otpclient"] floating enable
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
 for_window [title="ViberPC"] floating enable, border none

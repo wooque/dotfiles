@@ -10,6 +10,7 @@
   colorMoved = plain
   mnemonicPrefix = true
   renames = true
+  tool = meld
 [push]
   autoSetupRemote = true
 [fetch]
@@ -22,3 +23,5 @@
   updateRefs = true
 [merge]
   conflictstyle = zdiff3
+[difftool]
+  prompt = false

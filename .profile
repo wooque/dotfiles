@@ -3,8 +3,8 @@ export PAGER="less"
 export LESS=-RF
 export SYSTEMD_LESS="RF"
 export GOPATH="$HOME/.go"
-export PATH="$HOME/.local/bin:$GOPATH/bin:/usr/local/go/bin:$PATH"
-export MOZ_ENABLE_WAYLAND=1
+export PATH="$HOME/.local/bin:$HOME/.asdf/shims:$GOPATH/bin:/usr/local/go/bin:$PATH"
+export GTK_A11Y=none
 
 . $HOME/.bashrc
 

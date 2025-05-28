@@ -1,5 +1,4 @@
 #!/usr/bin/bash
-killall /usr/bin/wofi
 sleep 0.05
 row=$(swaymsg -t get_tree | jq  -r '
     ..
@@ -9,12 +8,12 @@ row=$(swaymsg -t get_tree | jq  -r '
     | objects
     | select(has("app_id"))
     | (if .focused == true then "*" else " " end) as $asterisk
-    | "[\($ws.num)] \($asterisk) <span weight=\"bold\">\(.app_id)</span> \(.name) <!-- \(.id) -->"' \
+    | "[\($ws.num)] \($asterisk) \(.app_id) | \(.name) | <\(.id)>"' \
 | sed 's/&/&amp;/g' \
-| wofi -d -p windows)
+| fuzzel -d -w 60)
 
 if [ ! -z "$row" ]
 then
-    winid=$(echo "$row" | sed 's/.*<!-- \([0-9]*\) -->.*/\1/')
+    winid=$(echo "$row" | sed 's/.*<\([0-9]*\)>.*/\1/')
     swaymsg "[con_id=$winid] focus"
 fi

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Exec=bash -ic cmus-start
-Icon=audio-speakers
+Icon=audio-x-generic
 Terminal=false
 Categories=AudioVideo;Audio;Player;
 Keywords=media;player;audio;
