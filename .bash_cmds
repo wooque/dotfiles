@@ -35,8 +35,7 @@ before-sleep 'swaylock -f -c 000000'"
 }
 function pm-ac() {
   brightnessctl s 50%
-  bluetoothctl power on
-  bluetoothctl connect $(bt-dev)
+  bt-connect
   if ! pgrep -x "gammastep" > /dev/null; then
     swaymsg exec -- gammastep
   fi
@@ -64,22 +63,21 @@ function autostart() {
 }
 
 function system-end() {
+  bluetoothctl disconnect
   rm -rf ~/.cache/cliphist
   systemctl "$@"
 }
 
-function bt-dev() {
-  echo "$(bluetoothctl devices Paired | grep -oE '[A-F0-9:]{17}' | head -1)"
+function bt-connect() {
+  bluetoothctl power on
+  bluetoothctl devices Paired | awk '{print $2}' | head -1 | xargs bluetoothctl connect
 }
 
 function bt-toggle() {
-  local dev=$(bt-dev)
-  local status="$(bluetoothctl info $dev | grep connected | grep -o no)"
-  if [ "$status" = "no" ]; then
-    bluetoothctl power on
-    bluetoothctl connect $dev
-  else
+  if bluetoothctl devices Connected | grep -q Device; then
     bluetoothctl disconnect
+  else
+    bt-connect
   fi
 }
 
