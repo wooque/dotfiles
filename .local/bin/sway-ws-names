@@ -34,7 +34,7 @@ APP_ICON_CONFIG = {
     "org.gnome.Meld": "",
     "ristretto": "",
     "org.pwmt.zathura": "",
-    "transmission-gtk": "",
+    "com.transmission": "",
     "gitk": "",
     "qemu": "",
     "_no_match": "",
