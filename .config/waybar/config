@@ -27,6 +27,11 @@
     "clock": {
         "format": "{:%a %d %b %H:%M}",
         "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+          "format": {
+            "today": "<b>{}</b>"
+          }
+        },
         "on-click": "swaytui cal",
         "on-click-middle": "swaytui powermenu",
         "cursor": false
