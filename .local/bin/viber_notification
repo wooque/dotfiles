@@ -1,0 +1,4 @@
+#!/bin/bash
+SCREEN_WIDTH=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .rect.width')
+NEW_X=$((SCREEN_WIDTH - 300))
+swaymsg '[title="ViberPC"]' move position $NEW_X 5
