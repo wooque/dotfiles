@@ -56,9 +56,7 @@ function autostart() {
   if [ "$(cat /sys/class/power_supply/BAT*/status)" = "Discharging" ]; then
     echo "Not starting on battery"
   else
-    for file in .config/autostart/*; do
-      exo-open $file
-    done
+    find ~/.config/autostart/ \( -type f -o -type l \) ! -empty -exec exo-open {} \;
   fi
 }
 
