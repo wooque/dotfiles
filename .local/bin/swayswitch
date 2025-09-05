@@ -9,7 +9,6 @@ row=$(swaymsg -t get_tree | jq  -r '
     | select(has("app_id"))
     | (if .focused == true then "*" else " " end) as $asterisk
     | "[\($ws.num)] \($asterisk) \(.app_id) | \(.name) | <\(.id)>"' \
-| sed 's/&/&amp;/g' \
 | fuzzel -d -w 60)
 
 if [ ! -z "$row" ]
