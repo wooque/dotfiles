@@ -25,7 +25,7 @@ APP_ICON_CONFIG = {
     "network": "",
     "calendar": "",
     "mate-calc": "",
-    "gimp-3.0": "",
+    "gimp": "",
     "libreoffice-startcenter": "",
     "libreoffice-writer": "",
     "libreoffice-calc": "",
