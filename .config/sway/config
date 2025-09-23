@@ -271,7 +271,7 @@ for_window [app_id="beekeeper-studio-bin" title="blob:app://"] floating enable
 for_window [title="Picture in picture|Picture-in-Picture"] floating enable, sticky toggle, border none
 
 no_focus [title="ViberPC"]
-assign [app_id="cmus"] workspace number 10
+assign [app_id="cmus|com.transmissionbt.transmission"] workspace number 10
 
 exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway
 exec mako
