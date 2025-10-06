@@ -21,7 +21,7 @@ APP_ICON_CONFIG = {
     "org.nicotine_plus.Nicotine": "",
     "cmus": "",
     "mpv": "",
-    "pavucontrol": "",
+    "org.pulseaudio.pavucontrol": "",
     "network": "",
     "calendar": "",
     "mate-calc": "",
