@@ -21,6 +21,12 @@ case $1 in
       -z 'Battery' 'bash -ic pm-bat' \
       -z 'AC' 'bash -ic pm-ac'
     ;;
+  clipboard)
+    cliphist list | fuzzel -d -w 80 | cliphist decode | wl-copy
+    ;;
+  open-recent)
+    recent | fuzzel -d -w 80 | sed -n 's/.*(\(.*\)).*/\1/p' | xargs xdg-open
+    ;;
   *)
     swaynag -m "Unknown command"
     ;;
