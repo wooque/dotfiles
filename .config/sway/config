@@ -263,7 +263,8 @@ hide_edge_borders --i3 smart
 client.focused #3465a4 #3465a4 #ffffff #2e9ef4 #3465a4
 
 for_window [tiling app_id="foot|firefox|google-chrome|brave-browser|code|cursor|beekeeper-studio|nicotine|thunderbird|org.gnome.Meld"] border pixel 2
-for_window [app_id="mate-calc|thunar|Thunar|float_term|otpclient"] floating enable
+for_window [app_id="mate-calc|thunar|Thunar"] floating enable
+for_window [app_id="float_term"] floating enable, border normal 2
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
 for_window [title="ViberPC"] exec ~/.local/bin/viber_notification
 for_window [title="Open File|Open Folder|Save File|Save As|Save Image|File Upload|Create a new archive|wants to save|wants to open"] floating enable, border csd
