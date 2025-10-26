@@ -40,6 +40,31 @@
         "format": "{short}",
         "tooltip-format": "{long}"
     },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "     ",
+        "deactivated": "     "
+      },
+      "cursor": false
+    },
+    "cpu": {
+     "interval": 1,
+     "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+     "format-icons": [
+          "<span color='#69ff94'>▁</span>",
+          "<span color='#69ff94'>▂</span>",
+          "<span color='#ffffa5'>▃</span>",
+          "<span color='#ffffa5'>▄</span>",
+          "<span color='#ff9977'>▅</span>",
+          "<span color='#ff9977'>▆</span>",
+          "<span color='#dd532e'>▇</span>",
+          "<span color='#dd532e'>█</span>"
+      ],
+      "on-click": "foot -e htop",
+      "on-click-middle": "swaytui powermenu",
+      "cursor": false
+    },
     "battery": {
         "states": {
             "critical": 10
