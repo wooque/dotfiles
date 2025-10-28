@@ -2,7 +2,7 @@
     "height": 20,
     "spacing": 0,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-right": ["custom/media", "tray", "pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["temperature", "cpu", "custom/media", "tray", "pulseaudio", "network", "battery", "clock"],
     "sway/workspaces": {
         "enable-bar-scroll": true,
         "smooth-scrolling-threshold": 10,
@@ -48,8 +48,16 @@
       },
       "cursor": false
     },
+    "temperature": {
+      "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
+      "interval": 2,
+      "critical-threshold": 80,
+      "format": "{temperatureC}°C ",
+      "on-click": "foot -a sensors -T sensors -H sh -c 'watch -n1 sensors'",
+      "cursor": false
+    },
     "cpu": {
-     "interval": 1,
+     "interval": 2,
      "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
      "format-icons": [
           "<span color='#69ff94'>▁</span>",
@@ -61,7 +69,7 @@
           "<span color='#dd532e'>▇</span>",
           "<span color='#dd532e'>█</span>"
       ],
-      "on-click": "foot -e htop",
+      "on-click": "foot htop",
       "on-click-middle": "swaytui powermenu",
       "cursor": false
     },
