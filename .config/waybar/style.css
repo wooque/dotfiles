@@ -36,6 +36,9 @@ button:hover {
 #workspaces button,
 #clock,
 #language,
+#idle_inhibitor,
+#cpu,
+#temperature,
 #battery,
 #backlight,
 #network,
@@ -63,6 +66,10 @@ button:hover {
 
 #pulseaudio.muted {
     color: #d9a401;
+}
+
+#temperature {
+  padding-right: 0;
 }
 
 #temperature.critical {

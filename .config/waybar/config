@@ -43,8 +43,8 @@
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
-        "activated": "     ",
-        "deactivated": "     "
+        "activated": "",
+        "deactivated": ""
       },
       "cursor": false
     },
@@ -52,7 +52,7 @@
       "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
       "interval": 2,
       "critical-threshold": 80,
-      "format": "{temperatureC}°C ",
+      "format": "{temperatureC}°C",
       "on-click": "foot -a sensors -T sensors -H sh -c 'watch -n1 sensors'",
       "cursor": false
     },
