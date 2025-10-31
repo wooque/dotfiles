@@ -50,23 +50,23 @@
     },
     "temperature": {
       "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
-      "interval": 2,
+      "interval": 3,
       "critical-threshold": 80,
       "format": "{temperatureC}°C",
       "on-click": "foot -a sensors -T sensors -H sh -c 'watch -n1 sensors'",
       "cursor": false
     },
     "cpu": {
-     "interval": 2,
+     "interval": 3,
      "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
      "format-icons": [
           "<span color='#69ff94'>▁</span>",
           "<span color='#69ff94'>▂</span>",
-          "<span color='#ffffa5'>▃</span>",
-          "<span color='#ffffa5'>▄</span>",
-          "<span color='#ff9977'>▅</span>",
-          "<span color='#ff9977'>▆</span>",
-          "<span color='#dd532e'>▇</span>",
+          "<span color='#69ff94'>▃</span>",
+          "<span color='#69ff94'>▄</span>",
+          "<span color='#ffffa5'>▅</span>",
+          "<span color='#ffffa5'>▆</span>",
+          "<span color='#ff9977'>▇</span>",
           "<span color='#dd532e'>█</span>"
       ],
       "on-click": "foot htop",
