@@ -69,7 +69,7 @@
           "<span color='#ff9977'>▇</span>",
           "<span color='#dd532e'>█</span>"
       ],
-      "on-click": "foot htop",
+      "on-click": "foot -a htop -T htop htop",
       "on-click-middle": "swaytui powermenu",
       "cursor": false
     },
