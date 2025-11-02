@@ -265,7 +265,8 @@ client.focused #3465a4 #3465a4 #ffffff #2e9ef4 #3465a4
 for_window [tiling app_id="foot|firefox|google-chrome|brave-browser|code|cursor|beekeeper-studio|nicotine|thunderbird|org.gnome.Meld"] border pixel 2
 for_window [app_id="mate-calc|thunar|Thunar"] floating enable
 for_window [app_id="float_term"] floating enable, border normal 2
-for_window [app_id="com.viber.Viber|org.nicotine_plus.Nicotine|pavucontrol"] floating enable, move position 900 0
+for_window [app_id="com.viber.Viber" title="Rakuten Viber"] floating enable, resize set 1000 800, move position 900 0
+for_window [app_id="org.nicotine_plus.Nicotine|pavucontrol"] floating enable, resize set 1000 800, move position 900 0
 for_window [app_id="calendar|htop|sensors"] floating enable, border normal 2, move position 1200 0
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
 for_window [title="ViberPC"] exec ~/.local/bin/viber_notification
