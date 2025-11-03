@@ -43,6 +43,7 @@ button:hover {
 #backlight,
 #network,
 #pulseaudio,
+#tray,
 #mode,
 #scratchpad,
 #custom-media {
@@ -51,27 +52,17 @@ button:hover {
     font-size: 12px;
 }
 
-#language {
-    min-width: 14px;
-}
-
 #tray {
-    padding: 0 8px;
+    font-family: sans;
+    font-size: 13px;
 }
 
 #network.disconnected,
-#battery.critical:not(.charging) {
+#battery.critical:not(.charging),
+#temperature.critical {
     color: #ff6666;
 }
 
 #pulseaudio.muted {
     color: #d9a401;
-}
-
-#temperature {
-  padding-right: 0;
-}
-
-#temperature.critical {
-    color: #ff6666;
 }

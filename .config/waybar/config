@@ -2,7 +2,7 @@
     "height": 20,
     "spacing": 0,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-right": ["temperature", "cpu", "custom/media", "tray", "pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["custom/media", "tray", "pulseaudio", "network", "battery", "clock"],
     "sway/workspaces": {
         "enable-bar-scroll": true,
         "smooth-scrolling-threshold": 10,
@@ -38,7 +38,9 @@
     },
     "sway/language": {
         "format": "{short}",
-        "tooltip-format": "{long}"
+        "tooltip-format": "{long}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+        "cursor": false
     },
     "idle_inhibitor": {
       "format": "{icon}",
@@ -91,15 +93,19 @@
     },
     "backlight": {
         "format": "{icon} {percent}%",
-        "format-icons": [""]
+        "format-icons": [""],
+        "smooth-scrolling-threshold": 1
     },
     "network": {
-        "format-wifi": "",
-        "format-ethernet": "",
         "tooltip-format": "{essid} {signalStrength}%",
         "tooltip-format-ethernet": "{ifname}",
-        "format-linked": " (No IP)",
-        "format-disconnected": " ",
+        "format": "{icon}",
+        "format-icons": {
+          "wifi": "",
+          "ethernet": "",
+          "linked": " (No IP)",
+          "disconnected": ""
+        },
         "on-click": "nm-applet --indicator",
         "on-click-right": "nm-connection-editor",
         "on-click-middle": "pkill nm-applet",
