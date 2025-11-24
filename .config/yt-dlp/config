@@ -1,1 +1,4 @@
 -S res:1080
+--cookies-from-browser firefox
+--remote-components ejs:github
+--js-runtimes node
