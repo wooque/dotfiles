@@ -15,7 +15,7 @@ APP_ICON_CONFIG = {
     "cursor": "",
     "beekeeper-studio": "",
     "thunar": "",
-    "com.viber.Viber": "",
+    "viber": "",
     "signal": "",
     "Slack": "",
     "org.nicotine_plus.Nicotine": "",
