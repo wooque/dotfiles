@@ -80,7 +80,7 @@ if [ -r /usr/share/bash-completion/completions/git ]; then
   __git_complete gcp _git_cherry_pick
 fi
 
-alias gitk="gitk &"
+alias gitg="gitg &"
 alias gdh='diff2html -t "$(basename $PWD) ($(git branch --show-current))"'
 alias gdhp="${BASH_ALIASES[gdh]} -- HEAD~1"
 alias serve="python3 -m http.server"
