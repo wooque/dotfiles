@@ -35,6 +35,7 @@ APP_ICON_CONFIG = {
     "ristretto": "",
     "org.pwmt.zathura": "",
     "com.transmission": "",
+    "transmission-gtk": "",
     "gitg": "",
     "qemu": "",
     "_no_match": "",
