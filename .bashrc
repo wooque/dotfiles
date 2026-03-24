@@ -39,7 +39,6 @@ alias diff="diff --color=auto"
 alias top="top -c -o%MEM -em -d1.5"
 alias ncdu="ncdu --color=off"
 alias reset="tput reset"
-alias sudo="sudo --preserve-env=XDG_SEAT,WAYLAND_DISPLAY,XDG_RUNTIME_DIR"
 
 alias gst="git status"
 alias gd="git diff"
