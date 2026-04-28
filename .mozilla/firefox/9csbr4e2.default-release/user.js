@@ -32,6 +32,7 @@ user_pref("findbar.highlightAll", true);
 user_pref("font.default.x-western", "sans-serif");
 user_pref("font.name-list.sans-serif.x-unicode", "sans-serif,Noto Color Emoji");
 user_pref("general.smoothScroll", false);
+user_pref("media.autoplay.blocking_policy", 2);
 user_pref("media.autoplay.default", 5);
 user_pref("media.eme.enabled", true);
 user_pref("media.ffmpeg.vaapi.enabled", true);
