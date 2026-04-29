@@ -1,4 +1,5 @@
--S res:1080
+-S res:720
+--compat-opt prefer-vp9-sort
 --cookies-from-browser firefox
 --remote-components ejs:github
 --js-runtimes node
