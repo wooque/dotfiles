@@ -226,7 +226,7 @@ bindsym button2 kill
 bindsym button3 split toggle, layout tabbed
 bindgesture swipe:right workspace next_on_output
 bindgesture swipe:left workspace prev_on_output
-bindgesture swipe:down exec swayswitch
+bindgesture swipe:down exec scripts swayswitch
 bindgesture swipe:up exec fuzzel
 
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -245,15 +245,15 @@ bindsym $mod+e exec --no-startup-id thunar
 bindsym $mod+w exec --no-startup-id brave-browser
 bindsym $mod+Shift+w exec --no-startup-id brave-browser --incognito
 bindsym $mod+c exec --no-startup-id mate-calc
-bindsym $mod+Tab exec --no-startup-id swayswitch
-bindsym $mod+Shift+d exec --no-startup-id swaytui open-recent
+bindsym $mod+Tab exec --no-startup-id scripts swayswitch
+bindsym $mod+Shift+d exec --no-startup-id scripts open-recent
 bindsym --release Print exec --no-startup-id grim -g "$(slurp)"
-bindsym --release $mod+Shift+Print exec --no-startup-id swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | "\(.rect.x + .window_rect.x),\(if .deco_rect.width != 0 and .rect.width != .deco_rect.width then .rect.y else .rect.y + .window_rect.y end) \(.window_rect.width)x\(.window_rect.height)"' | slurp | xargs -I {} grim -g "{}"
-bindsym --release $mod+Print exec --no-startup-id grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
-bindsym $mod+z exec --no-startup-id swaytui clipboard
+bindsym --release $mod+Shift+Print exec --no-startup-id scripts screenshot-window
+bindsym --release $mod+Print exec --no-startup-id scripts screenshot-output
+bindsym $mod+z exec --no-startup-id scripts clipboard
 
 bindsym $mod+l exec swaylock -f -c 000000
-bindsym Mod1+Control+delete exec swaypower
+bindsym Mod1+Control+delete exec scripts power-menu
 
 titlebar_border_thickness 1
 titlebar_padding 8 2
@@ -277,11 +277,14 @@ assign [app_id="cmus|com.transmissionbt.transmission"] workspace number 10
 
 exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway
 exec mako
-exec gammastep
 exec wl-paste --watch cliphist store
 exec wl-clip-persist --clipboard regular
 exec sway-ws-names
-exec bash -ic pm-apply
-exec bash -ic autostart
-exec_always bash -ic kanshi-start
+exec swayidle -w \
+  timeout 90 '[ "$(cat /sys/class/power_supply/ACAD/online)" = "0" ] && swaylock -f -c 000000' \
+  timeout 120 '[ "$(cat /sys/class/power_supply/ACAD/online)" = "0" ] && swaymsg \"output * power off\"' resume 'swaymsg \"output * power on\"' \
+  timeout 300  '[ "$(cat /sys/class/power_supply/ACAD/online)" = "1" ] && swaylock -f -c 000000' \
+  before-sleep 'swaylock -f -c 000000'"
+exec scripts autostart
+exec_always scripts kanshi-start
 exec dconf write /org/gtk/settings/file-chooser/window-size "(900,700)"

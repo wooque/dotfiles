@@ -83,7 +83,16 @@ alias gitg="gitg &"
 alias gdh='diff2html -t "$(basename $PWD) ($(git branch --show-current))"'
 alias gdhp="${BASH_ALIASES[gdh]} -- HEAD~1"
 alias serve="python3 -m http.server"
-brightness() {
+
+function upgrade() {
+  exec 5>&1
+  local res=$(sudo apt update | tee /dev/fd/5)
+  if [[ "$res" == *"can be upgraded"* ]]; then
+    sudo apt full-upgrade --no-install-recommends --purge
+    sudo apt autoremove --purge
+  fi
+}
+function brightness() {
     local dev="/sys/class/backlight/amdgpu_bl0"
     local current=$(cat "$dev/brightness")
     local actual=$(cat "$dev/actual_brightness")
@@ -92,9 +101,6 @@ brightness() {
     echo "actual: $((100*actual/max))% (set: $((100*current/max))%)"
 }
 
-if [ -r $HOME/.bash_cmds ]; then
-  . $HOME/.bash_cmds
-fi
 if [ -r $HOME/.z.sh ]; then
   . $HOME/.z.sh
 fi

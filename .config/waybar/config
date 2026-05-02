@@ -7,7 +7,7 @@
         "enable-bar-scroll": true,
         "smooth-scrolling-threshold": 10,
         "disable-scroll-wraparound": true,
-        "on-click-right": "swayswitch",
+        "on-click-right": "scripts swayswitch",
         "on-click-middle": "fuzzel",
         "cursor": false
     },
@@ -32,8 +32,8 @@
             "today": "<b>{}</b>"
           }
         },
-        "on-click": "swaytui cal",
-        "on-click-middle": "swaytui powermenu",
+        "on-click": "scripts calendar",
+        "on-click-middle": "scripts power-menu",
         "cursor": false
     },
     "sway/language": {
@@ -72,7 +72,7 @@
           "<span color='#dd532e'>█</span>"
       ],
       "on-click": "foot -a htop -T htop htop",
-      "on-click-middle": "swaytui powermenu",
+      "on-click-middle": "scripts power-menu",
       "cursor": false
     },
     "battery": {
@@ -87,8 +87,7 @@
         "format-full": "",
         "tooltip-format": "{capacity}% {power:.1f}W {time}",
         "format-icons": ["", "", "", "", ""],
-        "on-click": "swaytui powermanagment",
-        "on-click-middle": "swaytui powermenu",
+        "on-click": "scripts power-menu",
         "cursor": false
     },
     "backlight": {
@@ -124,7 +123,7 @@
         "tooltip-format": "{desc}",
         "on-click": "pavucontrol -t 3",
         "on-click-right": "blueman-manager",
-        "on-click-middle": "swaytui bt",
+        "on-click-middle": "scripts bt-toggle",
         "smooth-scrolling-threshold": 1,
         "cursor": false
     },

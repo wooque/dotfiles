@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=bash -ic cmus-start
+Exec=scripts cmus-start
 Icon=audio-x-generic
 Terminal=false
 Categories=AudioVideo;Audio;Player;

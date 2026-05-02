@@ -1,0 +1,112 @@
+#!/usr/bin/bash
+function backup_mail() {
+  echo "thunderbird sync..."
+  timeout 15 thunderbird --headless
+}
+function backup_data() {
+  echo "rclone sync..."
+  rclone sync -lv --fast-list --transfers 32 --delete-excluded --exclude-from /mnt/PODACI/.backupignore /mnt/PODACI b2-crypt: 2>&1 | tee ~/backup-$(date +%Y-%m-%d-%H-%M-%S).log
+}
+function backup_dropbox() {
+  echo "dropbox sync..."
+  dropbox start && sleep 15 && dropbox stop
+}
+function backup() {
+  backup_mail
+  backup_data
+  backup_dropbox
+}
+
+function autostart() {
+  if [ "$(cat /sys/class/power_supply/ACAD/online)" = "0" ]; then
+    echo "Not starting on battery"
+  else
+    find ~/.config/autostart/ \( -type f -o -type l \) ! -empty -exec exo-open {} \;
+  fi
+}
+
+function system-end() {
+  bluetoothctl disconnect
+  rm -rf ~/.cache/cliphist
+  systemctl "$@"
+}
+
+function power-menu() {
+  local commands="Power off\nReboot\nSuspend"
+  local row=$(printf "$commands" | sed 's/.*/&/' | fuzzel -d)
+
+  if [[ "$row" =~ "Power off" ]]; then
+      system-end poweroff
+  elif [[ "$row" =~ "Reboot" ]]; then
+      system-end reboot
+  elif [[ "$row" =~ "Suspend" ]]; then
+      system-end suspend
+  fi
+}
+
+function bt-connect() {
+  bluetoothctl power on
+  bluetoothctl devices Paired | awk '{print $2}' | sort | head -1 | xargs bluetoothctl connect
+}
+
+function bt-toggle() {
+  if bluetoothctl devices Connected | grep -q Device; then
+    bluetoothctl disconnect
+  else
+    bt-connect
+  fi
+}
+
+function kanshi-start() {
+  sleep 0.5
+  killall kanshi
+  sleep 0.5
+  kanshi > ~/.kanshi.log 2>&1
+}
+
+alias cmus-refresh='cmus-remote -c -l; cmus-remote -C "add /mnt/PODACI/muzika"; cmus-remote -C "update-cache -f"'
+function cmus-start() {
+  foot -a cmus -T cmus cmus &
+  sleep 0.5
+  cmus-refresh
+  sleep 2.5
+  cmus-remote -p
+}
+
+function swayswitch() {
+  sleep 0.05
+  local row=$(swaymsg -t get_tree | jq  -r '
+      ..
+      | objects
+      | select(.type == "workspace") as $ws
+      | ..
+      | objects
+      | select(has("app_id"))
+      | (if .focused == true then "*" else " " end) as $asterisk
+      | "[\($ws.num)] \($asterisk) \(.app_id) | \(.name) | <\(.id)>"' \
+  | fuzzel -d -w 60)
+
+  if [ ! -z "$row" ]
+  then
+      local winid=$(echo "$row" | sed 's/.*<\([0-9]*\)>.*/\1/')
+      swaymsg "[con_id=$winid] focus"
+  fi
+}
+
+function calendar() {
+  foot -a calendar -T calendar -H -o font=monospace:size=10.5 sh -c 'ncal -bM -B3 -A8'
+}
+function open-recent() {
+  recent | fuzzel -d -w 80 | sed -n 's/.*(\(.*\)).*/\1/p' | xargs xdg-open
+}
+function screenshot-window() {
+  swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | "\(.rect.x + .window_rect.x),\(if .deco_rect.width != 0 and .rect.width != .deco_rect.width then .rect.y else .rect.y + .window_rect.y end) \(.window_rect.width)x\(.window_rect.height)"' | slurp | xargs -I {} grim -g "{}"
+}
+function screenshot-output() {
+  grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+}
+function clipboard() {
+  cliphist list | fuzzel -d -w 80 | cliphist decode | wl-copy
+}
+
+"$@"
