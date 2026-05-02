@@ -137,7 +137,7 @@
         "cursor": false
     },
     "custom/brightness": {
-      "format": " {}",
+      "format": " {}",
       "return-type": "json",
       "interval": "once",
       "exec": "scripts brightness",
