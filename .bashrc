@@ -92,14 +92,6 @@ function upgrade() {
     sudo apt autoremove --purge
   fi
 }
-function brightness() {
-    local dev="/sys/class/backlight/amdgpu_bl0"
-    local current=$(cat "$dev/brightness")
-    local actual=$(cat "$dev/actual_brightness")
-    local max=$(cat "$dev/max_brightness")
-
-    echo "actual: $((100*actual/max))% (set: $((100*current/max))%)"
-}
 
 if [ -r $HOME/.z.sh ]; then
   . $HOME/.z.sh

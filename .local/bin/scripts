@@ -30,7 +30,6 @@ function system-end() {
   rm -rf ~/.cache/cliphist
   systemctl "$@"
 }
-
 function power-menu() {
   local commands="Power off\nReboot\nSuspend"
   local row=$(printf "$commands" | sed 's/.*/&/' | fuzzel -d)
@@ -48,12 +47,26 @@ function bt-connect() {
   bluetoothctl power on
   bluetoothctl devices Paired | awk '{print $2}' | sort | head -1 | xargs bluetoothctl connect
 }
-
 function bt-toggle() {
   if bluetoothctl devices Connected | grep -q Device; then
     bluetoothctl disconnect
   else
     bt-connect
+  fi
+}
+
+function brightness() {
+  local dev="/sys/class/backlight/amdgpu_bl0"
+  local current=$(cat "$dev/brightness")
+  local actual=$(cat "$dev/actual_brightness")
+  local max=$(cat "$dev/max_brightness")
+  local actual_p="$(( ((100*actual) + (max/2)) / $max))"
+  local current_p="$(( ((100*current) + (max/2)) / $max))"
+
+  if (( actual_p == 50 && current_p == 50 )); then
+    echo ""
+  else
+    echo "{\"text\": \"$actual_p%\", \"tooltip\": \"$actual_p% (set: $current_p%)\"}"
   fi
 }
 
