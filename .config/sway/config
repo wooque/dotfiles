@@ -284,7 +284,7 @@ exec swayidle -w \
   timeout 90 '[ "$(cat /sys/class/power_supply/ACAD/online)" = "0" ] && swaylock -f -c 000000' \
   timeout 120 '[ "$(cat /sys/class/power_supply/ACAD/online)" = "0" ] && swaymsg \"output * power off\"' resume 'swaymsg \"output * power on\"' \
   timeout 300  '[ "$(cat /sys/class/power_supply/ACAD/online)" = "1" ] && swaylock -f -c 000000' \
-  before-sleep 'swaylock -f -c 000000'"
+  before-sleep 'swaylock -f -c 000000'
 exec scripts autostart
 exec_always scripts kanshi-start
 exec dconf write /org/gtk/settings/file-chooser/window-size "(900,700)"
