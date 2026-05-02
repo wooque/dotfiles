@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-/usr/bin/foot -d warning "$@"
+/usr/bin/foot -d warning "$@" &
