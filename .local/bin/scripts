@@ -56,6 +56,8 @@ function bt-toggle() {
 }
 
 function brightness() {
+  pgrep -fA "bin/scripts brightness" | xargs -r kill
+
   local dev="/sys/class/backlight/amdgpu_bl0"
   local max=$(cat "$dev/max_brightness")
   local last_actual
@@ -81,7 +83,7 @@ function brightness() {
 
 function kanshi-start() {
   sleep 0.5
-  killall kanshi
+  killall -q kanshi
   sleep 0.5
   kanshi > ~/.kanshi.log 2>&1 &
 }

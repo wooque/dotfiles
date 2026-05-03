@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
-killall /usr/bin/fuzzel
+killall -q /usr/bin/fuzzel
 /usr/bin/fuzzel "$@"
