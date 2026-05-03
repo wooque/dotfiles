@@ -73,7 +73,7 @@ function brightness() {
       if (( actual_p == 50 && current_p == 50 )); then
         echo ""
       else
-        echo "{\"text\": \"$actual_p%\", \"tooltip\": \"$actual_p% (set: $current_p%)\"}"
+        echo "{\"text\": \"$actual_p%\", \"tooltip\": \"$current_p% (actual $actual_p%)\"}"
       fi
     fi
     last_actual=$actual

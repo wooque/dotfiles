@@ -282,7 +282,7 @@ exec wl-clip-persist --clipboard regular
 exec sway-ws-names
 exec swayidle -w \
   timeout 90 '[ "$(cat /sys/class/power_supply/ACAD/online)" = "0" ] && swaylock -f -c 000000' \
-  timeout 120 '[ "$(cat /sys/class/power_supply/ACAD/online)" = "0" ] && swaymsg \"output * power off\"' resume 'swaymsg \"output * power on\"' \
+  timeout 120 '[ "$(cat /sys/class/power_supply/ACAD/online)" = "0" ] && swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
   timeout 300  '[ "$(cat /sys/class/power_supply/ACAD/online)" = "1" ] && swaylock -f -c 000000' \
   before-sleep 'swaylock -f -c 000000'
 exec scripts autostart
