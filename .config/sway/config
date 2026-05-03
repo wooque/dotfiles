@@ -233,8 +233,8 @@ bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
 bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-bindsym XF86MonBrightnessUp exec sh -c "brightnessctl s 5%+; pkill -SIGRTMIN+9 waybar"
-bindsym XF86MonBrightnessDown exec sh -c "brightnessctl s 5%-; pkill -SIGRTMIN+9 waybar"
+bindsym XF86MonBrightnessUp exec brightnessctl s 5%
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%
 
 bindsym --locked $mod+Page_Up exec playerctl play-pause
 bindsym $mod+Page_Down exec playerctl -a stop

@@ -139,10 +139,8 @@
     "custom/brightness": {
       "format": " {}",
       "return-type": "json",
-      "interval": "once",
       "exec": "scripts brightness",
-      "signal": 9,
-      "on-click": "brightnessctl s 50%",
+      "on-click-middle": "brightnessctl s 50%",
       "on-scroll-up": "brightnessctl s 1%+",
       "on-scroll-down": "brightnessctl s 1%-",
       "smooth-scrolling-threshold": 1,
