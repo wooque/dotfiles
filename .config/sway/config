@@ -276,7 +276,6 @@ for_window [title="Picture in picture|Picture-in-Picture"] floating enable, stic
 
 assign [app_id="cmus|com.transmissionbt.transmission"] workspace number 10
 
-exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway
 exec mako
 exec wl-paste --watch cliphist store
 exec wl-clip-persist --clipboard regular
