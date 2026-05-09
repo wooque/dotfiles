@@ -2,7 +2,7 @@
     "height": 20,
     "spacing": 0,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-right": ["custom/media", "tray", "pulseaudio", "network", "battery", "custom/brightness", "clock"],
+    "modules-right": ["custom/media", "tray", "pulseaudio", "network", "battery", "clock"],
     "sway/workspaces": {
         "enable-bar-scroll": true,
         "smooth-scrolling-threshold": 10,
@@ -140,7 +140,7 @@
       "format": " {}",
       "return-type": "json",
       "exec": "scripts brightness",
-      "on-click-middle": "brightnessctl s 50%",
+      "on-click-middle": "brightnessctl s 30%",
       "on-scroll-up": "brightnessctl s 1%+",
       "on-scroll-down": "brightnessctl s 1%-",
       "smooth-scrolling-threshold": 1,

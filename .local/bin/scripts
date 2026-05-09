@@ -60,6 +60,7 @@ function brightness() {
 
   local dev="/sys/class/backlight/amdgpu_bl0"
   local max=$(cat "$dev/max_brightness")
+  local default=30
   local last_actual
 
   while true; do
@@ -70,7 +71,7 @@ function brightness() {
       local actual_p="$(( ((100*actual) + (max/2)) / $max))"
       local current_p="$(( ((100*current) + (max/2)) / $max))"
 
-      if (( actual_p == 50 && current_p == 50 )); then
+      if (( actual_p == default && current_p == default )); then
         echo ""
       else
         echo "{\"text\": \"$actual_p%\", \"tooltip\": \"$current_p% (actual $actual_p%)\"}"
