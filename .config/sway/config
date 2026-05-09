@@ -61,7 +61,7 @@ output * bg ~/.local/share/backgrounds/wallpaper.jpg fill
   input type:keyboard {
       xkb_layout "us,rs"
       xkb_variant "altgr-intl,yz"
-      xkb_options "compose:caps,grp:alt_space_toggle"
+      xkb_options "compose:caps"
       repeat_delay 500
       repeat_rate 35
   }
@@ -233,8 +233,9 @@ bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
 bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-bindsym XF86MonBrightnessUp exec brightnessctl s 5%+
-bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl s 5%+ && scripts notify-brightness
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%- && scripts notify-brightness
+bindsym --to-code Mod1+Space exec swaymsg input type:keyboard xkb_switch_layout next && scripts notify-keyboard
 
 bindsym --locked $mod+Page_Up exec playerctl play-pause
 bindsym $mod+Page_Down exec playerctl -a stop
@@ -247,7 +248,7 @@ bindsym $mod+Shift+w exec --no-startup-id brave-browser --incognito
 bindsym $mod+c exec --no-startup-id mate-calc
 bindsym $mod+Tab exec --no-startup-id scripts swayswitch
 bindsym $mod+Shift+d exec --no-startup-id scripts open-recent
-bindsym --release Print exec --no-startup-id grim -g "$(slurp)"
+bindsym --release Print exec --no-startup-id scripts screenshot-region
 bindsym --release $mod+Shift+Print exec --no-startup-id scripts screenshot-window
 bindsym --release $mod+Print exec --no-startup-id scripts screenshot-output
 bindsym $mod+z exec --no-startup-id scripts clipboard

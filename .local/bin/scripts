@@ -55,6 +55,24 @@ function bt-toggle() {
   fi
 }
 
+function notify-keyboard() {
+  makoctl dismiss -g
+
+  local lang="$(swaymsg -t get_inputs | jq -r 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')"
+  notify-send " $lang"
+}
+function notify-brightness() {
+  makoctl dismiss -g
+
+  local dev="/sys/class/backlight/amdgpu_bl0"
+  local max=$(cat "$dev/max_brightness")
+  local actual=$(cat "$dev/actual_brightness")
+  local current=$(cat "$dev/brightness")
+  local actual_p="$(( ((100*actual) + (max/2)) / $max))"
+  local current_p="$(( ((100*current) + (max/2)) / $max))"
+
+  notify-send " $current_p% (actual $actual_p%)"
+}
 function brightness() {
   pgrep -fA "bin/scripts brightness" | xargs -r kill
 
@@ -124,11 +142,14 @@ function calendar() {
 function open-recent() {
   recent | fuzzel -d -w 80 | sed -n 's/.*(\(.*\)).*/\1/p' | xargs xdg-open
 }
+function screenshot-region() {
+   grim -g "$(slurp)" && notify-send " screenshot taken"
+}
 function screenshot-window() {
-  swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | "\(.rect.x + .window_rect.x),\(if .deco_rect.width != 0 and .rect.width != .deco_rect.width then .rect.y else .rect.y + .window_rect.y end) \(.window_rect.width)x\(.window_rect.height)"' | slurp | xargs -I {} grim -g "{}"
+  swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | "\(.rect.x + .window_rect.x),\(if .deco_rect.width != 0 and .rect.width != .deco_rect.width then .rect.y else .rect.y + .window_rect.y end) \(.window_rect.width)x\(.window_rect.height)"' | slurp | xargs -I {} sh -c 'grim -g "{}" && notify-send " screenshot taken"'
 }
 function screenshot-output() {
-  grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+  grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') && notify-send " screenshot taken"
 }
 function clipboard() {
   cliphist list | fuzzel -d -w 80 | cliphist decode | wl-copy
