@@ -31,14 +31,17 @@ function system-end() {
   systemctl "$@"
 }
 function power-menu() {
-  local commands="Power off\nReboot\nSuspend"
+  local poweroff=" Power off"
+  local reboot=" Reboot"
+  local suspend=" Suspend"
+  local commands="$poweroff\n$reboot\n$suspend"
   local row=$(printf "$commands" | sed 's/.*/&/' | fuzzel -d)
 
-  if [[ "$row" =~ "Power off" ]]; then
+  if [[ "$row" =~ "$poweroff" ]]; then
       system-end poweroff
-  elif [[ "$row" =~ "Reboot" ]]; then
+  elif [[ "$row" =~ "$reboot" ]]; then
       system-end reboot
-  elif [[ "$row" =~ "Suspend" ]]; then
+  elif [[ "$row" =~ "$suspend" ]]; then
       system-end suspend
   fi
 }
