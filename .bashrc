@@ -20,18 +20,6 @@ GIT_PS1_SHOWDIRTYSTATE=true
 PROMPT_DIRTRIM=2
 PS1='\[\033[01;34m\]\w $(__git_ps1 "\[\033[01;35m\](%s) ")\[\033[00m\]'
 
-show_command_in_title_bar() {
-  case "$BASH_COMMAND" in
-    history\ *|_z\ *|cd\ *|ls\ *)
-      echo -ne "\033]0;${PWD/"$HOME"/\~}\007" 1>&2
-      ;;
-    *)
-      echo -ne "\033]0;${BASH_COMMAND}\007" 1>&2
-      ;;
-  esac
-}
-trap show_command_in_title_bar DEBUG
-
 alias ll="ls -lh --group-directories-first --color=auto"
 alias la="ls -lAh --group-directories-first --color=auto"
 alias grep="grep -iI --color=auto"
@@ -97,3 +85,15 @@ if [ -r $HOME/.z.sh ]; then
   . $HOME/.z.sh
 fi
 . <(asdf completion bash)
+
+show_command_in_title_bar() {
+  case "$BASH_COMMAND" in
+    history\ *|_z\ *|cd\ *|ls\ *)
+      echo -ne "\033]0;${PWD/"$HOME"/\~}\007" 1>&2
+      ;;
+    *)
+      echo -ne "\033]0;${BASH_COMMAND}\007" 1>&2
+      ;;
+  esac
+}
+trap show_command_in_title_bar DEBUG
