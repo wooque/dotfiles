@@ -1,2 +1,2 @@
 #!/bin/bash
-/usr/bin/brave-browser-stable --enable-features=OverlayScrollbar,AcceleratedVideoDecodeLinuxGL,VaapiVideoDecoder,VaapiIgnoreDriverChecks,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE --enable-zero-copy --disable-smooth-scrolling --ozone-platform=wayland --password-store=gnome-libsecret "$@" &
+/usr/bin/brave-browser-stable --enable-features=OverlayScrollbar,BraveCompactHorizontalTabs --enable-zero-copy --disable-smooth-scrolling --password-store=gnome-libsecret "$@" &
