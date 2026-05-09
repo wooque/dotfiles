@@ -25,14 +25,15 @@
         "spacing": 16
     },
     "clock": {
-        "format": "{:%a %d %b %H:%M}",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a %d %b}",
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
           "format": {
             "today": "<b>{}</b>"
           }
         },
-        "on-click": "scripts calendar",
+        "on-click-right": "scripts calendar",
         "on-click-middle": "scripts power-menu",
         "cursor": false
     },
@@ -81,7 +82,7 @@
         },
         "format": "{icon} {capacity}%",
         "format-time": "{H}:{m}h",
-        "format-discharging": "{icon} {capacity}% {power:.1f}W",
+        "format-discharging": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": "",
         "format-full": "",
