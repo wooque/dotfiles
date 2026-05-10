@@ -37,45 +37,6 @@
         "on-click-middle": "scripts power-menu",
         "cursor": false
     },
-    "sway/language": {
-        "format": "{short}",
-        "tooltip-format": "{long}",
-        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
-        "cursor": false
-    },
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-        "activated": "",
-        "deactivated": ""
-      },
-      "cursor": false
-    },
-    "temperature": {
-      "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
-      "interval": 3,
-      "critical-threshold": 80,
-      "format": "{temperatureC}°C",
-      "on-click": "foot -a sensors -T sensors -H sh -c 'watch -n1 sensors'",
-      "cursor": false
-    },
-    "cpu": {
-     "interval": 3,
-     "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
-     "format-icons": [
-          "<span color='#69ff94'>▁</span>",
-          "<span color='#69ff94'>▂</span>",
-          "<span color='#69ff94'>▃</span>",
-          "<span color='#69ff94'>▄</span>",
-          "<span color='#ffffa5'>▅</span>",
-          "<span color='#ffffa5'>▆</span>",
-          "<span color='#ff9977'>▇</span>",
-          "<span color='#dd532e'>█</span>"
-      ],
-      "on-click": "foot -a htop -T htop htop",
-      "on-click-middle": "scripts power-menu",
-      "cursor": false
-    },
     "battery": {
         "states": {
             "critical": 10
@@ -136,15 +97,5 @@
         "on-click-right": "cmus-remote -C player-next-album || playerctl next",
         "on-click-middle": "playerctl -a stop",
         "cursor": false
-    },
-    "custom/brightness": {
-      "format": " {}",
-      "return-type": "json",
-      "exec": "scripts brightness",
-      "on-click-middle": "brightnessctl s 30%",
-      "on-scroll-up": "brightnessctl s 1%+",
-      "on-scroll-down": "brightnessctl s 1%-",
-      "smooth-scrolling-threshold": 1,
-      "cursor": false
     }
 }

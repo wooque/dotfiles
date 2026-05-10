@@ -46,15 +46,11 @@ function power-menu() {
   fi
 }
 
-function bt-connect() {
-  bluetoothctl power on
-  bluetoothctl devices Paired | awk '{print $2}' | sort | head -1 | xargs bluetoothctl connect
-}
 function bt-toggle() {
   if bluetoothctl devices Connected | grep -q Device; then
     bluetoothctl disconnect
   else
-    bt-connect
+    blueman-manager
   fi
 }
 
@@ -75,32 +71,6 @@ function notify-brightness() {
   local current_p="$(( ((100*current) + (max/2)) / $max))"
 
   notify-send " $current_p% (actual $actual_p%)"
-}
-function brightness() {
-  pgrep -fA "bin/scripts brightness" | xargs -r kill
-
-  local dev="/sys/class/backlight/amdgpu_bl0"
-  local max=$(cat "$dev/max_brightness")
-  local default=30
-  local last_actual
-
-  while true; do
-    local actual=$(cat "$dev/actual_brightness")
-
-    if (( last_actual != actual )); then
-      local current=$(cat "$dev/brightness")
-      local actual_p="$(( ((100*actual) + (max/2)) / $max))"
-      local current_p="$(( ((100*current) + (max/2)) / $max))"
-
-      if (( actual_p == default && current_p == default )); then
-        echo ""
-      else
-        echo "{\"text\": \"$actual_p%\", \"tooltip\": \"$current_p% (actual $actual_p%)\"}"
-      fi
-    fi
-    last_actual=$actual
-    sleep 1
-  done
 }
 
 function kanshi-start() {
