@@ -27,7 +27,7 @@ font pango:monospace 8
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.local/share/backgrounds/wallpaper.jpg fill
+output * bg #222222 solid_color
 #
 # Example configuration:
 #
