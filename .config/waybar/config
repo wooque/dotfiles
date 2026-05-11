@@ -25,15 +25,14 @@
         "spacing": 16
     },
     "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%a %d %b}",
+        "format": "{:%a %d %b %H:%M}",
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
           "format": {
             "today": "<b>{}</b>"
           }
         },
-        "on-click-right": "scripts calendar",
+        "on-click": "scripts calendar",
         "on-click-middle": "scripts power-menu",
         "cursor": false
     },
