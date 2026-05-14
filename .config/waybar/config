@@ -52,15 +52,16 @@
         "cursor": false
     },
     "network": {
-        "tooltip-format": "{essid} {signalStrength}%",
+        "format-wifi": "",
+        "tooltip-format-wifi": "{essid} {signalStrength}%",
+        "format-ethernet": "",
         "tooltip-format-ethernet": "{ifname}",
-        "format": "{icon}",
-        "format-icons": {
-          "wifi": "",
-          "ethernet": "",
-          "linked": " (No IP)",
-          "disconnected": ""
-        },
+        "format-linked": "",
+        "tooltip-format-linked": "no ip address",
+        "format-disconnected": "",
+        "tooltip-format-disconnected": "disconnected",
+        "format-disabled": "",
+        "tooltip-format-disabled": "disabled",
         "on-click": "nm-applet --indicator",
         "on-click-right": "nm-connection-editor",
         "on-click-middle": "pkill nm-applet",

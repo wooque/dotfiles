@@ -59,11 +59,13 @@ button:hover {
 }
 
 #network.disconnected,
+#network.disabled,
 #battery.critical:not(.charging),
 #temperature.critical {
     color: #ff6666;
 }
 
+#network.linked,
 #pulseaudio.muted {
     color: #d9a401;
 }
