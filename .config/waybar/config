@@ -62,8 +62,8 @@
         "tooltip-format-disconnected": "disconnected",
         "format-disabled": "",
         "tooltip-format-disabled": "disabled",
-        "on-click": "nm-applet --indicator",
-        "on-click-right": "scripts show-data-usage",
+        "on-click": "scripts show-data-usage",
+        "on-click-right": "nm-applet --indicator",
         "on-click-middle": "pkill nm-applet",
         "cursor": false
     },
