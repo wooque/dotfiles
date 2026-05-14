@@ -122,7 +122,7 @@ function swayswitch() {
 }
 
 function show-data-usage() {
-  foot -a data-usage -T "data usage" -H -o "cursor.color=000000 ffffff" -o font=monospace:size=16 scripts data-usage
+  foot -a data-usage -T "data usage" -H -o "cursor.color=000000 ffffff" -o font=monospace:size=16 watch -t scripts data-usage
 }
 function calendar() {
   foot -a calendar -T calendar -H -o "cursor.color=000000 ffffff" -o font=monospace:size=10.5 sh -c 'ncal -bM -B3 -A8'
