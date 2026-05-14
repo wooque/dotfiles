@@ -41,14 +41,10 @@ button:hover {
 #tray,
 #mode,
 #scratchpad,
-#custom-media,
-#custom-data-usage {
+#custom-media {
     padding: 0 8px;
     font-family: monospace;
     font-size: 12px;
-}
-#custom-data-usage {
-    padding: 0 8px 0 0;
 }
 
 #tray {

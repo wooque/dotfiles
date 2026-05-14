@@ -81,8 +81,8 @@ function data-usage() {
   [ "$state" = "unknown" ] && state="up"
   [ "$state" != "up" ] && return
 
-  local tooltip=$(ip -s -h link show "$interface" | awk '/RX:/ {getline; r=$1} /TX:/ {getline; t=$1} END {print "↓ " r " ↑ " t}')
-  printf '{"tooltip": "%s"}\n' "$tooltip"
+  text=$(ip -s -h link show "$interface" | awk '/RX:/ {getline; r=$1} /TX:/ {getline; t=$1} END {print "↓ " r " ↑ " t}')
+  echo -n "$text"
 }
 
 function kanshi-start() {
@@ -121,8 +121,11 @@ function swayswitch() {
   fi
 }
 
+function show-data-usage() {
+  foot -a data-usage -T "data usage" -H -o "cursor.color=000000 ffffff" -o font=monospace:size=16 scripts data-usage
+}
 function calendar() {
-  foot -a calendar -T calendar -H -o font=monospace:size=10.5 sh -c 'ncal -bM -B3 -A8'
+  foot -a calendar -T calendar -H -o "cursor.color=000000 ffffff" -o font=monospace:size=10.5 sh -c 'ncal -bM -B3 -A8'
 }
 function open-recent() {
   recent | fuzzel -d -w 80 | sed -n 's/.*(\(.*\)).*/\1/p' | xargs xdg-open
