@@ -74,12 +74,14 @@ alias gdhp="${BASH_ALIASES[gdh]} -- HEAD~1"
 alias serve="python3 -m http.server"
 
 function upgrade() {
-  exec 5>&1
-  local res=$(sudo apt update | tee /dev/fd/5)
-  if [[ "$res" == *"can be upgraded"* ]]; then
+  sudo apt update
+  if [ -n "$(apt list --upgradable 2>/dev/null | grep -v 'Listing...')" ]; then
     sudo apt full-upgrade --no-install-recommends --purge
     sudo apt autoremove --purge
   fi
+}
+function sec-upgrade() {
+    sudo apt -s full-upgrade --no-install-recommends --purge 2>/dev/null | grep "^Inst" | grep -i security | awk '{print $2}' | xargs sudo apt install
 }
 
 if [ -r $HOME/.z.sh ]; then
