@@ -35,22 +35,20 @@ button:hover {
 
 #workspaces button,
 #clock,
-#language,
-#idle_inhibitor,
-#cpu,
-#temperature,
 #battery,
-#backlight,
 #network,
 #pulseaudio,
 #tray,
 #mode,
 #scratchpad,
 #custom-media,
-#custom-brightness {
+#custom-data-usage {
     padding: 0 8px;
     font-family: monospace;
     font-size: 12px;
+}
+#custom-data-usage {
+    padding: 0 8px 0 0;
 }
 
 #tray {
@@ -60,8 +58,7 @@ button:hover {
 
 #network.disconnected,
 #network.disabled,
-#battery.critical:not(.charging),
-#temperature.critical {
+#battery.critical:not(.charging) {
     color: #ff6666;
 }
 

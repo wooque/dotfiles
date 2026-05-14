@@ -73,6 +73,18 @@ function notify-brightness() {
   notify-send " $current_p% (actual $actual_p%)"
 }
 
+function data-usage() {
+  local interface=$(ip route | awk '/default/ {print $5; exit}')
+  [ -z "$interface" ] && return
+
+  local state=$(< "/sys/class/net/$interface/operstate")
+  [ "$state" = "unknown" ] && state="up"
+  [ "$state" != "up" ] && return
+
+  local tooltip=$(ip -s -h link show "$interface" | awk '/RX:/ {getline; r=$1} /TX:/ {getline; t=$1} END {print "↓ " r " ↑ " t}')
+  printf '{"tooltip": "%s"}\n' "$tooltip"
+}
+
 function kanshi-start() {
   sleep 0.5
   killall -q kanshi

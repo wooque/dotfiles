@@ -2,7 +2,7 @@
     "height": 20,
     "spacing": 0,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-right": ["custom/media", "tray", "pulseaudio", "network", "battery", "clock"],
+    "modules-right": ["custom/media", "tray", "pulseaudio", "network", "custom/data-usage", "battery", "clock"],
     "sway/workspaces": {
         "enable-bar-scroll": true,
         "smooth-scrolling-threshold": 10,
@@ -66,6 +66,12 @@
         "on-click-right": "nm-connection-editor",
         "on-click-middle": "pkill nm-applet",
         "cursor": false
+    },
+    "custom/data-usage": {
+      "format": "",
+      "return-type": "json",
+      "exec": "scripts data-usage",
+      "interval": 5
     },
     "pulseaudio": {
         "format": "{icon} {volume}%  {format_source}",
