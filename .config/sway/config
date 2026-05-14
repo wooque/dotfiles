@@ -268,7 +268,7 @@ for_window [app_id="mate-calc|thunar|Thunar|brave-nngceckbapebfimnlniiiahkandclb
 for_window [app_id="float_term"] floating enable, border normal 2
 for_window [app_id="viber" title="Rakuten Viber"] floating enable, resize set 960 800, move position 100 ppt 0 ppt, move left 960
 for_window [app_id="org.nicotine_plus.Nicotine"] floating enable, resize set 960 800, move position 100 ppt 0 ppt, move left 960
-for_window [app_id="pavucontrol"] floating enable, resize set 600 480, move position 100 ppt 0 ppt, move left 600
+for_window [app_id="pavucontrol|blueman-manager"] floating enable, resize set 600 480, move position 100 ppt 0 ppt, move left 600
 for_window [app_id="calendar"] floating enable, border normal 2, resize set 534 640, move position 100 ppt 0 ppt, move left 534
 for_window [app_id="data-usage"] floating enable, border normal 2, resize set 214 80, move position 100 ppt 0 ppt, move left 214
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
