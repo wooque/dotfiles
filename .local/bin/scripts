@@ -92,7 +92,11 @@ function kanshi-start() {
   kanshi > ~/.kanshi.log 2>&1 &
 }
 
-alias cmus-refresh='cmus-remote -c -l; cmus-remote -C "add /mnt/PODACI/muzika"; cmus-remote -C "update-cache -f"'
+function cmus-refresh() {
+  cmus-remote -c -l
+  cmus-remote -C "add /mnt/PODACI/muzika"
+  cmus-remote -C "update-cache -f"
+}
 function cmus-start() {
   foot -a cmus -T cmus cmus &
   sleep 0.5
