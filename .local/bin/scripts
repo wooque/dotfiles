@@ -74,15 +74,32 @@ function notify-brightness() {
 }
 
 function data-usage() {
-  local interface=$(ip route | awk '/default/ {print $5; exit}')
-  [ -z "$interface" ] && return
+  local default_ifname=$(ip route | awk '/default/ {print $5; exit}')
 
-  local state=$(< "/sys/class/net/$interface/operstate")
-  [ "$state" = "unknown" ] && state="up"
-  [ "$state" != "up" ] && return
+  ip -s -h link show | awk -v default_ifname="$default_ifname" '
+  /^[0-9]+:/ {
+      if ($2 != "lo:") {
+          ifname = $2
+          sub(/:$/, "", ifname)
 
-  text=$(ip -s -h link show "$interface" | awk '/RX:/ {getline; r=$1} /TX:/ {getline; t=$1} END {print "↓ " r " ↑ " t}')
-  echo -n "$text"
+          is_default = (ifname == default_ifname)
+          get_stats = 1
+      } else {
+          get_stats = 0
+      }
+  }
+  get_stats && /RX:/ {
+      getline; rx = $1
+  }
+  get_stats && /TX:/ {
+      getline; tx = $1
+
+      if (is_default) {
+          printf "\033[1m↓ %s ↑ %s %s\033[0m\n", rx, tx, ifname
+      } else {
+          printf "↓ %s ↑ %s %s\n", rx, tx, ifname
+      }
+  }'
 }
 
 function kanshi-start() {
