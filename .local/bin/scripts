@@ -45,6 +45,10 @@ function power-menu() {
       system-end suspend
   fi
 }
+function lock() {
+  swaymsg input type:keyboard xkb_switch_layout 0
+  swaylock -f -c 000000
+}
 
 function bt-toggle() {
   if bluetoothctl devices Connected | grep -q Device; then
