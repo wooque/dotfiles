@@ -274,7 +274,7 @@ for_window [app_id="data-usage"] floating enable, border normal 2, resize set 42
 for_window [title="About Mozilla Firefox|Torrent Options"] floating enable, border normal 2
 for_window [title="Open File|Open Folder|Save File|Save As|Save Image|File Upload|Create a new archive|wants to save|wants to open"] floating enable, border csd
 for_window [app_id="beekeeper-studio-bin" title="blob:app://"] floating enable
-for_window [title="Picture in picture|Picture-in-Picture"] floating enable, sticky toggle, border none
+for_window [title="Picture in picture|Picture-in-picture"] floating enable, sticky toggle, border none
 
 assign [app_id="cmus|com.transmissionbt.transmission"] workspace number 10
 
