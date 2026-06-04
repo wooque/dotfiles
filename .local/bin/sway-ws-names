@@ -8,7 +8,7 @@ APP_ICON_CONFIG = {
     "thunderbird": "",
     "name=.*Mozilla Firefox Private Browsing": "",
     "google-chrome": "",
-    "brave-browser": "",
+    "brave-origin": "",
     "foot": "",
     "float_term": "",
     "code": "",

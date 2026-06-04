@@ -243,8 +243,8 @@ bindsym --locked $mod+End exec cmus-remote -C player-next-album || playerctl nex
 bindsym $mod+Home exec cmus-remote -C player-prev-album || playerctl previous
 
 bindsym $mod+e exec --no-startup-id thunar
-bindsym $mod+w exec --no-startup-id brave-browser
-bindsym $mod+Shift+w exec --no-startup-id brave-browser --incognito
+bindsym $mod+w exec --no-startup-id brave-origin
+bindsym $mod+Shift+w exec --no-startup-id brave-origin --incognito
 bindsym $mod+c exec --no-startup-id mate-calc
 bindsym $mod+Tab exec --no-startup-id scripts swayswitch
 bindsym $mod+Shift+d exec --no-startup-id scripts open-recent
@@ -263,7 +263,7 @@ hide_edge_borders --i3 smart
 # class        border  backgr. text    indicator child_border
 client.focused #3465a4 #3465a4 #ffffff #2e9ef4 #3465a4
 
-for_window [tiling app_id="foot|firefox|google-chrome|brave-browser|code|beekeeper-studio|nicotine|thunderbird|org.gnome.Meld|gitg"] border pixel 2
+for_window [tiling app_id="foot|firefox|google-chrome|brave-origin|code|beekeeper-studio|nicotine|thunderbird|org.gnome.Meld|gitg"] border pixel 2
 for_window [app_id="mate-calc|thunar|Thunar|brave-nngceckbapebfimnlniiiahkandclblb"] floating enable
 for_window [app_id="float_term"] floating enable, border normal 2
 for_window [app_id="viber" title="Rakuten Viber"] floating enable, resize set 960 800, move position 100 ppt 0 ppt, move left 960

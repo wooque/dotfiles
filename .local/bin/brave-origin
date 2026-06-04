@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/brave-origin-stable --enable-features=OverlayScrollbar,BraveCompactHorizontalTabs --enable-zero-copy --disable-smooth-scrolling --password-store=gnome-libsecret "$@" &
