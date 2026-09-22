@@ -19,6 +19,7 @@ image/gif=org.xfce.ristretto.desktop;
 image/webp=org.xfce.ristretto.desktop;
 image/tiff=org.xfce.ristretto.desktop;
 image/svg+xml=org.xfce.ristretto.desktop;
+image/avif=org.xfce.ristretto.desktop
 video/mp4=mpv.desktop;
 video/x-matroska=mpv.desktop;
 video/webm=mpv.desktop;
