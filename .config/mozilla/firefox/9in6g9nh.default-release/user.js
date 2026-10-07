@@ -23,7 +23,7 @@ user_pref("findbar.highlightAll", true);
 user_pref("font.name.serif.x-western", "sans-serif");
 user_pref("general.smoothScroll", false);
 user_pref("intl.regional_prefs.use_os_locales", true);
-user_pref("media.autoplay.blocking_policy", 2);
+user_pref("media.autoplay.blocking_policy", 1);
 user_pref("media.eme.enabled", true);
 user_pref("media.webspeech.synth.dont_notify_on_error", true);
 user_pref("network.cookie.cookieBehavior", 1);
